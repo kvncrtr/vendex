@@ -27,7 +27,7 @@ const Login = () => {
                   <Input 
                      name={"employeeId"} 
                      label={"Employee Id"}
-                     title={"The numeric value that was assigned upon hired date"}
+                     title={"The numeric value that was assigned for identification"}
                      onChange={handleOnChange}
                   />
                   <Input 
