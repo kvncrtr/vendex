@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Error from './pages/Error';
+import Error from './components/pages/Error';
 
 const router = createBrowserRouter([
   {
