@@ -1,0 +1,43 @@
+@import "base/base";
+
+$primary-500: #033E8C; // blue
+$primary-600: #F2A74B; // orange
+
+$secondary-500: #0459C9; // light blue
+$secondary-600: #F2CF4A; // light orange
+
+$achromatic-200: #F2F2F2; // white
+$achromatic-700: #6E7289; // dark gray
+$achromatic-800: #333333; // gray black
+$achromatic-900: #0E0E0E; // black
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	background-color: $achromatic-200;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+
+#root, #__next {
+	isolation: isolate;
+}

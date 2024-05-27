@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass --watch src/styles/global.scss src/style.css"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^9.0.0"
+    "css-loader": "^7.1.2",
+    "node-sass": "^9.0.0",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.91.0"
   },
   "dependencies": {
     "react-router-dom": "^6.23.1",
