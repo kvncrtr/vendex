@@ -1,15 +1,12 @@
-@import "base/base";
+@import "./abstract/functions";
+@import "./abstract/mixins";
+@import "./abstract/variables";
 
-$primary-500: #033E8C; // blue
-$primary-600: #F2A74B; // orange
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utils";
 
-$secondary-500: #0459C9; // light blue
-$secondary-600: #F2CF4A; // light orange
-
-$achromatic-200: #F2F2F2; // white
-$achromatic-700: #6E7289; // dark gray
-$achromatic-800: #333333; // gray black
-$achromatic-900: #0E0E0E; // black
+@import "./components/pages/login.scss/";
 
 *, *::before, *::after {
    box-sizing: border-box;
