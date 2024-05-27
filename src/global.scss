@@ -5,10 +5,38 @@ $secondary-500: #0459C9; // light blue
 $secondary-600: #F2CF4A; // light orange
 
 $achromatic-200: #F2F2F2; // white
-$achromatic-800: #6E7289; // dark gray
+$achromatic-700: #6E7289; // dark gray
+$achromatic-900: #333333; // black
 
 *, *::before, *::after {
    box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	background-color: $achromatic-700;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+
+#root, #__next {
+	isolation: isolate;
 }
 
 /*
