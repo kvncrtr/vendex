@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
@@ -14,16 +14,20 @@ const Form = ({ onRequest }) => {
          return;
       };
       
+      setIsSubmitting(true);
    };
 
-   const handleRequest = (event, formData, submitStatus) => {
-      console.log(submitStatus);
-   };
-   
    const handleOnChange = (name, value) => {
       setFormData({ ...formData, [name]: value });
    };
 
+   useEffect(() => {
+      if (isSubmitting) {
+         onRequest(formData, isSubmitting);
+      }
+      return;
+   }, [formData, isSubmitting]);
+   
    return (
        <form onSubmit={handleSubmit}> 
           <Input 
