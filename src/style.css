@@ -28,10 +28,20 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate; }
 
 .form--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 80vw;
-  height: 30vh;
+  height: 50vh;
   background-color: red; }
 
+.form--logo {
+  width: 76.92vw;
+  max-width: 250px;
+  margin: 0 auto 1rem; }
+
 .login--container {
+  position: relative;
   width: 100vw;
   height: 100vh; }

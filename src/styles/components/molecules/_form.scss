@@ -1,5 +1,15 @@
 .form--container {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
    width: 80vw;
-   height: 30vh;
+   height: 50vh;
    background-color: red;
+}
+
+.form--logo {
+   width: 76.92vw;
+   max-width: 250px;
+   margin: 0 auto 1rem
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
+import Logo from "../../assets/mim-logo.png";
 
 
 const Form = ({ onRequest }) => {
@@ -29,7 +30,9 @@ const Form = ({ onRequest }) => {
    }, [formData, isSubmitting]);
    
    return (
-       <form  className='form--container' onSubmit={handleSubmit}> 
+       <form className='form--container' onSubmit={handleSubmit}> 
+         <img className="form--logo" src={Logo} />
+
           <Input 
              name={"employeeId"} 
              label={"Employee Id"}
