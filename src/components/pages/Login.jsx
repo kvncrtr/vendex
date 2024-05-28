@@ -8,10 +8,6 @@ const Login = () => {
       console.log(formData, isSubmitting)
    };
 
-   // useEffect(() => {
-   //    console.log(formStatus)
-   // }, [formStatus]);
-
    return (
       <div className="login--container">
             <Form 

@@ -6,35 +6,9 @@
 @import "./base/typography";
 @import "./base/utils";
 
-@import "./components/pages/login.scss/";
+@import "./components/atoms/button";
+@import "./components/atoms/input";
 
-*, *::before, *::after {
-   box-sizing: border-box;
-}
+@import "./components/molecules/form";
 
-* {
-	margin: 0;
-	background-color: $achromatic-200;
-}
-
-body {
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-}
-
-img, picture, video, canvas, svg {
-	display: block;
-	max-width: 100%;
-}
-
-input, button, textarea, select {
-	font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-	overflow-wrap: break-word;
-}
-
-#root, #__next {
-	isolation: isolate;
-}
+@import "./components/pages/login";
