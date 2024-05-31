@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Input = ({ type = 'text', label, name, title, value, onChange, error }) => {
+const Input = ({ type = 'text', label, name, title, value, onChange, className, labelClass, error }) => {
    const [inputValue, setInputValue] = useState(value || "");
 
    const handleChange = (event) => {
@@ -11,10 +11,11 @@ const Input = ({ type = 'text', label, name, title, value, onChange, error }) =>
    };
 
    return (
-      <div>
-         <label>{label}</label>
+      <div clqssName="input--container">
+         <label className={labelClass}>{label}</label>
          <input 
             type={type}
+            className={className}
             name={name}
             title={title}
             value={inputValue}

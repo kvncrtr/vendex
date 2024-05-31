@@ -27,6 +27,22 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate; }
 
+.button--container {
+  display: flex;
+  justify-content: right; }
+
+.button--login {
+  margin-right: 1rem; }
+
+.input--label-employee-id {
+  margin-top: 1rem; }
+
+.input--employee-id {
+  margin-top: .4rem; }
+
+.input--password {
+  margin-top: .4rem; }
+
 .form--container {
   position: absolute;
   top: 50%;
@@ -39,7 +55,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .form--logo {
   width: 76.92vw;
   max-width: 250px;
-  margin: 0 auto 1rem; }
+  margin: 0 auto; }
 
 .login--container {
   position: relative;
