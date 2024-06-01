@@ -1,8 +1,9 @@
 .button--container {
    display: flex;
-   justify-content: right;
+   flex-direction: row;
+   margin-top: 2.25rem;
 }
 
 .button--login {
-   margin-right: 1rem;
+   width: 100%;
 }

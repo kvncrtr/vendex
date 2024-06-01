@@ -1,15 +1,9 @@
-.input--label-employee-id {
-   margin-top: 1rem;
+.input--container {
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
 }
-
-.input--employee-id {
-   margin-top: .4rem;
-}
-
-.input--password {
-   margin-top: .4rem;
-}
-
+ 
 .input--label-password {
-
+   margin-top: 1rem;
 }

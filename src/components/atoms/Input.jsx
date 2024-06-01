@@ -11,7 +11,7 @@ const Input = ({ type = 'text', label, name, title, value, onChange, className, 
    };
 
    return (
-      <div clqssName="input--container">
+      <div className="input--container">
          <label className={labelClass}>{label}</label>
          <input 
             type={type}

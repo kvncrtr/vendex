@@ -33,6 +33,8 @@ const Form = ({ onRequest }) => {
        <form className='form--container' onSubmit={handleSubmit}> 
          <img className="form--logo" src={Logo} />
 
+         <h1 className="form--heading">Login</h1>
+
          <Input 
             className={"input--employee-id"}
             name={"employeeId"} 

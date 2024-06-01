@@ -5,12 +5,18 @@
    transform: translate(-50%, -50%);
    width: 80vw;
    height: 50vh;
+   padding: 0 1rem 1rem;
    background-color: red;
 }
 
+.form--container * {
+   background-color: transparent;
+}
+
 .form--logo {
-   width: 76.92vw;
+   width: 70.92vw;
    max-width: 250px;
-   margin: 0 auto
+   margin: 0 auto;
+   background-color: transparent;
 }
 
