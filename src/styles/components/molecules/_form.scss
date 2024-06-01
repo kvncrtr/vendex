@@ -1,22 +1,36 @@
 .form--container {
    position: absolute;
-   top: 50%;
+   top: 67.5%;
    left: 50%;
    transform: translate(-50%, -50%);
-   width: 80vw;
-   height: 50vh;
-   padding: 0 1rem 1rem;
-   background-color: red;
+   display: flex;
+   flex-direction: column;
+   width: 100vw;
+   height: 65vh;
+   border-radius: 20px 20px 0 0;
+   padding: 4rem 1rem;
+   gap: 1rem;
+   background-color: $achromatic-100;
 }
 
-.form--container * {
-   background-color: transparent;
-}
+// position: relative;
+// position: absolute;
+// left: 50%;
+// transform: translate(-50%, -50%);
+
 
 .form--logo {
-   width: 70.92vw;
-   max-width: 250px;
+   width: 82vw;
+   max-width: 24.11rem;
    margin: 0 auto;
    background-color: transparent;
 }
 
+.form--heading {
+   margin-top: 2.5rem;
+}
+
+.form--trouble {
+   display: flex;
+   justify-content: center;
+}

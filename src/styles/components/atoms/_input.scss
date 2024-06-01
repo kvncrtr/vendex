@@ -1,9 +1,19 @@
 .input--container {
    display: flex;
    flex-direction: column;
-   gap: .5rem;
 }
- 
-.input--label-password {
-   margin-top: 1rem;
+
+.input--employee-id,
+.input--password {
+   align-self: center;
+   border: 1px solid transparent;
+   border-radius: 7.5px;
+   height: 3rem;
+   width: 80vw;
+   max-width: 24.11rem;
+   background-color: $achromatic-300;
+}
+
+.input--password {
+   margin-top: 0.75rem; 
 }

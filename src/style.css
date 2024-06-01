@@ -4,8 +4,7 @@
 
 * {
   margin: 0;
-  padding: 0;
-  background-color: #F2F2F2; }
+  padding: 0; }
 
 html {
   font-size: 17px; }
@@ -28,48 +27,93 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate; }
 
-.input--container {
-  font-style: normal;
-  font-family: "Poppins", system-ui, Tahoma, monaco, sans-serif;
-  font-weight: 400;
-  line-height: normal; }
+@media screen and (min-width: 325px) {
+  body {
+    font-family: "Poppins", system-ui, Tahoma, monaco, sans-serif; }
+  .form--heading {
+    text-align: center;
+    color: #003082; }
+  .input--container {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; }
+  ::placeholder {
+    font-size: 0.76rem;
+    font-weight: 300;
+    color: #333333; }
+  .input--password,
+  .input--employee-id {
+    text-indent: 0.75rem; }
+  .button--login {
+    color: #FFFFFF; }
+  .form--trouble {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.76rem;
+    line-height: normal;
+    color: #003082;
+    text-decoration: none; } }
 
 .button--container {
   display: flex;
   flex-direction: row;
-  margin-top: 2.25rem; }
+  margin-top: 2rem; }
 
 .button--login {
-  width: 100%; }
+  margin: 0 auto;
+  width: 80vw;
+  max-width: 24.11rem;
+  height: 3rem;
+  border: none;
+  border-radius: 7.5px;
+  background-color: #0459C9; }
 
 .input--container {
   display: flex;
-  flex-direction: column;
-  gap: .5rem; }
+  flex-direction: column; }
 
-.input--label-password {
-  margin-top: 1rem; }
+.input--employee-id,
+.input--password {
+  align-self: center;
+  border: 1px solid transparent;
+  border-radius: 7.5px;
+  height: 3rem;
+  width: 80vw;
+  max-width: 24.11rem;
+  background-color: #F4F4F4; }
+
+.input--password {
+  margin-top: 0.75rem; }
 
 .form--container {
   position: absolute;
-  top: 50%;
+  top: 67.5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 50vh;
-  padding: 0 1rem 1rem;
-  background-color: red; }
-
-.form--container * {
-  background-color: transparent; }
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 65vh;
+  border-radius: 20px 20px 0 0;
+  padding: 4rem 1rem;
+  gap: 1rem;
+  background-color: #FFFFFF; }
 
 .form--logo {
-  width: 70.92vw;
-  max-width: 250px;
+  width: 82vw;
+  max-width: 24.11rem;
   margin: 0 auto;
   background-color: transparent; }
+
+.form--heading {
+  margin-top: 2.5rem; }
+
+.form--trouble {
+  display: flex;
+  justify-content: center; }
 
 .login--container {
   position: relative;
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  background-color: #003082; }

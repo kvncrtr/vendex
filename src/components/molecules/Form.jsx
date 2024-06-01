@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
-import Logo from "../../assets/mim-logo.png";
+import Logo from "../../assets/mim-logo-wide.png";
+import { Link } from 'react-router-dom';
 
 
 const Form = ({ onRequest }) => {
@@ -33,12 +34,12 @@ const Form = ({ onRequest }) => {
        <form className='form--container' onSubmit={handleSubmit}> 
          <img className="form--logo" src={Logo} />
 
-         <h1 className="form--heading">Login</h1>
+         <h1 className="form--heading">Welcome!</h1>
 
          <Input 
             className={"input--employee-id"}
             name={"employeeId"} 
-            label={"Employee Id"}
+            placeholder={"Employee Id"}
             labelClass={"input--label-employee-id"}
             title={"The numeric value that was assigned for identification"}
             onChange={handleOnChange}
@@ -47,11 +48,11 @@ const Form = ({ onRequest }) => {
             className={"input--password"}
             type={"password"}
             name={"password"} 
-            label={"Password"}
+            placeholder={"Password"}
             labelClass={"input--label-password"}
             title={"A secure set of characters"}
             onChange={handleOnChange}
-            /> 
+         /> 
 
          <Button 
             className={"button--login"}
@@ -60,6 +61,8 @@ const Form = ({ onRequest }) => {
             text={isSubmitting ? "Loading..." : "Login"}
             disabled={isSubmitting}
          />
+
+         <Link className="form--trouble">having trouble?</Link>
        </form>
    );
 };
