@@ -1,15 +1,17 @@
-.button--container {
-   display: flex;
-   flex-direction: row;
-   margin-top: 2rem;
-}
+@media screen and (min-width: 325px) {
+   .button--container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 2rem;
+   }
 
-.button--login {
-   margin: 0 auto;
-   width: 80vw;
-   max-width: 24.11rem;
-   height: 3rem;
-   border: none;
-   border-radius: 7.5px;
-   background-color: $secondary-500;
+   .button--login {
+      margin: 0 auto;
+      width: 80vw;
+      max-width: 24.11rem;
+      height: 3rem;
+      border: none;
+      border-radius: 7.5px;
+      background-color: $secondary-500;
+   }
 }
