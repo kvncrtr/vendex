@@ -14,12 +14,6 @@
       background-color: $achromatic-100;
    }
 
-   // position: relative;
-   // position: absolute;
-   // left: 50%;
-   // transform: translate(-50%, -50%);
-
-
    .form--logo {
       width: 82vw;
       max-width: 24.11rem;
@@ -32,6 +26,7 @@
    }
 
    .form--trouble {
+      margin-top: 0.75rem;
       display: flex;
       justify-content: center;
    }

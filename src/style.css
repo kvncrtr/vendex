@@ -81,8 +81,10 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 80vw;
     max-width: 24.11rem;
     background-color: #F4F4F4; }
+  .input--employee-id {
+    margin-top: 1rem; }
   .input--password {
-    margin-top: 0.75rem; } }
+    margin-top: 1rem; } }
 
 @media screen and (min-width: 325px) {
   .form--container {
@@ -106,6 +108,7 @@ p, h1, h2, h3, h4, h5, h6 {
   .form--heading {
     margin-top: 2.5rem; }
   .form--trouble {
+    margin-top: 0.75rem;
     display: flex;
     justify-content: center; } }
 
