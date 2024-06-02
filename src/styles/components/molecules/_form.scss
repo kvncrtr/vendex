@@ -14,11 +14,15 @@
       background-color: $achromatic-100;
    }
 
-   .form--logo {
+   .form--wide-logo {
       width: 82vw;
       max-width: 24.11rem;
       margin: 0 auto;
       background-color: transparent;
+   }
+
+   .form--square-logo {
+      display: none;
    }
 
    .form--heading {
@@ -30,4 +34,48 @@
       display: flex;
       justify-content: center;
    }
+}
+
+@media screen and (min-width: 767px) {
+   .form--container {
+      top: 50%;
+      flex-direction: row;
+      align-items: center;
+      border-radius: 10px;
+      width: 80vw;
+      padding: 0 2.5rem;
+      // background-color: antiquewhite;
+   }
+
+   .form--img-case,
+   .form--input-case {
+      width: calc((68.89vw / 2) - .1rem);
+   }
+
+   .form--img-case {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      // background-color: aquamarine;
+   }
+
+   .form--wide-logo {
+      display: none;
+   }
+
+   .form--square-logo {
+      display: block;
+   }
+
+   .form--input-case {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 1rem;
+      height: 100%;
+   }
+};
+
+@media screen and (min-width: 1200px) {
+   
 }

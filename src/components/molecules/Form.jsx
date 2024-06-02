@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
-import Logo from "../../assets/mim-logo-wide.png";
+import WideLogo from "../../assets/mim-logo-wide.png";
+import SquareLogo from "../../assets/mim-logo.png";
 import { Link } from 'react-router-dom';
 
 
@@ -32,7 +33,10 @@ const Form = ({ onRequest }) => {
    
    return (
       <form className='form--container' onSubmit={handleSubmit}> 
-         <img className="form--logo" src={Logo} />
+         <div className="form--img-case">
+            <img className="form--wide-logo" src={WideLogo} />
+            <img className="form--square-logo" src={SquareLogo} />
+         </div>
          
          <div className="form--input-case">
             <h1 className="form--heading">Welcome!</h1>

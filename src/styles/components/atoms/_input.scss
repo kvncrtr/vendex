@@ -23,3 +23,10 @@
       margin-top: 1rem; 
    }
 }
+
+@media screen and (min-width: 767px) {
+   .input--employee-id,
+   .input--password {
+      width: 34.35vw;
+   }
+}
