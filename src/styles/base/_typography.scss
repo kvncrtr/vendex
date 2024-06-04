@@ -34,56 +34,63 @@ $fw-semi-bold: 600;
 $fw-bold: 700;
 $fw-extra-bold: 800;
 
+// Font Classes (starting with mobile)
+
+$fs-heading: $px-34;
+$fs-body: $px-17; // titles, page modals e.g. home/music/albums/songs, paragraphs, links, form controls and buttons 
+$fs-sub-body: $px-15;
+$fs-details: $px-13; // details given to users to descripbe information or captions. 
+$fs-tabar: $px-10;
+
+// Headings
+
+@mixin font-heading-regular {
+   font-style: normal;
+   font-size: $fs-heading;
+   font-weight: $fw-regular;
+   line-height: normal;
+}
+
+@mixin font-heading-bold {
+   font-style: normal;
+   font-size: $fs-heading;
+   font-weight: $fw-bold;
+   line-height: normal;
+}
+
+// Body
+
+@mixin font-body-regular {
+   font-style: normal;
+   font-weight: $fw-regular;
+   line-height: normal;
+}
+
+@mixin font-body-details {
+   font-style: normal;
+   font-size: $fs-details;
+   font-weight: $fw-semi-bold;
+   line-height: normal;
+}
+
+@mixin font-body-details-semi-bold {
+   font-style: normal;
+   font-weight: $fw-semi-bold;
+   font-size: $fs-details;
+   line-height: normal;
+}
+
+// Abstract
+
+@mixin font-input-placeholder {
+   font-size: $fs-details;
+   font-weight: $fw-light;
+   color: $achromatic-800;
+}
+   
+// Mobile (start with Body) 
+
 @media screen and (min-width: 325px) {
-   // Font Classes (starting with mobile)
-
-   $fs-heading: $px-34;
-   $fs-body: $px-17; // titles, page modals e.g. home/music/albums/songs, paragraphs, links, form controls and buttons 
-   $fs-sub-body: $px-15;
-   $fs-details: $px-13; // details given to users to descripbe information or captions. 
-   $fs-tabar: $px-10;
-
-   // Headings
-
-   @mixin font-heading-regular {
-      font-style: normal;
-      font-size: $fs-heading;
-      font-weight: $fw-regular;
-      line-height: normal;
-   }
-
-   // Body
-
-   @mixin font-body-regular {
-      font-style: normal;
-      font-weight: $fw-regular;
-      line-height: normal;
-   }
-
-   @mixin font-body-details {
-      font-style: normal;
-      font-size: $fs-details;
-      font-weight: $fw-semi-bold;
-      line-height: normal;
-   }
-
-   @mixin font-body-details-semi-bold {
-      font-style: normal;
-      font-weight: $fw-semi-bold;
-      font-size: $fs-details;
-      line-height: normal;
-   }
-
-   // Abstract
-
-   @mixin font-input-placeholder {
-      font-size: $fs-details;
-      font-weight: $fw-light;
-      color: $achromatic-800;
-   }
-
-   // Mobile (start with Body) 
-
    body {
       font-family: "Poppins", $font-stack;
    }
@@ -91,6 +98,7 @@ $fw-extra-bold: 800;
    // Form
 
    .form--heading {
+      @include font-heading-regular();
       text-align: center;
       color: $primary-500;
    }
@@ -120,5 +128,7 @@ $fw-extra-bold: 800;
 }
 
 @media screen and (min-width: 767px) {
-   
+   .form--heading {
+      
+   }
 }
