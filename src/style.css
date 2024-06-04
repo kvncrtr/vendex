@@ -95,6 +95,12 @@ p, h1, h2, h3, h4, h5, h6 {
   .input--password {
     width: 34.35vw; } }
 
+@media screen and (min-width: 1200px) {
+  .input--employee-id,
+  .input--password {
+    width: 40vw;
+    max-width: unset; } }
+
 @media screen and (min-width: 325px) {
   .form--container {
     position: absolute;

@@ -30,3 +30,11 @@
       width: 34.35vw;
    }
 }
+
+@media screen and (min-width: 1200px) {
+   .input--employee-id,
+   .input--password {
+      width: 40vw;
+      max-width: unset;
+   }
+}
