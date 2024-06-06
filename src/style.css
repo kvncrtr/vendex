@@ -33,7 +33,7 @@ p, h1, h2, h3, h4, h5, h6 {
   .form--heading {
     font-style: normal;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     text-align: center;
     color: #003082; }
@@ -58,6 +58,20 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #003082;
     text-decoration: none; } }
 
+@media screen and (min-width: 767px) {
+  .form--heading {
+    font-style: normal;
+    font-size: 4.5vw;
+    font-weight: 700;
+    line-height: normal; } }
+
+@media screen and (min-width: 1200px) {
+  .form--heading {
+    font-style: normal;
+    font-size: 3.53rem;
+    font-weight: 700;
+    line-height: normal; } }
+
 @media screen and (min-width: 325px) {
   .button--container {
     display: flex;
@@ -74,7 +88,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 @media screen and (min-width: 767px) {
   .button--login {
-    width: 34.35vw; } }
+    width: 34.35vw;
+    margin-top: 2rem; } }
 
 @media screen and (min-width: 325px) {
   .input--container {
@@ -97,12 +112,16 @@ p, h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width: 767px) {
   .input--employee-id,
   .input--password {
-    width: 34.35vw; } }
+    width: 34.35vw; }
+  .input--employee-id {
+    margin-top: 3rem; }
+  .input--password {
+    margin-top: 2rem; } }
 
 @media screen and (min-width: 1200px) {
   .input--employee-id,
   .input--password {
-    width: 40vw;
+    width: 36.5vw;
     max-width: unset; } }
 
 @media screen and (min-width: 325px) {
@@ -155,22 +174,21 @@ p, h1, h2, h3, h4, h5, h6 {
   .form--input-case {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-left: 1rem;
-    height: 100%; } }
+    height: 100%; }
+  .form--heading {
+    margin-top: 4rem; } }
 
 @media screen and (min-width: 1200px) {
   .form--container {
     width: 90vw; }
   .form--img-case,
   .form--input-case {
-    width: calc((88.89vw / 2) - .5rem);
-    background-color: burlywood; }
+    width: calc((88.89vw / 2) - .5rem); }
   .form--wide-logo {
     display: block;
     width: 100%;
-    max-width: unset;
-    background-color: chocolate; }
+    max-width: unset; }
   .form--square-logo {
     display: none; } }
 
