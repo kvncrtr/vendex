@@ -63,6 +63,20 @@ p, h1, h2, h3, h4, h5, h6 {
     font-style: normal;
     font-size: 4.5vw;
     font-weight: 700;
+    line-height: normal; }
+  ::placeholder {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #333333; }
+  .button--login {
+    font-style: normal;
+    font-size: 1.18rem;
+    font-weight: 400;
+    line-height: normal; }
+  .form--trouble {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.82rem;
     line-height: normal; } }
 
 @media screen and (min-width: 1200px) {
@@ -70,7 +84,11 @@ p, h1, h2, h3, h4, h5, h6 {
     font-style: normal;
     font-size: 3.53rem;
     font-weight: 700;
-    line-height: normal; } }
+    line-height: normal; }
+  ::placeholder {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #333333; } }
 
 @media screen and (min-width: 325px) {
   .button--container {

@@ -58,6 +58,13 @@ $fw-extra-bold: 800;
    line-height: normal;
 }
 
+@mixin font-body-regular-grow($size) {
+   font-style: normal;
+   font-size: $size;
+   font-weight: $fw-regular;
+   line-height: normal;
+}
+
 @mixin font-body-details {
    font-style: normal;
    font-size: $px-13;
@@ -65,17 +72,17 @@ $fw-extra-bold: 800;
    line-height: normal;
 }
 
-@mixin font-body-details-semi-bold {
+@mixin font-body-details-semi-bold($size) {
    font-style: normal;
    font-weight: $fw-semi-bold;
-   font-size: $px-13;
+   font-size: $size;
    line-height: normal;
 }
 
 // Abstract
 
-@mixin font-input-placeholder {
-   font-size: $px-13;
+@mixin font-input-placeholder($size) {
+   font-size: $size;
    font-weight: $fw-light;
    color: $achromatic-800;
 }
@@ -100,7 +107,7 @@ $fw-extra-bold: 800;
    }
 
    ::placeholder {
-      @include font-input-placeholder();
+      @include font-input-placeholder($px-13);
    }
 
    .input--password,
@@ -113,21 +120,41 @@ $fw-extra-bold: 800;
    }
 
    .form--trouble { 
-      @include font-body-details-semi-bold();
+      @include font-body-details-semi-bold($px-13);
       color: $primary-500;
       text-decoration: none;
    }
 }
 
+// Tablet
+
 @media screen and (min-width: 767px) {
    .form--heading {
       @include font-heading-bold(4.5vw);
    }
+
+   ::placeholder {
+      @include font-input-placeholder($px-14);
+   }
+
+   .button--login {
+      @include font-body-regular-grow($px-20)
+   }
+
+   .form--trouble { 
+      @include font-body-details-semi-bold($px-14)
+   }
 }
+
+// Desktop
 
 @media screen and (min-width: 1200px) {
    .form--heading {
       @include font-heading-bold($px-60);
+   }
+
+   ::placeholder {
+      @include font-input-placeholder($px-15);
    }
 }
 
