@@ -5,7 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Error from './components/pages/Error';
 
-import AuthContext from "./context/auth";
+import { AuthProvider } from './context/Auth';
+
+
+const jwt = "https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.k2ZZP-fFOlkYSyUYxCO3F-fN1FJBrkNd_Ry-AuvpQUQ"
 
 const router = createBrowserRouter([
   {
@@ -15,13 +18,11 @@ const router = createBrowserRouter([
   }
 ])
 
-const jwt = "https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.k2ZZP-fFOlkYSyUYxCO3F-fN1FJBrkNd_Ry-AuvpQUQ"
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthContext.Provider value={jwt}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </React.StrictMode>
-  </AuthContext.Provider>
+    </AuthProvider>
+  </React.StrictMode>
 );

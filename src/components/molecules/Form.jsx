@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import WideLogo from "../../assets/mim-logo-wide.png";
@@ -7,12 +7,11 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-import AuthContext from '../../context/Auth';
+import useAuth from '../../hooks/useAuth';
 
 const Form = () => {
-   const jwt = useContext(AuthContext);
+   const { setAuth, isSubmitting, setIsSubmitting } = useAuth();
 
-   const [isSubmitting, setIsSubmitting] = useState(false);
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
@@ -20,17 +19,8 @@ const Form = () => {
    const idRef = useRef();
    const errorRef = useRef();
    
-   const handleSubmit = async (event) => {
+   const handleSubmit = (event) => {
       event.preventDefault();
-
-      if (isSubmitting) {
-         return
-      } else if (isSubmitting === false && employeeId === "132889") {
-         setIsSubmitting(true);
-         console.log(employeeId, password);
-         setEmployeeId("");
-         setPassword("");
-      }
    };
 
    useEffect(() => {
