@@ -7,7 +7,7 @@ const Login = () => {
    const { auth } = useAuth();
 
    useEffect(() => {
-      console.log(auth)
+      // console.log(auth)
    }, [auth])
 
 

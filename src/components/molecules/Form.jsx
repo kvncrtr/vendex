@@ -19,8 +19,23 @@ const Form = () => {
    const idRef = useRef();
    const errorRef = useRef();
    
-   const handleSubmit = (event) => {
+   const handleSubmit = async (event) => {
       event.preventDefault();
+      isSubmitting(true);
+      setError("");
+
+      const body = {
+         employeeId,
+         password
+      };
+      
+      /* checks to see if the provided information is present */
+      fetch("", {});
+      
+      /* if yes then save the creds to then auth context */ 
+      
+      /* if not then send error to ui */ 
+
    };
 
    useEffect(() => {

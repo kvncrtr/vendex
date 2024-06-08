@@ -1,4 +1,4 @@
-const Button = ({type, title, text, disabled, className, event}) => {
+const Button = ({ type, title, text, disabled, className }) => {
    return (
       <div className="button--container">
          <button
