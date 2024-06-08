@@ -1,35 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import Input from "../atoms/Input";
-import Button from "../atoms/Button";
-import WideLogo from "../../assets/mim-logo-wide.png";
-import SquareLogo from "../../assets/mim-logo.png";
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import WideLogo from "../../assets/mim-logo-wide.png";
+import SquareLogo from "../../assets/mim-logo.png";
 
-const Form = ({ onRequest }) => {
-   const [formData, setFormData] = useState({});
+import Input from "../atoms/Input";
+import Button from "../atoms/Button";
+
+import AuthContext from '../../context/Auth';
+
+const Form = () => {
+   const jwt = useContext(AuthContext);
+
    const [isSubmitting, setIsSubmitting] = useState(false);
+   const [employeeId, setEmployeeId] = useState("");
+   const [password, setPassword] = useState("");
+   const [error, setError] = useState("");
 
-   const handleSubmit= (event) => {
+   const idRef = useRef();
+   const errorRef = useRef();
+   
+   const handleSubmit = async (event) => {
       event.preventDefault();
-      
-      if (isSubmitting) {
-         return;
-      };
-      
-      setIsSubmitting(true);
-   };
 
-   const handleOnChange = (name, value) => {
-      setFormData({ ...formData, [name]: value });
+      if (isSubmitting) {
+         return
+      } else if (isSubmitting === false && employeeId === "132889") {
+         setIsSubmitting(true);
+         console.log(employeeId, password);
+         setEmployeeId("");
+         setPassword("");
+      }
    };
 
    useEffect(() => {
-      if (isSubmitting) {
-         onRequest(formData, isSubmitting);
-      }
-      return;
-   }, [formData, isSubmitting]);
+      idRef.current.focus();
+   }, []);
+
+   useEffect(() => {
+      setError("");
+   }, [employeeId, password]);
    
    return (
       <form className='form--container' onSubmit={handleSubmit}> 
@@ -41,14 +51,22 @@ const Form = ({ onRequest }) => {
          <div className="form--input-case">
             <h1 className="form--heading">Welcome!</h1>
 
+             
+         {error && <p className="form--error" ref={errorRef}>{error}</p>}
+
             <Input 
                className={"input--employee-id"}
                name={"employeeId"} 
                placeholder={"Employee Id"}
                labelClass={"input--label-employee-id"}
                title={"The numeric value that was assigned for identification"}
-               onChange={handleOnChange}
-               />
+               onChange={(event) => setEmployeeId(event.target.value)}
+               value={employeeId}
+               ref={idRef}
+               error={error}
+               required
+            />
+
             <Input 
                className={"input--password"}
                type={"password"}
@@ -56,16 +74,19 @@ const Form = ({ onRequest }) => {
                placeholder={"Password"}
                labelClass={"input--label-password"}
                title={"A secure set of characters"}
-               onChange={handleOnChange}
-               /> 
+               onChange={(event) => setPassword(event.target.value)}
+               value={password}
+               error={null}
+               required
+            /> 
 
             <Button 
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               text={isSubmitting ? "Loading..." : "Login"}
+               text={"Login"}
                disabled={isSubmitting}
-               />
+            />
 
             <Link className="form--trouble">having trouble?</Link>
          </div>

@@ -1,32 +1,20 @@
-import React, { useState } from "react";
+import React, { forwardRef } from "react";
 
-const Input = ({ type = 'text', name, title, value, onChange, className, placeholder, error }) => {
-   const [inputValue, setInputValue] = useState(value || "");
-
-   const handleChange = (event) => {
-      setInputValue(event.target.value);
-      if (onChange) {
-         onChange(name, event.target.value);
-      };
-   };
-
+const Input = forwardRef((props, ref) => {
    return (
       <div className="input--container">
-         {/* <label className={labelClass}>{label}</label> */}
          <input 
-            type={type}
-            className={className}
-            name={name}
-            title={title}
-            placeholder={placeholder}
-            value={inputValue}
-            onChange={handleChange}
-         /> 
-         {error && (
-            <p>{error}</p>
-         )}
+            type={props.type}
+            className={props.className}
+            name={props.name}
+            title={props.title}
+            placeholder={props.placeholder}
+            ref={ref}
+            onChange={props.onChange}
+            value={props.value}
+         />
       </div>
    );
-};
+});
 
-export default Input;
+export default Input

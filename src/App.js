@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Login from './components/pages/Login';
-import Form from './components/molecules/Form';
 import './style.css'
 
 function App() {
+  const [jwtToken, setJwtToken] = useState("");
+
   return (
     <div className="app--container">
       <Login />
