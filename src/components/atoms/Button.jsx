@@ -1,11 +1,11 @@
-const Button = ({ type, title, text, disabled, className }) => {
+const Button = ({ type, title, text, setting, className }) => {
    return (
       <div className="button--container">
          <button
             className={className}
             type={type}
             title={title}
-            disabled={disabled}
+            disabled={setting}
             >
             {text}
          </button>

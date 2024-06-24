@@ -6,7 +6,7 @@ import App from './App';
 import Login from "./components/pages/Login";
 import Error from './components/pages/Error';
 
-import { AuthProvider } from './context/Auth';
+import { AuthProvider } from "./context/auth";
 
 const router = createBrowserRouter([
   {

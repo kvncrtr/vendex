@@ -21,7 +21,7 @@ const Form = () => {
    
    const handleSubmit = async (event) => {
       event.preventDefault();
-      isSubmitting(true);
+      setIsSubmitting(!isSubmitting);
       setError("");
 
       const body = {
@@ -30,9 +30,9 @@ const Form = () => {
       };
       
       /* checks to see if the provided information is present */
-      fetch("", {});
       
-      /* if yes then save the creds to then auth context */ 
+      
+      /* if yes then save the creds to the auth context */ 
       
       /* if not then send error to ui */ 
 
@@ -45,6 +45,10 @@ const Form = () => {
    useEffect(() => {
       setError("");
    }, [employeeId, password]);
+
+   useEffect(() => {
+      console.log("isSubmitting changed:", isSubmitting);
+   }, [isSubmitting]);
    
    return (
       <form className='form--container' onSubmit={handleSubmit}> 
@@ -89,8 +93,8 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               text={"Login"}
-               disabled={isSubmitting}
+               text={!isSubmitting ? "Login" : "Loading..."}
+               setting={isSubmitting}
             />
 
             <Link className="form--trouble">having trouble?</Link>
