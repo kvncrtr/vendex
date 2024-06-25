@@ -21,7 +21,7 @@ const Form = () => {
    
    const handleSubmit = async (event) => {
       event.preventDefault();
-      setIsSubmitting(!isSubmitting);
+      setIsSubmitting(true);
       setError("");
 
       const body = {
@@ -29,13 +29,28 @@ const Form = () => {
          password
       };
       
-      /* checks to see if the provided information is present */
-      
-      
-      /* if yes then save the creds to the auth context */ 
-      
-      /* if not then send error to ui */ 
+      // fetch all employee information 
+      try {
+         const response = await fetch("http://localhost:8080/employee", {
+            method: "POST",
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+         });
 
+         if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Login failed. Please check your credentials.');
+         }
+
+         const data = await response.json();
+         setAuth(data);
+      } catch(error) {
+         setError(error.message);
+      } finally {
+         setIsSubmitting(false);
+      };
    };
 
    useEffect(() => {
@@ -45,10 +60,6 @@ const Form = () => {
    useEffect(() => {
       setError("");
    }, [employeeId, password]);
-
-   useEffect(() => {
-      console.log("isSubmitting changed:", isSubmitting);
-   }, [isSubmitting]);
    
    return (
       <form className='form--container' onSubmit={handleSubmit}> 
