@@ -25,8 +25,8 @@ const Form = () => {
       setError("");
 
       const body = {
-         employeeId,
-         password
+         "employee_id": employeeId,
+         "password": password
       };
       
       // fetch all employee information 
