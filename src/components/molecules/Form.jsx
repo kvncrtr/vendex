@@ -7,10 +7,11 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
+import GetEmployees from '../../services/api';
 
 const Form = () => {
-   const { setAuth, isSubmitting, setIsSubmitting } = useAuth();
+   // const { setAuth, isSubmitting, setIsSubmitting } = useAuth();
 
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
@@ -19,17 +20,17 @@ const Form = () => {
    const idRef = useRef();
    const errorRef = useRef();
    
-   const handleSubmit = async (event) => {
+   const handleSubmit = (event) => {
       event.preventDefault();
-      setIsSubmitting(true);
+      // setIsSubmitting(true);
       setError("");
       
       const body = JSON.stringify({
          employee_id: employeeId,
          password: password
       });
-      console.log(body);
-
+      
+      GetEmployees();
    };
 
    useEffect(() => {
@@ -83,8 +84,9 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               text={!isSubmitting ? "Login" : "Loading..."}
-               setting={isSubmitting}
+               // text={!isSubmitting ? "Login" : "Loading..."}
+               text{...true ? "Login" : "Loading..."}
+               // setting={isSubmitting}
             />
 
             <Link className="form--trouble">having trouble?</Link>
