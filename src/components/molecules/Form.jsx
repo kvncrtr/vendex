@@ -23,34 +23,13 @@ const Form = () => {
       event.preventDefault();
       setIsSubmitting(true);
       setError("");
-
-      const body = {
-         "employee_id": employeeId,
-         "password": password
-      };
       
-      // fetch all employee information 
-      try {
-         const response = await fetch("http://localhost:8080/login", {
-            method: "POST",
-            headers: {
-               'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-         });
+      const body = JSON.stringify({
+         employee_id: employeeId,
+         password: password
+      });
+      console.log(body);
 
-         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Login failed. Please check your credentials.');
-         }
-
-         const data = await response.json();
-         setAuth(data);
-      } catch(error) {
-         setError(error.message);
-      } finally {
-         setIsSubmitting(false);
-      };
    };
 
    useEffect(() => {

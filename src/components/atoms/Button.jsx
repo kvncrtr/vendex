@@ -6,7 +6,7 @@ const Button = ({ type, title, text, setting, className }) => {
             type={type}
             title={title}
             disabled={setting}
-            >
+         >
             {text}
          </button>
       </div>
