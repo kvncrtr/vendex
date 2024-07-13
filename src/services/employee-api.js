@@ -6,13 +6,15 @@ const  GetEmployees = async () => {
    return response
 };
 
-const LoginEmployee = async (body) => {
+const ValidateEmployee = async (body) => {
    try {
       const response = await axios.post("http://localhost:8080/login", body);
-      return response.data; 
+      if (response.data.status === 200) {
+         return response.data;
+      }
    } catch (error) {
       throw error; 
    }
 }
 
-export { GetEmployees, LoginEmployee }
+export { GetEmployees, ValidateEmployee }

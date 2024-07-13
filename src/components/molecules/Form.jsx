@@ -8,12 +8,14 @@ import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
 import useAuth from '../../hooks/useAuth';
-import { LoginEmployee } from '../../services/employee-api';
+import AuthProvider from '../../context/auth'
+
+import { ValidateEmployee } from '../../services/employee-api';
 import LocalStorageService from '../../services/local-storage';
 
 const Form = () => {
    const navigate = useNavigate();
-   const { setToken, isSubmitting, setIsSubmitting } = useAuth();
+   const { setToken, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
 
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
@@ -25,6 +27,8 @@ const Form = () => {
    const handleSubmit = async (event) => {
       event.preventDefault();
       setIsSubmitting(true);
+      LocalStorageService.removeItem("token");
+      setToken("");
       setError("");
 
       const form = event.target;
@@ -34,17 +38,14 @@ const Form = () => {
       });
 
       try {
-         const response  = await LoginEmployee(body);
-         console.log(response.token, " <= line 36: response data from login call");
+         const response  = await ValidateEmployee(body);
          LocalStorageService.setItem("token", response.token);
-         setToken(response.token)
-         setEmployeeId("");
-         setPassword("");
-         setError("")
-         navigate("/");
+         setToken(response.token);         
+         setIsValid(true)
       } catch(error) {
-         setError(error);
          LocalStorageService.clearItems();
+         setError(error);
+         setIsValid(false);
       } 
    };
 
