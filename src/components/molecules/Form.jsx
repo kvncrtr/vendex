@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import WideLogo from "../../assets/mim-logo-wide.png";
 import SquareLogo from "../../assets/mim-logo.png";
@@ -7,11 +7,13 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-// import useAuth from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { LoginEmployee } from '../../services/employee-api';
+import LocalStorageService from '../../services/local-storage';
 
 const Form = () => {
-   // const { setAuth, isSubmitting, setIsSubmitting } = useAuth();
+   const navigate = useNavigate();
+   const { setToken, isSubmitting, setIsSubmitting } = useAuth();
 
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
@@ -20,17 +22,30 @@ const Form = () => {
    const idRef = useRef();
    const errorRef = useRef();
    
-   const handleSubmit = (event) => {
+   const handleSubmit = async (event) => {
       event.preventDefault();
-      // setIsSubmitting(true);
+      setIsSubmitting(true);
       setError("");
-      
+
+      const form = event.target;
       const body = JSON.stringify({
          employee_id: employeeId,
          password: password
       });
 
-      LoginEmployee(body)
+      try {
+         const response  = await LoginEmployee(body);
+         console.log(response.token, " <= line 36: response data from login call");
+         LocalStorageService.setItem("token", response.token);
+         setToken(response.token)
+         setEmployeeId("");
+         setPassword("");
+         setError("")
+         navigate("/");
+      } catch(error) {
+         setError(error);
+         LocalStorageService.clearItems();
+      } 
    };
 
    useEffect(() => {
@@ -84,10 +99,8 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               setting={false}
-               text={"Login"}
-               // text={!isSubmitting ? "Login" : "Loading..."}
-               // setting={isSubmitting}
+               text={!isSubmitting ? "Login" : "Loading..."}
+               setting={isSubmitting}
             />
 
             <Link className="form--trouble">having trouble?</Link>

@@ -7,9 +7,12 @@ const  GetEmployees = async () => {
 };
 
 const LoginEmployee = async (body) => {
-   const response = await axios.post("http://localhost:8080/login", body)
-   console.log(response)
-   return response
+   try {
+      const response = await axios.post("http://localhost:8080/login", body);
+      return response.data; 
+   } catch (error) {
+      throw error; 
+   }
 }
 
 export { GetEmployees, LoginEmployee }
