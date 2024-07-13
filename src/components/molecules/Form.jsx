@@ -8,7 +8,7 @@ import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
 // import useAuth from '../../hooks/useAuth';
-import GetEmployees from '../../services/api';
+import { LoginEmployee } from '../../services/employee-api';
 
 const Form = () => {
    // const { setAuth, isSubmitting, setIsSubmitting } = useAuth();
@@ -29,8 +29,8 @@ const Form = () => {
          employee_id: employeeId,
          password: password
       });
-      
-      GetEmployees();
+
+      LoginEmployee(body)
    };
 
    useEffect(() => {
@@ -84,8 +84,9 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
+               setting={false}
+               text={"Login"}
                // text={!isSubmitting ? "Login" : "Loading..."}
-               text{...true ? "Login" : "Loading..."}
                // setting={isSubmitting}
             />
 
