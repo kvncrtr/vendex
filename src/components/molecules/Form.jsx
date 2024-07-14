@@ -8,13 +8,11 @@ import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
 import useAuth from '../../hooks/useAuth';
-import AuthProvider from '../../context/auth'
 
 import { ValidateEmployee } from '../../services/employee-api';
 import LocalStorageService from '../../services/local-storage';
 
 const Form = () => {
-   const navigate = useNavigate();
    const { setToken, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
 
    const [employeeId, setEmployeeId] = useState("");
@@ -39,14 +37,19 @@ const Form = () => {
 
       try {
          const response  = await ValidateEmployee(body);
+         setEmployeeId("");
+         setPassword("");
          LocalStorageService.setItem("token", response.token);
          setToken(response.token);         
-         setIsValid(true)
+         setIsValid(true);
       } catch(error) {
          LocalStorageService.clearItems();
-         setError(error);
+         setToken("");
          setIsValid(false);
-      } 
+         setError(error.toString());
+      } finally {
+         setIsSubmitting(false);
+      }
    };
 
    useEffect(() => {

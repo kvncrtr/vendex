@@ -1,12 +1,12 @@
-import { jwtDecode as jwt } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 class JWTService {
    static decodeToken(token) {
-      return jwt(token);
+      return jwtDecode(token);
    }
 
    static showHeadersFromToken(token) {
-      return jwt(token, { header: true });
+      return jwtDecode(token, { header: true });
    }
 
    static employeeTokenObj(token) {
@@ -17,8 +17,26 @@ class JWTService {
          ...this.showHeadersFromToken(token)
       }
 
-      console.log(tokenObj);
       return tokenObj;
+   }
+
+   static authenticateToken(tokenObj) {
+      let rank = tokenObj.class
+      const { employee_id, expired, alg, typ } = tokenObj;
+
+      if (!(rank === "A" || rank === "B" || rank === "C")) {
+         return false;
+      } else if (typeof employee_id !== "number" || employee_id < 0) {
+         return false;
+      } else if (Date.now() >= expired * 1000) {
+         return false;
+      } else if (alg !== "HS256") {
+         return false;
+      } else if (typ !== "JWT") {
+         return false;
+      }
+   
+      return true;
    }
 }
 
