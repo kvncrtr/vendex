@@ -5,12 +5,7 @@ import useAuth from '../../hooks/useAuth';
 const PrivateRoute = ({component: Component, ...props}) => {
    const { isAuthenticated, isValid } = useAuth();
    
-   return(
-      <Route
-         {...props}
-         element={isAuthenticated && isValid ? <Component /> : <Navigate to="/login" />}
-      />
-   ); 
+   return <div className="class"></div>; 
 };
 
 export default PrivateRoute;
