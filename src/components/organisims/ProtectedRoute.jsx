@@ -1,11 +1,20 @@
-import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import LocalStorageService from '../../services/local-storage';
 
-const PrivateRoute = ({component: Component, ...props}) => {
-   const { isAuthenticated, isValid } = useAuth();
+const ProtectedRoutes = ({ children, ...props }) => {
+   const { isAuthenticated } = useAuth();
+   const token = LocalStorageService.getItem('token')
    
-   return <div className="class"></div>; 
-};
+   if (!isAuthenticated || !token) <Navigate to="/Login" replace />
 
-export default PrivateRoute;
+   return (
+      isAuthenticated && token ? (
+        <Outlet />  
+      ) : (
+        <Navigate to="/login" replace /> 
+      )
+    );
+  };
+
+export default ProtectedRoutes;

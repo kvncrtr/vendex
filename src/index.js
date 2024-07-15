@@ -1,25 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import { BrowserRouter } from "react-router-dom";
 import App from './App';
-import Error from './components/pages/Error';
-
 import { AuthProvider } from "./context/auth";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <Error />
-  }
-])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
+
+/*
+
+/src
+├── /assets
+├── /components
+│   ├── /atoms
+│   │   ├── Button.jsx
+│   │   └── Input.jsx
+│   ├── /molecules
+│   │   └── Form.jsx 
+│   ├── /organisims
+│   │   └── PrivateRoute.jsx
+│   ├── /pages
+│   │   ├── Error.jsx
+│   │   ├── Home.jsx
+│   │   └── Login.jsx
+│   ├── /context
+│   │   └── auth.js
+│   ├── /hooks
+│   │   └── auth.js
+│   ├── /services
+│   │   ├── employee-api.js
+│   │   └── local-storage.js
+│   ├── /styles
+│   │   └── {...}
+├── App.js
+├── index.js
+└── styles.css
+
+*/

@@ -13,7 +13,7 @@ import { ValidateEmployee } from '../../services/employee-api';
 import LocalStorageService from '../../services/local-storage';
 
 const Form = () => {
-   const { setToken, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
+   const { setToken, setIsAuthenticated, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
 
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
@@ -25,11 +25,8 @@ const Form = () => {
    const handleSubmit = async (event) => {
       event.preventDefault();
       setIsSubmitting(true);
-      LocalStorageService.removeItem("token");
-      setToken("");
       setError("");
 
-      const form = event.target;
       const body = JSON.stringify({
          employee_id: employeeId,
          password: password
@@ -37,16 +34,17 @@ const Form = () => {
 
       try {
          const response  = await ValidateEmployee(body);
+         setIsValid(true);
+         setToken(response.token);         
          setEmployeeId("");
          setPassword("");
          LocalStorageService.setItem("token", response.token);
-         setToken(response.token);         
-         setIsValid(true);
       } catch(error) {
-         LocalStorageService.clearItems();
-         setToken("");
+         setIsAuthenticated(false);
          setIsValid(false);
+         setToken("");         
          setError(error.toString());
+         LocalStorageService.clearItems();
       } finally {
          setIsSubmitting(false);
       }
