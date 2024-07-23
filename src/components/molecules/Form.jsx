@@ -1,21 +1,22 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import WideLogo from "../../assets/mim-logo-wide.png";
 import SquareLogo from "../../assets/mim-logo.png";
-
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
-
-import useAuth from '../../hooks/useAuth';
-
-import { ValidateEmployee } from '../../services/employee-api';
-import LocalStorageService from '../../services/local-storage';
+import StoreContext from '../../context/storeContext';
+import { gatherEmployeeInfo, getAllEmployees, loadEmployees } from '../../store/employee';
+// import useAuth from '../../hooks/useAuth';
+// import { ValidateEmployee } from '../../services/employee-api';
+// import LocalStorageService from '../../services/local-storage';
 
 const Form = () => {
-   const { setToken, setIsAuthenticated, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
+   // const { setToken, setIsAuthenticated, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
+
+   const store = useContext(StoreContext)
 
    const [employeeId, setEmployeeId] = useState("");
+   const [employees, setEmployees] = useState([]);
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
 
@@ -24,31 +25,48 @@ const Form = () => {
    
    const handleSubmit = async (event) => {
       event.preventDefault();
-      setIsSubmitting(true);
-      setError("");
 
-      const body = JSON.stringify({
-         employee_id: employeeId,
-         password: password
-      });
+      // setIsSubmitting(true);
+      // setError("");
 
-      try {
-         const response  = await ValidateEmployee(body);
-         setIsValid(true);
-         setToken(response.token);         
-         setEmployeeId("");
-         setPassword("");
-         LocalStorageService.setItem("token", response.token);
-      } catch(error) {
-         setIsAuthenticated(false);
-         setIsValid(false);
-         setToken("");         
-         setError(error.toString());
-         LocalStorageService.clearItems();
-      } finally {
-         setIsSubmitting(false);
-      }
+      // const body = JSON.stringify({
+      //    employee_id: employeeId,
+      //    password: password
+      // });
+
+      // try {
+      //    const response  = await ValidateEmployee(body);
+      //    setIsValid(true);
+      //    setToken(response.token);         
+      //    setEmployeeId("");
+      //    setPassword("");
+      //    LocalStorageService.setItem("token", response.token);
+      // } catch(error) {
+      //    setIsAuthenticated(false);
+      //    setIsValid(false);
+      //    setToken("");         
+      //    setError(error.toString());
+      //    LocalStorageService.clearItems();
+      // } finally {
+      //    setIsSubmitting(false);
+      // }
    };
+
+   useEffect(() => {
+      store.dispatch(loadEmployees());
+
+      const unsubscribe = store.subscribe(() => {
+         const storedEmployees = store.getState().auth.all_employees;
+         if (storedEmployees !== employees) {
+            setEmployees(storedEmployees);
+         }
+
+      });
+      
+      return () => {
+         unsubscribe();
+      }
+   }, []);
 
    useEffect(() => {
       idRef.current.focus();
@@ -101,8 +119,10 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               text={!isSubmitting ? "Login" : "Loading..."}
-               setting={isSubmitting}
+               text={"Loign"}
+               setting={false}
+               // text={!isSubmitting ? "Login" : "Loading..."}
+               // setting={isSubmitting}
             />
 
             <Link className="form--trouble">having trouble?</Link>

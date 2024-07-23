@@ -56,8 +56,8 @@ const authSlice = createSlice({
          state.isValid = true;
       },
       getAllEmployees(state, action) {
-         state.all_employees = action.payload.data;
-         state.isLoading = action.payload.isLoading;
+         state.all_employees = action.payload;
+         state.isLoading = false;
       },
       apiRequestFailed(state, action) {
          state.isLoading = false;

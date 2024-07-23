@@ -1,14 +1,15 @@
 import './style.css'
 import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import ProtectedRoutes from './components/organisims/ProtectedRoute';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 
-import LocalStorageService from './services/local-storage';
+import store from "./store/config";
+import StoreContext from "./context/storeContext"; 
 import useAuth from './hooks/useAuth';
+import LocalStorageService from './services/local-storage';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -22,7 +23,7 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <Provider store={store}>
+    <StoreContext.Provider value={store}>
       <Routes>
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<Home />} />
@@ -31,7 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} replace />
         <Route path="*" element={<Login />} replace />
       </Routes>
-    </Provider>
+    </StoreContext.Provider>
   );
 }
 
