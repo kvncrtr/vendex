@@ -1,5 +1,6 @@
 import './style.css'
 import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import ProtectedRoutes from './components/organisims/ProtectedRoute';
@@ -16,12 +17,12 @@ function App() {
 
   useEffect(() => {
     if (isAuthenticated && token) {
-      navigate("/", {replace: true});
+      navigate("/", { replace: true });
     }
   }, [isAuthenticated])
 
   return (
-    <>
+    <Provider store={store}>
       <Routes>
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<Home />} />
@@ -30,7 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} replace />
         <Route path="*" element={<Login />} replace />
       </Routes>
-    </>
+    </Provider>
   );
 }
 
