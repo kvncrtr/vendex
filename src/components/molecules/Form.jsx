@@ -8,7 +8,7 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-import { gatherEmployeeInfo, loadEmployees } from '../../store/employee';
+import { gatherEmployeeInfo } from '../../store/employee';
 
 const Form = () => {
    const [employeeId, setEmployeeId] = useState("");
@@ -24,6 +24,7 @@ const Form = () => {
    const handleSubmit = async (event) => {
       event.preventDefault();
       dispatch(gatherEmployeeInfo({employee_id: employeeId, password: password}));
+      
    };
 
    useEffect(() => {
@@ -53,7 +54,7 @@ const Form = () => {
                placeholder={"Employee Id"}
                labelClass={"input--label-employee-id"}
                title={"The numeric value that was assigned for identification"}
-               onChange={(event) => setEmployeeId(event.target.value)}
+               onChange={(event) => setEmployeeId(parseInt(event.target.value))}
                value={employeeId}
                ref={idRef}
                error={error}
