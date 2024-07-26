@@ -6,8 +6,6 @@ import ProtectedRoutes from './components/organisims/ProtectedRoute';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 
-import store from "./store/config";
-import StoreContext from "./context/storeContext"; 
 import useAuth from './hooks/useAuth';
 import LocalStorageService from './services/local-storage';
 
@@ -23,16 +21,14 @@ function App() {
   }, [isAuthenticated])
 
   return (
-    <StoreContext.Provider value={store}>
-      <Routes>
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/" element={<Home />} />
-        </Route>
+    <Routes>
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<Home />} />
+      </Route>
 
-        <Route path="/login" element={<Login />} replace />
-        <Route path="*" element={<Login />} replace />
-      </Routes>
-    </StoreContext.Provider>
+      <Route path="/login" element={<Login />} replace />
+      <Route path="*" element={<Login />} replace />
+    </Routes>
   );
 }
 

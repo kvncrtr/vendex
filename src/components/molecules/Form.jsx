@@ -1,72 +1,30 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
+import React, { useRef, useState, useEffect,  } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import WideLogo from "../../assets/mim-logo-wide.png";
 import SquareLogo from "../../assets/mim-logo.png";
+
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
-import StoreContext from '../../context/storeContext';
-import { gatherEmployeeInfo, getAllEmployees, loadEmployees } from '../../store/employee';
-// import useAuth from '../../hooks/useAuth';
-// import { ValidateEmployee } from '../../services/employee-api';
-// import LocalStorageService from '../../services/local-storage';
+
+import { gatherEmployeeInfo, loadEmployees } from '../../store/employee';
 
 const Form = () => {
-   // const { setToken, setIsAuthenticated, setIsValid, isSubmitting, setIsSubmitting } = useAuth();
-
-   const store = useContext(StoreContext)
-
    const [employeeId, setEmployeeId] = useState("");
    const [employees, setEmployees] = useState([]);
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
+
+   const dispatch = useDispatch();
 
    const idRef = useRef();
    const errorRef = useRef();
    
    const handleSubmit = async (event) => {
       event.preventDefault();
-
-      // setIsSubmitting(true);
-      // setError("");
-
-      // const body = JSON.stringify({
-      //    employee_id: employeeId,
-      //    password: password
-      // });
-
-      // try {
-      //    const response  = await ValidateEmployee(body);
-      //    setIsValid(true);
-      //    setToken(response.token);         
-      //    setEmployeeId("");
-      //    setPassword("");
-      //    LocalStorageService.setItem("token", response.token);
-      // } catch(error) {
-      //    setIsAuthenticated(false);
-      //    setIsValid(false);
-      //    setToken("");         
-      //    setError(error.toString());
-      //    LocalStorageService.clearItems();
-      // } finally {
-      //    setIsSubmitting(false);
-      // }
+      dispatch(gatherEmployeeInfo({employee_id: employeeId, password: password}));
    };
-
-   useEffect(() => {
-      store.dispatch(loadEmployees());
-
-      const unsubscribe = store.subscribe(() => {
-         const storedEmployees = store.getState().auth.all_employees;
-         if (storedEmployees !== employees) {
-            setEmployees(storedEmployees);
-         }
-
-      });
-      
-      return () => {
-         unsubscribe();
-      }
-   }, []);
 
    useEffect(() => {
       idRef.current.focus();
