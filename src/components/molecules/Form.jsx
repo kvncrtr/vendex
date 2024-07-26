@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect,  } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import WideLogo from "../../assets/mim-logo-wide.png";
@@ -8,25 +8,39 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-import { gatherEmployeeInfo } from '../../store/employee';
+import { apiRequested, validateCredentials, clearAuth } from '../../store/employee';
 
 const Form = () => {
+   const dispatch = useDispatch();
+   const errorMessage = useSelector(state => state.auth.errorMessage); 
+   const isLoading = useSelector(state => state.auth.isLoading);
+   
    const [employeeId, setEmployeeId] = useState("");
-   const [employees, setEmployees] = useState([]);
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
 
-   const dispatch = useDispatch();
-
    const idRef = useRef();
    const errorRef = useRef();
+   const hasMounted = useRef(true);
    
    const handleSubmit = async (event) => {
+      dispatch(apiRequested());
       event.preventDefault();
-      dispatch(gatherEmployeeInfo({employee_id: employeeId, password: password}));
-      
+      const loginData = {
+         employee_id: employeeId,
+         password: password
+      };
+      dispatch(validateCredentials(loginData));      
    };
 
+   useEffect(() => {
+      if (!isLoading && !hasMounted.current) {
+         setError(errorMessage);
+      } else {
+         hasMounted.current = false;
+      }
+   }, [errorMessage]);
+   
    useEffect(() => {
       idRef.current.focus();
    }, []);
@@ -50,6 +64,7 @@ const Form = () => {
 
             <Input 
                className={"input--employee-id"}
+               type={"number"}
                name={"employeeId"} 
                placeholder={"Employee Id"}
                labelClass={"input--label-employee-id"}

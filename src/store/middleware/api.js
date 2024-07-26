@@ -10,9 +10,8 @@ const api = ({ dispatch }) => next => async action => {
       data, 
       onInit, 
       onFulfilled, 
-      onRejected, 
-      onShowError} = action.payload;
-   
+      onRejected } = action.payload;
+
    if (onInit) dispatch({type: onInit, payload: {isLoading: true}});
 
    try {
@@ -26,8 +25,7 @@ const api = ({ dispatch }) => next => async action => {
       dispatch({ type: onFulfilled, payload: response.data});
       
    } catch (error) {
-      dispatch({type: onRejected, payload: {errorMessage: `${error.message}`}})
-      dispatch({type: onShowError, payload: {errorMessage: `${error.response.data.message}`}})
+      dispatch({type: onRejected, payload: {errorMessage: `${error.response.data.message}`}})
    }
 }
 

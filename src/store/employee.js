@@ -37,17 +37,14 @@ const authSlice = createSlice({
    name: "auth",
    initialState: initialState.auth,
    reducers: {
-      gatherEmployeeInfo(state, action) {
-         const employee = state.current_employee;
-         const { employee_id, password } = action.payload;
-         employee.employee_id = employee_id;
-         employee.password = password;
-      },
       apiRequested(state, action) {
-         state.isLoading = action.payload.isLoading;
+         state.isAuthenticated = false;
+         state.isValid = false;
+         state.isLoading = true;
+         state.token = "";
+         state.errorMessage = "";
       },
       validateEmployee(state, action) {
-         console.log(action.payload);
          const data = action.payload;
 
          state.token = data.token;
@@ -59,15 +56,21 @@ const authSlice = createSlice({
          state.all_employees = action.payload;
          state.isLoading = false;
       },
+      clearAuth(state, action) {
+         state.isAuthenticated = false;
+         state.errorMessage = "";
+         state.isLoading = false;
+         state.isLoggedIn = false;
+         state.isValid = false;
+         state.message = "";
+         state.token = "";
+      },
       apiRequestFailed(state, action) {
          state.isLoading = false;
          state.errorMessage = action.payload.errorMessage;
       },
       showError(state, action) {
-         state.isAuthenticated = false;
-         state.isValid = false;
          state.isLoading = false;
-         state.token = ""
          console.log(action.payload.errorMessage)
       }
    }
@@ -75,10 +78,10 @@ const authSlice = createSlice({
 
 /* Reducers */
 export const {
-   gatherEmployeeInfo,
    apiRequested,
    validateEmployee,
    getAllEmployees,
+   clearAuth,
    apiRequestFailed,
    showError } = authSlice.actions;
 export const authReducer = authSlice.reducer;
@@ -95,13 +98,15 @@ export const loadEmployees = () => apiCallBegan({
 });
 
 export const validateCredentials = (loginData) => {
+   const toIntObj = {
+      ...loginData,
+      employee_id: loginData.employee_id.toString()
+   }
+   
    return apiCallBegan({
       url: loginUrl,
       method: "POST",
-      data: {
-         ...loginData,
-         employee_id: loginData.employee_id.toString()
-      },
+      data: toIntObj,
       onFulfilled: validateEmployee.type,
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
