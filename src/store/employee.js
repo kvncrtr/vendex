@@ -7,7 +7,6 @@ import LocalStorageService from "../services/local-storage";
 /* set todays date = new Date().toISOString().split("T")[0], */
 const initialState = {
    auth: {
-      all_employees: [],
       current_employee: {
          id: null,
          class: "C",
@@ -64,6 +63,7 @@ const authSlice = createSlice({
             state.errorMessage = "";
             LocalStorageService.setItem("token", token);
             LocalStorageService.setItem("isLoggedIn", true);
+            state.current_employee.employee_id = authObj.employee_id;
          } else {
             state.isAuthenticated = false;
             state.isValid = false;
@@ -99,6 +99,9 @@ const authSlice = createSlice({
          state.all_employees = action.payload;
          state.isLoading = false;
       },
+      getEmployeeById(state, action) {
+         state.current_employee = action.payload
+      },
       clearAuth(state, action) {
          state.isAuthenticated = false;
          state.errorMessage = "";
@@ -127,6 +130,7 @@ export const {
    unAuthenticateEmployee,
    validateToken,
    getAllEmployees,
+   getEmployeeById,
    clearAuth,
    apiRequestFailed,
    showError } = authSlice.actions;
@@ -158,3 +162,13 @@ export const validateCredentials = (loginData) => {
       onShowError: showError.type
    });
 };
+
+export const fetchEmployeeById = (id) => {
+   return apiCallBegan({
+      url: `${url}/${id}`,
+      data: {id},
+      onFulfilled: getEmployeeById.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+}
