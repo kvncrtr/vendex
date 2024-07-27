@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./api";
+import JWTService from "../services/jwt";
+import LocalStorageService from "../services/local-storage";
 
 /* Initial State */
 /* set todays date = new Date().toISOString().split("T")[0], */
@@ -19,7 +21,6 @@ const initialState = {
          employee_id: null,
          phone_number: null,
          email: "",
-         password: "",
          address: ""
       },
       isLoading: false,
@@ -52,6 +53,26 @@ const authSlice = createSlice({
          state.isAuthenticated = false;
          state.isValid = true;
       },
+      authenticateEmployee(state, action) {
+         const token = action.payload;
+         const authObj = JWTService.employeeTokenObj(token);
+         const isAuth = JWTService.authenticateToken(authObj);
+         
+         if (isAuth) {
+            state.isAuthenticated = true;
+            state.isLoggedIn = true;
+            state.errorMessage = "";
+            LocalStorageService.setItem("token", token);
+            LocalStorageService.setItem("isLoggedIn", true);
+         } else {
+            state.isAuthenticated = false;
+            state.isValid = false;
+            state.token = "";
+            state.isLoggedIn = true;
+            state.errorMessage = "Could not authenticate employee";
+         };
+         state.isLoading = false;
+      },
       getAllEmployees(state, action) {
          state.all_employees = action.payload;
          state.isLoading = false;
@@ -80,6 +101,7 @@ const authSlice = createSlice({
 export const {
    apiRequested,
    validateEmployee,
+   authenticateEmployee,
    getAllEmployees,
    clearAuth,
    apiRequestFailed,

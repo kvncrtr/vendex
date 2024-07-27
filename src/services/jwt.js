@@ -14,7 +14,8 @@ class JWTService {
       
       tokenObj = {
          ...this.decodeToken(token),
-         ...this.showHeadersFromToken(token)
+         ...this.showHeadersFromToken(token),
+         alg: "HS25"
       }
 
       return tokenObj;
