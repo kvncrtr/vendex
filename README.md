@@ -1,1 +1,1 @@
-git commit -m "retrive employee's profile once logged in";
+git commit -m "retrive employee's profile once redirected";
