@@ -14,7 +14,8 @@ const Form = () => {
    const dispatch = useDispatch();
    const errorMessage = useSelector(state => state.auth.errorMessage); 
    const isLoading = useSelector(state => state.auth.isLoading);
-   
+   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
    const [employeeId, setEmployeeId] = useState("");
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
@@ -40,6 +41,11 @@ const Form = () => {
          hasMounted.current = false;
       }
    }, [errorMessage]);
+
+   useEffect(() => {
+      setEmployeeId("");
+      setPassword("");
+   }, [isAuthenticated])
    
    useEffect(() => {
       idRef.current.focus();
@@ -93,10 +99,8 @@ const Form = () => {
                className={"button--login"}
                type={"submit"}
                title={"log into vendex"}
-               text={"Loign"}
-               setting={false}
-               // text={!isSubmitting ? "Login" : "Loading..."}
-               // setting={isSubmitting}
+               text={!isLoading ? "Login" : "Loading..."}
+               setting={isLoading}
             />
 
             <Link className="form--trouble">having trouble?</Link>

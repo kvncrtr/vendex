@@ -1,20 +1,24 @@
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import { useEffect } from "react";
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import LocalStorageService from '../../services/local-storage';
 
 const ProtectedRoutes = ({ children, ...props }) => {
-   const { isAuthenticated } = useAuth();
-   const token = LocalStorageService.getItem('token')
-   
-   if (!isAuthenticated || !token) <Navigate to="/Login" replace />
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const isLoggedIn = LocalStorageService.getItem("isLoggedIn")
+  const token = LocalStorageService.getItem("token");
 
-   return (
-      isAuthenticated && token ? (
-        <Outlet />  
-      ) : (
-        <Navigate to="/login" replace /> 
-      )
-    );
-  };
+  if (!isAuthenticated || !token || !isLoggedIn) (
+    <Navigate to="/login" replace />
+  );
+
+  return (
+    isAuthenticated && token && isLoggedIn ? (
+      <Outlet />  
+    ) : (
+      <Navigate to="/login" replace /> 
+    )
+  );
+};
 
 export default ProtectedRoutes;

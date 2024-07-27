@@ -1,0 +1,1 @@
+git commit -m "add isAuth selector to protedted route, navigate to home page on successful login, add login check to see if user is already authenticated, on login page load check local storage to see if employee already has a token generated, "

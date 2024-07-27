@@ -73,6 +73,26 @@ const authSlice = createSlice({
          };
          state.isLoading = false;
       },
+      unAuthenticateEmployee(state, action) {
+         state.isAuthenticated = false;
+      },
+      validateToken(state, action) {
+         const token = action.payload;
+         const tokenObj = JWTService.employeeTokenObj(token);
+         const authStatus = JWTService.authenticateToken(tokenObj);
+         
+         if (authStatus) {
+            state.isAuthenticated = true;
+            state.isLoggedIn = true;
+            state.errorMessage = "";
+         } else {
+            state.isAuthenticated = false;
+            state.isValid = false;
+            state.token = "";
+            state.isLoggedIn = true;
+            LocalStorageService.clearItems();
+         }
+      },
       getAllEmployees(state, action) {
          state.all_employees = action.payload;
          state.isLoading = false;
@@ -102,6 +122,8 @@ export const {
    apiRequested,
    validateEmployee,
    authenticateEmployee,
+   unAuthenticateEmployee,
+   validateToken,
    getAllEmployees,
    clearAuth,
    apiRequestFailed,
@@ -133,4 +155,4 @@ export const validateCredentials = (loginData) => {
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    });
-}
+};
