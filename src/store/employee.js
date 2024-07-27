@@ -85,6 +85,8 @@ const authSlice = createSlice({
             state.isAuthenticated = true;
             state.isLoggedIn = true;
             state.errorMessage = "";
+            state.token = token;
+            state.current_employee.employee_id = tokenObj.employee_id;
          } else {
             state.isAuthenticated = false;
             state.isValid = false;
