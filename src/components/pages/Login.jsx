@@ -17,14 +17,8 @@ const Login = () => {
    const navigate = useNavigate();
    const storedToken = LocalStorageService.getItem("token");
 
-   useEffect(() => {
-      if (storedToken) { dispatch(validateToken(storedToken)) };
-   }, [])
-
-   useEffect(() => {
-      if (isValid) { dispatch(authenticateEmployee(token)) }
-   }, [isValid]);
-
+   useEffect(() => { if (storedToken) { dispatch(validateToken(storedToken)) }}, []);
+   useEffect(() => { if (isValid) { dispatch(authenticateEmployee(token))}}, [isValid]);
    useEffect(() => {
       if (isAuthenticated) {
          navigate("/");

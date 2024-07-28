@@ -7,9 +7,7 @@ const Home = () => {
    const employeeId = useSelector(state => state.auth.current_employee.employee_id);
    const current_employee = useSelector(state => state.auth.current_employee);
 
-   useEffect(() => {
-      if (employeeId) { dispatch(fetchEmployeeById(employeeId)) }
-   }, [])
+   useEffect(() => { if (employeeId) { dispatch(fetchEmployeeById(employeeId)) }}, []);
 
    return (
       <div>

@@ -171,4 +171,4 @@ export const fetchEmployeeById = (id) => {
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
-}
+};

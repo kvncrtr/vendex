@@ -47,13 +47,8 @@ const Form = () => {
       setPassword("");
    }, [isAuthenticated])
    
-   useEffect(() => {
-      idRef.current.focus();
-   }, []);
-
-   useEffect(() => {
-      setError("");
-   }, [employeeId, password]);
+   useEffect(() => { idRef.current.focus()}, []);
+   useEffect(() => { setError("")}, [employeeId, password]);
    
    return (
       <form className='form--container' onSubmit={handleSubmit}> 
