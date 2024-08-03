@@ -228,6 +228,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 325px) {
   .menu--container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.588rem;
     background-color: #F8F9FA;
     width: 100vw;
     padding: 0.706rem; }
@@ -250,12 +253,13 @@ input[type="number"]::-webkit-outer-spin-button {
     opacity: 0.25;
     cursor: pointer; }
   .menu--list-case {
+    margin-top: 0.588rem; }
+  .menu--list-case li:not(:first-child) {
     margin-top: 1rem; }
   .menu--item {
     display: flex;
     align-items: center;
     gap: 0.471rem;
-    margin: 0 0 1rem 0;
     border-radius: 0.25rem;
     padding: 0.471rem 0.941rem;
     list-style: none;
@@ -275,7 +279,13 @@ input[type="number"]::-webkit-outer-spin-button {
     text-decoration: none; }
   .menu--link:visited,
   .menu--link:link {
-    color: #0E0E0E; } }
+    color: #0E0E0E; }
+  .menu--support-bar {
+    margin-top: 0.588rem; }
+  .menu--support-list-case {
+    margin-top: 0.588rem; }
+  .menu--support-list-case li:not(:first-child) {
+    margin-top: 1rem; } }
 
 @media screen and (min-width: 325px) {
   .sidebar--container {
@@ -313,4 +323,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .menu--shell {
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.075); }

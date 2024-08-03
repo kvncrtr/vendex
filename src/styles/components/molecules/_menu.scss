@@ -1,5 +1,8 @@
 @media screen and (min-width: 325px) {
    .menu--container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.588rem;
       background-color: $achromatic-400;
       width: 100vw;
       padding: 0.706rem;
@@ -32,6 +35,10 @@
    }
 
    .menu--list-case {
+      margin-top: 0.588rem;
+   }
+
+   .menu--list-case li:not(:first-child) {
       margin-top: 1rem;
    }
    
@@ -39,7 +46,6 @@
       display: flex;
       align-items: center;
       gap: 0.471rem;
-      margin: 0 0 1rem 0;
       border-radius: 0.25rem;
       padding: 0.471rem 0.941rem;
       list-style: none;
@@ -68,5 +74,17 @@
    .menu--link:visited,
    .menu--link:link {
       color: $achromatic-900;
+   }
+
+   .menu--support-bar {
+      margin-top: 0.588rem;
+   }
+
+   .menu--support-list-case {
+      margin-top: 0.588rem;
+   }
+
+   .menu--support-list-case li:not(:first-child) {
+      margin-top: 1rem;
    }
 }

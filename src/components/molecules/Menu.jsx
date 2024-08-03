@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import {SquaresFour, Nut, XSquare} from "@phosphor-icons/react";
+import { XSquare, SquaresFour, Nut, HardDrives, Swap, ChartLineUp, Info, Gear } from "@phosphor-icons/react";
+import MenuItem from "../atoms/MenuItem";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveStatus } from "../../store/sidebar";
@@ -10,13 +10,26 @@ const Menu = ({changeState}) => {
    const dispatch = useDispatch();
    const selected = useSelector(state => state.menu.active);
 
+   const menuItems = [
+      { key: 'dashboard', label: 'Dashboard', icon: SquaresFour, size: 19 },
+      { key: 'parts', label: 'Parts', icon: Nut, size: 19 },
+      { key: 'racks', label: 'Racks', icon: HardDrives, size: 19 },
+      { key: 'transfers', label: 'Transfers', icon: Swap, size: 19 },
+      { key: 'reports', label: 'Reports', icon: ChartLineUp, size: 19 },
+   ]
+
+   const supportItems = [
+      { key: 'help', label: 'Help', icon: Info, size: 19 },
+      { key: 'settings', label: 'Settings', icon: Gear, size: 19 },
+   ]
+
    const handleClick = (key) => {
       dispatch(setActiveStatus(key));
    };
 
    return ReactDOM.createPortal(
-      <div className="menu--container">
-         <nav className="menu--general-case">
+      <nav className="menu--container">
+         <div className="menu--general-case">
             
             <div className="menu--bar">
                <h6 className="menu--title">General</h6>
@@ -24,38 +37,42 @@ const Menu = ({changeState}) => {
             </div>
 
             <ul className="menu--list-case">
-               <li 
-                  className={`menu--item ${selected === "dashboard" ? "active" : ""}`} 
-                  onClick={() => handleClick("dashboard")}
-                  key="dashboard"
-               >
-                  <SquaresFour size={19}/>
-                  <Link className="menu--link" to="">
-                     <span className="menu--link-text">Dashboard</span>
-                  </Link>
-               </li>
-
-               <li
-                  className={`menu--item ${selected === "parts" ? "active" : ""}`}
-                  key="parts"
-                  onClick={() => handleClick("parts")}
-               >
-                  <Nut size={19} />
-                  <Link className="menu--link" to="">
-                  <span className="menu--link-text">Parts</span>
-                  </Link>
-               </li>
-
-               {/* 
-                  <li className="menu--list-item">Dashboard</li>
-                  <li className="menu--list-item">Parts</li>
-                  <li className="menu--list-item">Racks</li>
-                  <li className="menu--list-item">Transfers</li>
-                  <li className="menu--list-item">Reports</li> 
-               */}
+               {menuItems.map((item) => (
+                     <MenuItem 
+                        key={item.key}
+                        icon={item.icon}
+                        label={item.label}
+                        isActive={selected === item.key}
+                        onClick={() => handleClick(item.key)}
+                        size={item.size}
+                        to={"#"}
+                     />
+                  )
+               )}
             </ul>
-         </nav>
-      </div>, 
+         </div>
+
+         <div className="menu--support-case">
+            <div className="menu--support-bar">
+               <h6 className="menu--title">Support</h6>
+            </div>
+
+            <ul className="menu--support-list-case">
+               {supportItems.map((item) => (
+                     <MenuItem 
+                        key={item.key}
+                        icon={item.icon}
+                        label={item.label}
+                        isActive={selected === item.key}
+                        onClick={() => handleClick(item.key)}
+                        size={item.size}
+                        to={"#"}
+                     />
+                  )
+               )}
+            </ul>
+         </div>
+      </nav>, 
    document.querySelector(".menu--shell")
    );
 }
