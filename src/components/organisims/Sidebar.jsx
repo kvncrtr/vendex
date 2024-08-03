@@ -19,11 +19,11 @@ const Sidebar = () => {
             </div>
 
             <div  onClick={handleClick} className="sidebar--burger-icon">
-               <List className="sidebar--list-icon" size={24} />
+               <List weight="thin" className="sidebar--list-icon" size={24} />
             </div>
          </div>
 
-         {showMenu && <Menu />}
+         {showMenu && <Menu changeState={handleClick} />}
       </div>
    );
 };

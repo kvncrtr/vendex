@@ -1,0 +1,72 @@
+@media screen and (min-width: 325px) {
+   .menu--container {
+      background-color: $achromatic-400;
+      width: 100vw;
+      padding: 0.706rem;
+   }
+
+   .menu--bar {
+      display: flex;
+      justify-content: space-between;
+   }
+   
+   .menu--title {
+      margin: auto 0;
+      height: 100%;
+      color: $achromatic-700;
+   }
+   
+   .menu--icon {
+      color: $achromatic-700;
+      font-size: 2.353rem;
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      width: 2.353rem;
+      border-radius: 0.471rem;
+   }
+
+   .menu--icon:hover {
+      opacity: 0.25;
+      cursor: pointer;
+   }
+
+   .menu--list-case {
+      margin-top: 1rem;
+   }
+   
+   .menu--item {
+      display: flex;
+      align-items: center;
+      gap: 0.471rem;
+      margin: 0 0 1rem 0;
+      border-radius: 0.25rem;
+      padding: 0.471rem 0.941rem;
+      list-style: none;
+      height: 2.353rem;
+      width: 16.882rem;
+      cursor: pointer;
+   }
+   
+   .menu--item:hover {
+      opacity: 0.25;
+      color: $achromatic-900;
+      cursor: pointer;
+   }
+
+   .active, 
+   .active * {
+      background-color: $secondary-400;
+      color: $achromatic-100;
+   }
+
+   .menu--link {
+      cursor: pointer;
+      text-decoration: none;
+   }
+
+   .menu--link:visited,
+   .menu--link:link {
+      color: $achromatic-900;
+   }
+}

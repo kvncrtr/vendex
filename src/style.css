@@ -66,7 +66,13 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 0.76rem;
     line-height: normal;
     color: #003082;
-    text-decoration: none; } }
+    text-decoration: none; }
+  .menu--title {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; } }
 
 @media screen and (min-width: 767px) {
   .form--heading {
@@ -221,6 +227,57 @@ input[type="number"]::-webkit-outer-spin-button {
     display: none; } }
 
 @media screen and (min-width: 325px) {
+  .menu--container {
+    background-color: #F8F9FA;
+    width: 100vw;
+    padding: 0.706rem; }
+  .menu--bar {
+    display: flex;
+    justify-content: space-between; }
+  .menu--title {
+    margin: auto 0;
+    height: 100%;
+    color: #6E7289; }
+  .menu--icon {
+    color: #6E7289;
+    font-size: 2.353rem;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    width: 2.353rem;
+    border-radius: 0.471rem; }
+  .menu--icon:hover {
+    opacity: 0.25;
+    cursor: pointer; }
+  .menu--list-case {
+    margin-top: 1rem; }
+  .menu--item {
+    display: flex;
+    align-items: center;
+    gap: 0.471rem;
+    margin: 0 0 1rem 0;
+    border-radius: 0.25rem;
+    padding: 0.471rem 0.941rem;
+    list-style: none;
+    height: 2.353rem;
+    width: 16.882rem;
+    cursor: pointer; }
+  .menu--item:hover {
+    opacity: 0.25;
+    color: #0E0E0E;
+    cursor: pointer; }
+  .active,
+  .active * {
+    background-color: #438DEF;
+    color: #FFFFFF; }
+  .menu--link {
+    cursor: pointer;
+    text-decoration: none; }
+  .menu--link:visited,
+  .menu--link:link {
+    color: #0E0E0E; } }
+
+@media screen and (min-width: 325px) {
   .sidebar--container {
     display: flex;
     align-items: center;
@@ -242,7 +299,7 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
     width: 2.353rem;
     border-radius: 0.471rem;
-    box-shadow: 0rem 0rem 0.3rem 0.1rem #EAEAEA; }
+    box-shadow: 0rem 0rem 0.2rem 0.1rem #EAEAEA; }
   .sidebar--list-icon {
     height: 2.12rem;
     color: #6E7289; } }
@@ -252,3 +309,8 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 100vw;
   height: 100vh;
   background-color: #003082; }
+
+.menu--shell {
+  position: absolute;
+  top: 0;
+  left: 0; }

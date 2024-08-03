@@ -124,6 +124,13 @@ $fw-extra-bold: 800;
       color: $primary-500;
       text-decoration: none;
    }
+
+   // Menu
+
+   .menu--title {
+      @include font-heading-bold($px-17);
+      text-transform: uppercase;
+   }
 }
 
 // Tablet
