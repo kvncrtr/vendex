@@ -267,8 +267,8 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 16.882rem;
     cursor: pointer; }
   .menu--item:hover {
-    opacity: 0.25;
-    color: #0E0E0E;
+    opacity: 0.5;
+    color: #333333;
     cursor: pointer; }
   .active,
   .active * {

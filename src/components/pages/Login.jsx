@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Form from "../molecules/Form";
 
 import { authenticateEmployee, validateToken } from "../../store/employee";
+import { setActiveStatus } from "../../store/sidebar";
 import LocalStorageService from "../../services/local-storage";
 
 
@@ -21,7 +22,8 @@ const Login = () => {
    useEffect(() => { if (isValid) { dispatch(authenticateEmployee(token))}}, [isValid]);
    useEffect(() => {
       if (isAuthenticated) {
-         navigate("/");
+         dispatch(setActiveStatus("dashboard"));
+         navigate("/dashboard");
       };
    }, [isAuthenticated])
 

@@ -100,7 +100,10 @@ const authSlice = createSlice({
          state.isLoading = false;
       },
       getEmployeeById(state, action) {
-         state.current_employee = action.payload
+         state.current_employee = {
+            ...action.payload,
+            password: ""
+         }
       },
       clearAuth(state, action) {
          state.isAuthenticated = false;

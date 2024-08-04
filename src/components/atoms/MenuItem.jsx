@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const MenuItem = ({ icon: Icon, label, isActive, onClick, to, size }) => (
+const MenuItem = ({ icon: Icon, label, isActive, onClick, size }) => (
   <li className={`menu--item ${isActive ? 'active' : ''}`} onClick={onClick}>
     <Icon size={size} />
-    <Link className="menu--link" to={to}>
-      <span className="menu--link-text">{label}</span>
-    </Link>
+    <div>{label}</div>
   </li>
 );
 

@@ -5,8 +5,10 @@ import MenuItem from "../atoms/MenuItem";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveStatus } from "../../store/sidebar";
+import { useNavigate } from "react-router-dom";
 
 const Menu = ({changeState}) => {
+   const navigate = useNavigate();
    const dispatch = useDispatch();
    const selected = useSelector(state => state.menu.active);
 
@@ -25,6 +27,8 @@ const Menu = ({changeState}) => {
 
    const handleClick = (key) => {
       dispatch(setActiveStatus(key));
+      navigate(`/${key}`);
+      changeState();
    };
 
    return ReactDOM.createPortal(
@@ -45,7 +49,6 @@ const Menu = ({changeState}) => {
                         isActive={selected === item.key}
                         onClick={() => handleClick(item.key)}
                         size={item.size}
-                        to={"#"}
                      />
                   )
                )}
@@ -66,7 +69,6 @@ const Menu = ({changeState}) => {
                         isActive={selected === item.key}
                         onClick={() => handleClick(item.key)}
                         size={item.size}
-                        to={"#"}
                      />
                   )
                )}

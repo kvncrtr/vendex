@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEmployeeById } from "../../store/employee";
+
 
 import { List } from "@phosphor-icons/react";
 import logo from "../../assets/mim-logo.png";
 import Menu from "../molecules/Menu";
 
 const Sidebar = () => {
+   const dispatch = useDispatch();
+   const employeeId = useSelector(state => state.auth.current_employee.employee_id);
    const [showMenu, setShowMenu] = useState(false);
+   
+   useEffect(() => { if (employeeId) { dispatch(fetchEmployeeById(employeeId)) }}, []);
 
    const handleClick = () => {
       setShowMenu(!showMenu);
