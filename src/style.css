@@ -312,7 +312,25 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow: 0rem 0rem 0.2rem 0.1rem #EAEAEA; }
   .sidebar--list-icon {
     height: 2.12rem;
-    color: #6E7289; } }
+    color: #6E7289; }
+  .sidebar--menu-case {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .menu--shell {
+    display: none; }
+  .sidebar--container {
+    align-items: unset;
+    width: 14.824rem;
+    height: 100vh;
+    background-color: aquamarine; }
+  .sidebar--logo-case {
+    background-color: blueviolet;
+    width: 100%; }
+  .sidebar--burger-icon {
+    display: none; }
+  .sidebar--menu-case {
+    display: flex; } }
 
 .login--container {
   position: relative;

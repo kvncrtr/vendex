@@ -35,4 +35,34 @@
       height: 2.12rem;
       color: $achromatic-700;
    }
+
+   .sidebar--menu-case {
+      display: none;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .menu--shell {
+      display: none;
+   }
+
+   .sidebar--container {
+      align-items: unset;
+      width: 14.824rem;
+      height: 100vh;
+      background-color: aquamarine;
+   }
+
+   .sidebar--logo-case {
+      background-color: blueviolet;
+      width: 100%;
+   }
+
+   .sidebar--burger-icon {
+      display: none;
+   }
+
+   .sidebar--menu-case {
+      display: flex;
+   }
 }
