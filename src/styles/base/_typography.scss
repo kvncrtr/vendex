@@ -151,6 +151,14 @@ $fw-extra-bold: 800;
    .form--trouble { 
       @include font-body-details-semi-bold($px-14)
    }
+
+   // Menu
+
+   .sidebar--heading {
+      @include font-heading-bold($px-17);
+      text-transform: uppercase;
+      color: $achromatic-700;
+   }
 }
 
 // Desktop

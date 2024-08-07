@@ -1,17 +1,19 @@
 @media screen and (min-width: 325px) {
    .sidebar--container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       height: 4.353rem;
       padding: 0.706rem;
       background-color: $achromatic-100;
+
    }
 
    .sidebar--case {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
+      width: min-content;
       height: 2.118rem;
    }
    
@@ -29,6 +31,7 @@
       width: 2.353rem;
       border-radius: 0.471rem;
       box-shadow: 0rem 0rem 0.2rem .1rem $achromatic-600;
+      cursor: pointer;
    }
    
    .sidebar--list-icon {
@@ -46,15 +49,19 @@
       display: none;
    }
 
+   .sidebar--case {
+      display: none;
+   }
+
    .sidebar--container {
+      flex-direction: column;
+      justify-content: unset;
       align-items: unset;
       width: 14.824rem;
       height: 100vh;
-      background-color: aquamarine;
    }
 
    .sidebar--logo-case {
-      background-color: blueviolet;
       width: 100%;
    }
 
@@ -64,5 +71,20 @@
 
    .sidebar--menu-case {
       display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.294rem;
+   }
+
+   .menu--item {
+      display: flex;
+   }
+
+   .menu--item:not(:first-child) {
+      margin-top: 1rem;
+   }
+
+   .active {
+      width: auto;
    }
 }

@@ -93,7 +93,14 @@ input[type="number"]::-webkit-outer-spin-button {
     font-style: normal;
     font-weight: 600;
     font-size: 0.82rem;
-    line-height: normal; } }
+    line-height: normal; }
+  .sidebar--heading {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #6E7289; } }
 
 @media screen and (min-width: 1200px) {
   .form--heading {
@@ -290,6 +297,7 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 325px) {
   .sidebar--container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 4.353rem;
     padding: 0.706rem;
@@ -298,7 +306,7 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: min-content;
     height: 2.118rem; }
   .sidebar--logo-case {
     height: 2.118rem; }
@@ -309,7 +317,8 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
     width: 2.353rem;
     border-radius: 0.471rem;
-    box-shadow: 0rem 0rem 0.2rem 0.1rem #EAEAEA; }
+    box-shadow: 0rem 0rem 0.2rem 0.1rem #EAEAEA;
+    cursor: pointer; }
   .sidebar--list-icon {
     height: 2.12rem;
     color: #6E7289; }
@@ -319,18 +328,29 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 768px) {
   .menu--shell {
     display: none; }
+  .sidebar--case {
+    display: none; }
   .sidebar--container {
+    flex-direction: column;
+    justify-content: unset;
     align-items: unset;
     width: 14.824rem;
-    height: 100vh;
-    background-color: aquamarine; }
+    height: 100vh; }
   .sidebar--logo-case {
-    background-color: blueviolet;
     width: 100%; }
   .sidebar--burger-icon {
     display: none; }
   .sidebar--menu-case {
-    display: flex; } }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.294rem; }
+  .menu--item {
+    display: flex; }
+  .menu--item:not(:first-child) {
+    margin-top: 1rem; }
+  .active {
+    width: auto; } }
 
 .login--container {
   position: relative;
