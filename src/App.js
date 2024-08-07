@@ -17,7 +17,7 @@ import Sidebar from './components/organisims/Sidebar';
 function App() {
   return (
     <>
-      <Sidebar />
+      <HomeLayout />
       {/* <Routes>
         <Route path="/login" element={<Login />} replace />
         <Route path="*" element={<Login />} replace />

@@ -353,6 +353,10 @@ input[type="number"]::-webkit-outer-spin-button {
   .active {
     width: auto; } }
 
+@media screen and (min-width: 1280px) {
+  .sidebar--container {
+    width: 19.71rem; } }
+
 .login--container {
   position: relative;
   width: 100vw;
