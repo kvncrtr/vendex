@@ -295,6 +295,21 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-top: 1rem; } }
 
 @media screen and (min-width: 325px) {
+  .access--container {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .access--container {
+    display: none; } }
+
+@media screen and (min-width: 1280px) {
+  .access--container {
+    display: flex;
+    height: 100vh;
+    background-color: darkorange;
+    width: 21.05rem; } }
+
+@media screen and (min-width: 325px) {
   .sidebar--container {
     display: flex;
     justify-content: space-between;
@@ -355,7 +370,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .sidebar--container {
-    width: 19.71rem; } }
+    width: 17.18rem; } }
+
+@media screen and (min-width: 1280px) {
+  .home--layout-container {
+    display: grid;
+    grid-template-columns: 17.18rem 1fr 21.05rem; } }
 
 .login--container {
   position: relative;

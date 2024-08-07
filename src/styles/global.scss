@@ -13,9 +13,11 @@
 
 @import "./components/molecules/form";
 @import "./components/molecules/menu";
+@import "./components/molecules/access";
 
 @import "./components/organisims/sidebar";
 
+@import "./components/pages/homelayout";
 @import "./components/pages/login";
 
 .menu--shell {

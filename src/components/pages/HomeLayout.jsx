@@ -6,7 +6,7 @@ import Access from "../molecules/Access";
 
 const HomeLayout = () => {
   return (
-    <div className="home--layout">
+    <div className="home--layout-container">
       <Sidebar />
       <Searchbar />
       <div className="home--content-container">
