@@ -1,0 +1,16 @@
+@media screen and (min-width: 325px) {
+   .searchbar--container {
+      display: none;
+   }
+}
+
+@media screen and (min-width: 1280px) {
+   .searchbar--container {
+      display: flex;
+      grid-area: search;
+   }
+
+   .sidebar--menu-case {
+      margin-top: 0;
+   }
+}

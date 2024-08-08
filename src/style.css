@@ -305,9 +305,21 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 1280px) {
   .access--container {
     display: flex;
-    height: 100vh;
+    height: 200px;
     background-color: darkorange;
-    width: 21.05rem; } }
+    width: 21.05rem;
+    grid-area: "access"; } }
+
+@media screen and (min-width: 325px) {
+  .searchbar--container {
+    display: none; } }
+
+@media screen and (min-width: 1280px) {
+  .searchbar--container {
+    display: flex;
+    grid-area: search; }
+  .sidebar--menu-case {
+    margin-top: 0; } }
 
 @media screen and (min-width: 325px) {
   .sidebar--container {
@@ -370,13 +382,22 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .sidebar--container {
-    width: 17.18rem; } }
+    padding: 0 2.82rem;
+    grid-area: "side";
+    width: 17.18rem; }
+  .sidebar--logo-case {
+    display: none; }
+  .sidebar--menu-case {
+    margin-top: 1.88rem; } }
 
 @media screen and (min-width: 1280px) {
   .home--layout-container {
     display: grid;
     grid-template-columns: 17.18rem 1fr 21.05rem;
-    grid-template-rows: 4.35rem 1fr; } }
+    grid-template-rows: 4.35rem 1fr;
+    grid-template-areas: "search search search" "side content access"; }
+  .home--content-container {
+    grid-area: "content"; } }
 
 .login--container {
   position: relative;

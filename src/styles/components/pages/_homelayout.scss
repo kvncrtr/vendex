@@ -3,6 +3,12 @@
       display: grid;
       grid-template-columns: 17.18rem 1fr 21.05rem;
       grid-template-rows: 4.35rem 1fr;
-      // grid-template-areas: ; add areas here or assign to grid via cell locations 
+      grid-template-areas: 
+         "search search search"
+         "side content access"; 
+   }
+
+   .home--content-container {
+      grid-area: "content";
    }
 }

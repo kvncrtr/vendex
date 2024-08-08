@@ -13,10 +13,10 @@
 @media screen and (min-width: 1280px) {
    .access--container {
       display: flex;
-      height: 100vh;
+      height: 200px;
       background-color: darkorange;
       width: 21.05rem;
-      // grid-area: ;
+      grid-area: "access";
    }
 
    

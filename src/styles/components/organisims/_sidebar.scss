@@ -92,6 +92,16 @@
 
 @media screen and (min-width: 1280px) {
    .sidebar--container {
+      padding: 0 2.82rem;
+      grid-area: "side";
       width: 17.18rem;
+   }
+
+   .sidebar--logo-case {
+      display: none;
+   }
+
+   .sidebar--menu-case {
+      margin-top:1.88rem;
    }
 }
