@@ -375,7 +375,8 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 1280px) {
   .home--layout-container {
     display: grid;
-    grid-template-columns: 17.18rem 1fr 21.05rem; } }
+    grid-template-columns: 17.18rem 1fr 21.05rem;
+    grid-template-rows: 4.35rem 1fr; } }
 
 .login--container {
   position: relative;
