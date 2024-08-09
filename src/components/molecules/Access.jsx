@@ -4,7 +4,7 @@ import { UserCircle, DotsThreeVertical } from "@phosphor-icons/react";
 const Access = () => {
   return (
     <div className="access--container">
-      <div className="access--profile-case">
+       <div className="access--profile-case">
         <UserCircle size={38} />
 
         <div className="access--profile-details">
@@ -16,7 +16,6 @@ const Access = () => {
           <DotsThreeVertical className="access--three-dots" size={28} />
         </div>
       </div>
-
 
       <div className="access--week-trends-case">
         <h4 className="access--heading">Quick Access</h4>
@@ -58,7 +57,7 @@ const Access = () => {
 
       <div className="access--popular-inventory">
 
-      </div>
+      </div> 
     </div>
   )
 }

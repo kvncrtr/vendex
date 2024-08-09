@@ -7,7 +7,8 @@
   padding: 0; }
 
 html {
-  font-size: 17px; }
+  font-size: 17px;
+  width: 100%; }
 
 body {
   line-height: 1.5;
@@ -335,13 +336,11 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .access--container {
-    grid-area: "access";
     display: flex;
     flex-direction: column;
-    width: 21.05rem;
-    height: 100%;
     border-left: 0.059rem solid #CED4DA;
-    padding: 0; }
+    padding: 0;
+    height: 100%; }
   .access--profile-case {
     display: flex;
     align-items: center;
@@ -363,7 +362,6 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    width: 21.05rem;
     padding: 0 2.353rem 0.765rem;
     margin-top: 1.4rem;
     border-bottom: 0.059rem solid #CED4DA; }
@@ -377,11 +375,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .searchbar--container {
-    grid-area: search;
     display: flex;
     justify-content: space-between;
     border-bottom: 0.059rem solid #CED4DA;
-    padding: 1.118rem 4.176rem; }
+    padding: 1.118rem 4.176rem;
+    width: 100%;
+    height: 77px; }
   .searchbar--logo {
     height: 2.118rem; }
   .searchbar--input-case {
@@ -462,8 +461,8 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 1280px) {
   .sidebar--container {
     padding: 1.882rem 2.82rem 0;
-    grid-area: "side";
-    width: 17.18rem; }
+    width: 292px;
+    height: 100%; }
   .sidebar--logo-case {
     display: none; }
   .sidebar--menu-case {
@@ -472,17 +471,37 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 1280px) {
   .home--layout-container {
     display: grid;
-    grid-template-columns: 17.18rem 1fr 21.05rem;
-    grid-template-rows: 4.35rem 1fr;
-    grid-template-areas: "search search search" "side content access"; }
+    grid-template-columns: 292px 1fr 358px;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh; }
   .home--content-container {
-    grid-area: "content"; } }
+    background-color: indigo;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    overflow-y: auto;
+    padding: 1rem; }
+  .searchbar--parent {
+    position: sticky;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2; }
+  .sidebar--parent {
+    grid-column: 1 / 2;
+    grid-row: 2 / -1; }
+  .access--parent {
+    grid-column: 3/ -1;
+    grid-row: 2 / -1; } }
 
 .login--container {
   position: relative;
   width: 100vw;
   height: 100vh;
   background-color: #003082; }
+
+@media screen and (min-width: 1280px) {
+  .dashboard--container {
+    width: 44vw;
+    max-width: 600px;
+    height: 200vh; } }
 
 .menu--shell {
   position: absolute;

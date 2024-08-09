@@ -6,11 +6,12 @@
 
 @media screen and (min-width: 1280px) {
    .searchbar--container {
-      grid-area: search;
       display: flex;
       justify-content: space-between;
       border-bottom: 0.059rem solid $achromatic-500;
       padding: 1.118rem 4.176rem;
+      width: 100%;
+      height: 77px;
    }
    
    .searchbar--logo {

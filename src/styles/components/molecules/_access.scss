@@ -12,13 +12,11 @@
 
 @media screen and (min-width: 1280px) {
    .access--container {
-      grid-area: "access";
       display: flex;
       flex-direction: column;
-      width: 21.05rem;
-      height: 100%;
       border-left: 0.059rem solid $achromatic-500;
       padding: 0;
+      height: 100%;;
    }
 
    .access--profile-case {
@@ -52,7 +50,6 @@
       display: flex;
       flex-direction: column;
       gap: 1.4rem;
-      width: 21.05rem;
       padding: 0 2.353rem 0.765rem;
       margin-top: 1.4rem;
       border-bottom: 0.059rem solid $achromatic-500;

@@ -1,14 +1,32 @@
 @media screen and (min-width: 1280px) {
    .home--layout-container {
       display: grid;
-      grid-template-columns: 17.18rem 1fr 21.05rem;
-      grid-template-rows: 4.35rem 1fr;
-      grid-template-areas: 
-         "search search search"
-         "side content access"; 
+      grid-template-columns: 292px 1fr 358px;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
    }
 
    .home--content-container {
-      grid-area: "content";
+      background-color: indigo;
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      overflow-y: auto;
+      padding: 1rem;
+   }
+
+   .searchbar--parent {
+      position: sticky;
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+   }
+
+   .sidebar--parent {
+      grid-column: 1 / 2;
+      grid-row: 2 / -1;
+   }
+
+   .access--parent {
+      grid-column: 3/ -1;
+      grid-row: 2 / -1;
    }
 }
