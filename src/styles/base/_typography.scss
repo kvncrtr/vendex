@@ -171,5 +171,10 @@ $fw-extra-bold: 800;
    ::placeholder {
       @include font-input-placeholder($px-15);
    }
+
+   .searchinput--field::placeholder {
+      @include font-input-placeholder($px-17);
+      color: $achromatic-700;
+   }
 }
 

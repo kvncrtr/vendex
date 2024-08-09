@@ -111,7 +111,12 @@ input[type="number"]::-webkit-outer-spin-button {
   ::placeholder {
     font-size: 0.88rem;
     font-weight: 300;
-    color: #333333; } }
+    color: #333333; }
+  .searchinput--field::placeholder {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #333333;
+    color: #6E7289; } }
 
 @media screen and (min-width: 325px) {
   .button--container {
@@ -164,6 +169,14 @@ input[type="number"]::-webkit-outer-spin-button {
   .input--password {
     width: 36.5vw;
     max-width: unset; } }
+
+@media screen and (min-width: 325px) {
+  .search--input-container {
+    display: none; } }
+
+@media screen and (min-width: 1280px) {
+  .search--input-container {
+    display: block; } }
 
 @media screen and (min-width: 325px) {
   .form--container {
@@ -316,10 +329,28 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .searchbar--container {
+    grid-area: search;
     display: flex;
-    grid-area: search; }
-  .sidebar--menu-case {
-    margin-top: 0; } }
+    justify-content: space-between;
+    border-bottom: 0.059rem solid #CED4DA;
+    padding: 1.118rem 4.176rem; }
+  .searchbar--logo {
+    height: 2.118rem; }
+  .searchbar--input-case {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 15.059rem; }
+  .searchinput--field {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0rem 0rem 0.2rem 0.1rem #EAEAEA;
+    border: none;
+    padding: 0.353rem 0.782rem 0.353rem 3.353rem;
+    border-radius: 0.471rem; }
+  .searchbar--search-button {
+    position: absolute;
+    left: 0.782rem; } }
 
 @media screen and (min-width: 325px) {
   .sidebar--container {

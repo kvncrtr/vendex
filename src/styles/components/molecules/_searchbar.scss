@@ -6,11 +6,35 @@
 
 @media screen and (min-width: 1280px) {
    .searchbar--container {
-      display: flex;
       grid-area: search;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.059rem solid $achromatic-500;
+      padding: 1.118rem 4.176rem;
+   }
+   
+   .searchbar--logo {
+      height: 2.118rem;
    }
 
-   .sidebar--menu-case {
-      margin-top: 0;
+   .searchbar--input-case {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 15.059rem;
+   }
+
+   .searchinput--field {
+      height: 100%;
+      width: 100%;
+      box-shadow: 0rem 0rem 0.2rem .1rem $achromatic-600;
+      border: none;
+      padding: 0.353rem 0.782rem 0.353rem 3.353rem;
+      border-radius: 0.471rem;
+   }
+
+   .searchbar--search-button {
+      position: absolute;
+      left: 0.782rem;
    }
 }
