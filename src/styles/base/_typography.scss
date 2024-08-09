@@ -87,7 +87,7 @@ $fw-extra-bold: 800;
    color: $achromatic-800;
 }
    
-// Mobile (start with Body)
+// Mobile
 
 @media screen and (min-width: 325px) {
    body {
@@ -172,9 +172,31 @@ $fw-extra-bold: 800;
       @include font-input-placeholder($px-15);
    }
 
+   // Search Bar
+
    .searchinput--field::placeholder {
       @include font-input-placeholder($px-17);
       color: $achromatic-700;
+   }
+
+   .green {
+      color: $secondary-200;
+   }
+
+   .red {
+      color: $secondary-300;
+   }
+
+   .access--profile-job-title {
+      @include font-body-details;
+      color: $secondary-700;
+      opacity: 0.75;
+   }
+
+   .access--detail-title {
+      @include font-heading-bold($px-17);
+      color: $secondary-700;
+      opacity: 0.75;
    }
 }
 

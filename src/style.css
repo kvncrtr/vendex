@@ -116,7 +116,25 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 1rem;
     font-weight: 300;
     color: #333333;
-    color: #6E7289; } }
+    color: #6E7289; }
+  .green {
+    color: #46F57D; }
+  .red {
+    color: #F54654; }
+  .access--profile-job-title {
+    font-style: normal;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: normal;
+    color: #5C6F88;
+    opacity: 0.75; }
+  .access--detail-title {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: normal;
+    color: #5C6F88;
+    opacity: 0.75; } }
 
 @media screen and (min-width: 325px) {
   .button--container {
@@ -317,11 +335,41 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .access--container {
+    grid-area: "access";
     display: flex;
-    height: 200px;
-    background-color: darkorange;
+    flex-direction: column;
     width: 21.05rem;
-    grid-area: "access"; } }
+    height: 100%;
+    border-left: 0.059rem solid #CED4DA;
+    padding: 0; }
+  .access--profile-case {
+    display: flex;
+    align-items: center;
+    padding: 1.4rem 2.353rem 2.529rem;
+    line-height: 0.8;
+    border-bottom: 0.059rem solid #CED4DA; }
+  .access--profile-details {
+    margin-left: 0.529rem; }
+  .access--three-dot-case {
+    border: 0.059rem solid #CED4DA;
+    border-radius: 0.235rem;
+    margin-left: 4.706rem; }
+  .access--three-dots {
+    color: #5C6F88;
+    opacity: 0.75; }
+  .access--heading {
+    padding: 1.882rem 2.353rem 0; }
+  .access--week-to-date-case {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 21.05rem;
+    padding: 0 2.353rem 0.765rem;
+    margin-top: 1.4rem;
+    border-bottom: 0.059rem solid #CED4DA; }
+  .access--detail-case {
+    display: flex;
+    gap: 0.5rem; } }
 
 @media screen and (min-width: 325px) {
   .searchbar--container {
@@ -413,7 +461,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1280px) {
   .sidebar--container {
-    padding: 0 2.82rem;
+    padding: 1.882rem 2.82rem 0;
     grid-area: "side";
     width: 17.18rem; }
   .sidebar--logo-case {
