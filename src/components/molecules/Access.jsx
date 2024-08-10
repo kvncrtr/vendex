@@ -52,12 +52,38 @@ const Access = () => {
       </div>
 
       <div className="access--alerts-case">
+        <h4 className="access--alert-heading">Alerts</h4>
+        
+        <div className="access--alert-feed">
+          <div className="access--alert">
+            <p className="access--alert-type">Inventory Alert</p>
+            <p className="access--time-and-date">08/12/24</p>
+            <div className="access--content-case">
+              <p className="access--alert-details"><span className="access--alert-title">Part:</span> 0705372 updated to MRB</p>
+              <p className="access--alert-note"><span className="access--alert-note-title">Note:</span> pkg1470001 boxes are out of stock</p>
+            </div>
+          </div>
+{/* 
+          <div className="access--alert">
+            <p className="access--alert-type">Process:</p>
+            <p className="access--alert-details">line cable managers with rack frame first</p>
+            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+          </div>
 
+          <div className="access--alert">
+            <p className="access--alert-type">Process:</p>
+            <p className="access--alert-details">line cable managers with rack frame first</p>
+            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+          </div>
+
+          <div className="access--alert">
+            <p className="access--alert-type">Process:</p>
+            <p className="access--alert-details">line cable managers with rack frame first</p>
+            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+          </div>
+           */}
+        </div>
       </div>
-
-      <div className="access--popular-inventory">
-
-      </div> 
     </div>
   )
 }

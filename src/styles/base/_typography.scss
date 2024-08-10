@@ -198,5 +198,19 @@ $fw-extra-bold: 800;
       color: $secondary-700;
       opacity: 0.75;
    }
+
+   .access--alert-title {
+      @include font-body-details-semi-bold($px-17);
+   }
+
+   .access--alert-note {
+      @include font-body-details;
+      font-size: $px-15;
+      color: $achromatic-700;
+      opacity: 0.4;
+      font-style: italic;
+   }
+
+
 }
 
