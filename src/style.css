@@ -459,7 +459,8 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     height: 4.353rem;
     padding: 0.706rem;
-    background-color: #FFFFFF; }
+    background-color: #FFFFFF;
+    border-bottom: 0.059rem solid #CED4DA; }
   .sidebar--case {
     display: flex;
     justify-content: space-between;

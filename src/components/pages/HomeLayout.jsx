@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../organisims/Sidebar";
 import Searchbar from "../molecules/Searchbar";
 import Access from "../molecules/Access";
-import Dashboard from "./Dashboard"
+import Parts from "./Parts";
 
 const HomeLayout = () => {
   return (
@@ -18,7 +18,7 @@ const HomeLayout = () => {
 
       <div className="home--content-container">
         {/* <Outlet />  */}
-        <Dashboard />
+        <Parts />
       </div>
 
       <div className="access--parent">
