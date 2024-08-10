@@ -1,0 +1,12 @@
+@media screen and (min-width: 325px) {
+   .parts--container {
+      height: max-content;
+      background-color: gold;   
+   }
+
+   .parts--add-button {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+   }
+}

@@ -7,7 +7,7 @@ const Button = ({ type, title, text, setting, className, ...props }) => {
             title={title}
             disabled={setting}
          >
-            {text}
+            {props.icon && props.icon} {text}
          </button>
       </div>
    );
