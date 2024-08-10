@@ -186,29 +186,46 @@ $fw-extra-bold: 800;
    .red {
       color: $secondary-300;
    }
-
+   
    .access--profile-job-title {
       @include font-body-details;
       color: $secondary-700;
       opacity: 0.75;
    }
-
+   
    .access--detail-title {
       @include font-heading-bold($px-17);
       color: $secondary-700;
       opacity: 0.75;
    }
 
+   .access--alert-type {
+      overflow: hidden;
+      text-overflow:clip ;
+      white-space: nowrap;
+   }
+
+   .access--content-case {
+      overflow: hidden;
+      text-overflow:clip ;
+      white-space: nowrap;
+   }
+   
    .access--alert-title {
       @include font-body-details-semi-bold($px-17);
    }
-
+   
    .access--alert-note {
       @include font-body-details;
       font-size: $px-15;
       color: $achromatic-700;
       opacity: 0.4;
       font-style: italic;
+      text-overflow: ellipsis;
+   }
+   
+   .access--time-and-date {
+      text-align: end;
    }
 
 

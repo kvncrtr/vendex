@@ -57,31 +57,93 @@ const Access = () => {
         <div className="access--alert-feed">
           <div className="access--alert">
             <p className="access--alert-type">Inventory Alert</p>
-            <p className="access--time-and-date">08/12/24</p>
+
+            <p className="access--time-and-date">Now</p>
+
             <div className="access--content-case">
-              <p className="access--alert-details"><span className="access--alert-title">Part:</span> 0705372 updated to MRB</p>
-              <p className="access--alert-note"><span className="access--alert-note-title">Note:</span> pkg1470001 boxes are out of stock</p>
+              <p className="access--alert-details">
+                <span className="access--alert-title">Part:</span>
+                0705372 updated to MRB
+              </p>
+
+              <p className="access--alert-note">
+                <span className="access--alert-note-title">Note:</span> 
+                pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock
+              </p>
             </div>
           </div>
-{/* 
+
           <div className="access--alert">
-            <p className="access--alert-type">Process:</p>
-            <p className="access--alert-details">line cable managers with rack frame first</p>
-            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+            <p className="access--alert-type">Process Alert</p>
+
+            <p className="access--time-and-date">Now</p>
+
+            <div className="access--content-case">
+              <p className="access--alert-details">
+                <span className="access--alert-title">PFM:</span>
+                All rear screens must be removed prior to TOR
+              </p>
+
+              <p className="access--alert-note">
+                <span className="access--alert-note-title">Note:</span> 
+                TOR assembly requires the rear screen to be removed. Please do not assemble the TOR machine shelf on the workstation.
+              </p>
+            </div>
           </div>
 
           <div className="access--alert">
-            <p className="access--alert-type">Process:</p>
-            <p className="access--alert-details">line cable managers with rack frame first</p>
-            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+            <p className="access--alert-type">Quality Alert</p>
+
+            <p className="access--time-and-date">1hr ago</p>
+
+            <div className="access--content-case">
+              <p className="access--alert-details">
+                <span className="access--alert-title">Part:</span>
+                10005565 has corrupt manufactures
+              </p>
+
+              <p className="access--alert-note">
+                <span className="access--alert-note-title">Note:</span> 
+                Asset Tags dating from 2018 week 20 to 2022 week 43 has doors and frames that are not meeting customers expectations
+              </p>
+            </div>
           </div>
 
           <div className="access--alert">
-            <p className="access--alert-type">Process:</p>
-            <p className="access--alert-details">line cable managers with rack frame first</p>
-            <p className="access--alert-notes">Notes: starting monday 8/9/24</p>
+            <p className="access--alert-type">Inventory Alert</p>
+
+            <p className="access--time-and-date">2d ago</p>
+
+            <div className="access--content-case">
+              <p className="access--alert-details">
+                <span className="access--alert-title">Part:</span>
+                0705372 updated to MRB
+              </p>
+
+              <p className="access--alert-note">
+                <span className="access--alert-note-title">Note:</span> 
+                pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock
+              </p>
+            </div>
           </div>
-           */}
+
+          <div className="access--alert">
+            <p className="access--alert-type">Inventory Alert</p>
+
+            <p className="access--time-and-date">Now</p>
+
+            <div className="access--content-case">
+              <p className="access--alert-details">
+                <span className="access--alert-title">Part:</span>
+                0705372 updated to MRB
+              </p>
+
+              <p className="access--alert-note">
+                <span className="access--alert-note-title">Note:</span> 
+                pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock pkg1470001 boxes are out of stock
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
