@@ -561,17 +561,18 @@ input[type="number"]::-webkit-outer-spin-button {
 @media screen and (min-width: 325px) {
   .parts--container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 5.5rem;
-    background-color: #F2F2F2;
-    border-bottom: 0.059rem solid #CED4DA; }
+    height: calc(100vh - 4.352rem); }
   .parts--add-case {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 2.176rem;
     width: 100%;
-    padding: 0 0.706rem; }
+    height: 5.5rem;
+    padding: 0 0.706rem;
+    border-bottom: 0.059rem solid #CED4DA;
+    background-color: #F2F2F2; }
   .parts--add-title {
     align-self: center; }
   .parts--add-button {

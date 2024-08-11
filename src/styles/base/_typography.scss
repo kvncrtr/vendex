@@ -192,6 +192,8 @@ $fw-extra-bold: 800;
    .red {
       color: $secondary-300;
    }
+
+   // Access
    
    .access--profile-job-title {
       @include font-body-details;
