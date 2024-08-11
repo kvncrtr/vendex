@@ -1,16 +1,37 @@
 import React from "react";
 
 const Table = ({data}) => {
-  
+  const renderedRows = data.map((part) => (
+      <tr key={part.name}>
+        <td>{part.category}</td>
+        <td>{part.brand}</td>
+        <td>{part.name}</td>
+        <td>{part.part_number}</td>
+        <td>{part.upc}</td>
+        <td>{part.price}</td>
+        <td>{part.description}</td>
+        <td>{part.on_hand}</td>
+        <td>{part.weight}</td>
+        <td>{part.audited_at}</td>
+      </tr>
+    )) 
   return (
-    <table>
+    <table className={className}>
       <thead>
         <tr>
+          <th>Category</th>
+          <th>Brand</th>
           <th>Name</th>
           <th>Part Number</th>
-          <th>Category</th>
+          <th>UPC</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>On Hand</th>
+          <th>Weight</th>
+          <th>Audited At</th>
         </tr>
       </thead>
+      <tbody>{renderedRows}</tbody>
     </table>
   );
 };

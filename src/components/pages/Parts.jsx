@@ -5,8 +5,7 @@ import { PlusCircle } from "@phosphor-icons/react";
 import PartsData from "../../services/parts";
 
 const Parts = () => {
-  const data = PartsData.data;
-  
+  const data = PartsData.info;
   return (
     <div className="parts--container">
       <div className="parts--add-case">
@@ -19,7 +18,7 @@ const Parts = () => {
           />
       </div>
 
-      <Table data={data} />
+      <Table className={"part--table-case"} data={data} />
     </div>
   );
 };
