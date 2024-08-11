@@ -131,6 +131,12 @@ $fw-extra-bold: 800;
       @include font-heading-bold($px-17);
       text-transform: uppercase;
    }
+
+   // Parts
+
+   .parts--add-title {
+      color: $achromatic-900;
+   }
 }
 
 // Tablet
@@ -227,7 +233,5 @@ $fw-extra-bold: 800;
    .access--time-and-date {
       text-align: end;
    }
-
-
 }
 

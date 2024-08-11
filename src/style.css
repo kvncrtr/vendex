@@ -73,7 +73,9 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 1rem;
     font-weight: 700;
     line-height: normal;
-    text-transform: uppercase; } }
+    text-transform: uppercase; }
+  .parts--add-title {
+    color: #0E0E0E; } }
 
 @media screen and (min-width: 767px) {
   .form--heading {
@@ -558,12 +560,33 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 325px) {
   .parts--container {
-    height: max-content;
-    background-color: gold; }
+    display: flex;
+    align-items: center;
+    height: 5.5rem;
+    background-color: #F2F2F2;
+    border-bottom: 0.059rem solid #CED4DA; }
+  .parts--add-case {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.176rem;
+    width: 100%;
+    padding: 0 0.706rem; }
+  .parts--add-title {
+    align-self: center; }
   .parts--add-button {
     display: flex;
     align-items: center;
-    gap: 0.25rem; } }
+    justify-content: center;
+    gap: 0.25rem;
+    width: 9.941rem;
+    border: none;
+    border-radius: 0.235rem;
+    background-color: #438DEF;
+    color: #FFFFFF; }
+  .button--container {
+    margin: 0;
+    height: 2.176rem; } }
 
 .menu--shell {
   position: absolute;

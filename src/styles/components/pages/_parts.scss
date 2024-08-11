@@ -1,12 +1,41 @@
 @media screen and (min-width: 325px) {
    .parts--container {
-      height: max-content;
-      background-color: gold;   
+      display: flex;
+      align-items: center;
+      height: 5.5rem;
+      background-color: $achromatic-200;
+      border-bottom: 0.059rem solid $achromatic-500;
    }
 
+   .parts--add-case {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 2.176rem;
+      width: 100%;
+      padding: 0 0.706rem; 
+   }
+
+   .parts--add-title {
+      align-self: center;
+   }
+   
    .parts--add-button {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.25rem;
+      width: 9.941rem;
+      border: none;
+      border-radius: 0.235rem;
+      background-color: $secondary-400;
+      color: $achromatic-100;
    }
+
+   .button--container {
+      margin: 0;
+      height: 2.176rem;
+   }
+
+   
 }

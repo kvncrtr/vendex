@@ -13,7 +13,6 @@ const Parts = () => {
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
         />
-
       </div>
     </div>
   )
