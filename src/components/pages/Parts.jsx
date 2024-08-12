@@ -25,7 +25,9 @@ const Parts = () => {
       <Table 
         className={"parts--table-case"} 
         headingCaseClassName={"parts--heading-case"}
+        headRowClassName={"parts--row-head"}
         headingClassName={"parts--table-headings"} 
+        rowClassName={"parts--row"}
         data={data}
       />
     </div>

@@ -42,28 +42,17 @@
       margin-top: 1rem;
       padding: 0.705rem 0; 
    }
-
+   
    .parts--table-case {
       align-self: start;
-      table-layout: fixed;
       border-collapse: collapse;
       width: 100%;
+      text-align: center;
+      overflow: hidden;
       margin-top: 1.117rem;
    }
 
-   .parts--heading-case {
+   .parts--row-head {
       background-color: $achromatic-200;
-      height: 2.705rem;
    }
-
-   .parts--table-headings {
-      width: 8rem;
-      height: 2.235rem;
-      text-align: left;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-   }
-
-   
 }

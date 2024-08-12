@@ -595,20 +595,13 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0.705rem 0; }
   .parts--table-case {
     align-self: start;
-    table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 1.117rem; }
-  .parts--heading-case {
-    background-color: #F2F2F2;
-    height: 2.705rem; }
-  .parts--table-headings {
-    width: 8rem;
-    height: 2.235rem;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; } }
+    margin-top: 1.117rem; }
+  .parts--row-head {
+    background-color: #F2F2F2; } }
 
 .menu--shell {
   position: absolute;

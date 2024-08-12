@@ -1,8 +1,8 @@
 import React from "react";
 
-const Table = ({data, className, headingCaseClassName, headingClassName}) => {
+const Table = ({data, className, headingCaseClassName, headingClassName, rowClassName}) => {
   const renderedRows = data.map((part) => (
-      <tr key={part.name}>
+      <tr className={rowClassName} key={part.name}>
         <td>{part.category}</td>
         <td>{part.brand}</td>
         <td>{part.name}</td>
