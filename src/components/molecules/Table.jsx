@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({data}) => {
+const Table = ({data, className, headingCaseClassName, headingClassName}) => {
   const renderedRows = data.map((part) => (
       <tr key={part.name}>
         <td>{part.category}</td>
@@ -17,18 +17,18 @@ const Table = ({data}) => {
     )) 
   return (
     <table className={className}>
-      <thead>
+      <thead className={headingCaseClassName}>
         <tr>
-          <th>Category</th>
-          <th>Brand</th>
-          <th>Name</th>
-          <th>Part Number</th>
-          <th>UPC</th>
-          <th>Price</th>
-          <th>Description</th>
-          <th>On Hand</th>
-          <th>Weight</th>
-          <th>Audited At</th>
+          <th className={headingClassName}>Category</th>
+          <th className={headingClassName}>Brand</th>
+          <th className={headingClassName}>Name</th>
+          <th className={headingClassName}>Part Number</th>
+          <th className={headingClassName}>UPC</th>
+          <th className={headingClassName}>Price</th>
+          <th className={headingClassName}>Description</th>
+          <th className={headingClassName}>On Hand</th>
+          <th className={headingClassName}>Weight</th>
+          <th className={headingClassName}>Audited At</th>
         </tr>
       </thead>
       <tbody>{renderedRows}</tbody>
@@ -63,4 +63,5 @@ export default Table;
   transfer_id: 706,
   rack_id: 806
 }
+
 */ 

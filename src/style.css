@@ -75,7 +75,9 @@ input[type="number"]::-webkit-outer-spin-button {
     line-height: normal;
     text-transform: uppercase; }
   .parts--add-title {
-    color: #0E0E0E; } }
+    color: #0E0E0E; }
+  .parts--heading-case {
+    color: #5C6F88; } }
 
 @media screen and (min-width: 767px) {
   .form--heading {
@@ -587,7 +589,26 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #FFFFFF; }
   .button--container {
     margin: 0;
-    height: 2.176rem; } }
+    height: 2.176rem; }
+  .parts--title-case {
+    margin-top: 1rem;
+    padding: 0.705rem 0; }
+  .parts--table-case {
+    align-self: start;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1.117rem; }
+  .parts--heading-case {
+    background-color: #F2F2F2;
+    height: 2.705rem; }
+  .parts--table-headings {
+    width: 8rem;
+    height: 2.235rem;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; } }
 
 .menu--shell {
   position: absolute;

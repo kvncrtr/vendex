@@ -18,9 +18,20 @@ const Parts = () => {
           />
       </div>
 
-      <Table className={"part--table-case"} data={data} />
+      <div className="parts--title-case">
+        <h4 className={"parts--title"}>Product List</h4>
+      </div>
+
+      <Table 
+        className={"parts--table-case"} 
+        headingCaseClassName={"parts--heading-case"}
+        headingClassName={"parts--table-headings"} 
+        data={data}
+      />
     </div>
   );
 };
 
 export default Parts
+// git switch main; git merge parts; git push; git switch parts
+// git add .; git commit -m ""; git push origin parts
