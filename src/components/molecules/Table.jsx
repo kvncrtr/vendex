@@ -1,37 +1,17 @@
 import React from "react";
 
-const Table = ({data, className, headingCaseClassName, headingClassName, rowClassName}) => {
-  const renderedRows = data.map((part) => (
-      <tr className={rowClassName} key={part.name}>
-        <td>{part.category}</td>
-        <td>{part.brand}</td>
-        <td>{part.name}</td>
-        <td>{part.part_number}</td>
-        <td>{part.upc}</td>
-        <td>{part.price}</td>
-        <td>{part.description}</td>
-        <td>{part.on_hand}</td>
-        <td>{part.weight}</td>
-        <td>{part.audited_at}</td>
-      </tr>
-    )) 
+const Table = ({ data, className }) => {
   return (
     <table className={className}>
-      <thead className={headingCaseClassName}>
+      <thead>
         <tr>
-          <th className={headingClassName}>Category</th>
-          <th className={headingClassName}>Brand</th>
-          <th className={headingClassName}>Name</th>
-          <th className={headingClassName}>Part Number</th>
-          <th className={headingClassName}>UPC</th>
-          <th className={headingClassName}>Price</th>
-          <th className={headingClassName}>Description</th>
-          <th className={headingClassName}>On Hand</th>
-          <th className={headingClassName}>Weight</th>
-          <th className={headingClassName}>Audited At</th>
+          <th>Category</th>
+          <th>Name</th>
+          <th>Part Number</th>
+          <th>Description</th>
         </tr>
       </thead>
-      <tbody>{renderedRows}</tbody>
+
     </table>
   );
 };

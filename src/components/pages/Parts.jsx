@@ -21,15 +21,13 @@ const Parts = () => {
       <div className="parts--title-case">
         <h4 className={"parts--title"}>Product List</h4>
       </div>
-
-      <Table 
-        className={"parts--table-case"} 
-        headingCaseClassName={"parts--heading-case"}
-        headRowClassName={"parts--row-head"}
-        headingClassName={"parts--table-headings"} 
-        rowClassName={"parts--row"}
-        data={data}
-      />
+      
+      <div className="parts--table-container">
+        <Table 
+          data={data}
+          className={"parts--table-case"} 
+        />
+      </div>
     </div>
   );
 };

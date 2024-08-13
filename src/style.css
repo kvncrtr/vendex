@@ -589,45 +589,7 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #FFFFFF; }
   .button--container {
     margin: 0;
-    height: 2.176rem; }
-  .parts--title-case {
-    margin-top: 1rem;
-    padding: 0.705rem 0; }
-  .parts--table-case {
-    table-layout: fixed;
-    align-self: start;
-    border-collapse: collapse;
-    width: 400vw;
-    text-align: center;
-    overflow: hidden;
-    margin-top: 1.117rem; }
-  .parts--row-head {
-    background-color: #F2F2F2; }
-  .parts--heading-case {
-    text-align: left; }
-  .parts--heading-case th {
-    height: 2.705rem;
-    background-color: #F2F2F2; }
-  .parts--heading-case th:nth-child(1) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(2) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(3) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(4) {
-    width: 9rem; }
-  .parts--heading-case th:nth-child(5) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(6) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(7) {
-    width: 19.117rem; }
-  .parts--heading-case th:nth-child(8) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(9) {
-    width: 6.823rem; }
-  .parts--heading-case th:nth-child(10) {
-    width: 6.823rem; } }
+    height: 2.176rem; } }
 
 .menu--shell {
   position: absolute;
