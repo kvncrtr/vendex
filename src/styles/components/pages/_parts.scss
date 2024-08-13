@@ -38,8 +38,14 @@
       height: 2.176rem;
    }
 
-   .parts--table-container {
-      
+   .parts--table-container {}
+
+   .parts--table-case {
+      border-collapse: collapse;
+   }
+
+   .parts--thead tr {
+      background-color: $achromatic-200;
    }
    
    // .parts--title-case {

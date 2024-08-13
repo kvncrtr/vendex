@@ -589,7 +589,11 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #FFFFFF; }
   .button--container {
     margin: 0;
-    height: 2.176rem; } }
+    height: 2.176rem; }
+  .parts--table-case {
+    border-collapse: collapse; }
+  .parts--thead tr {
+    background-color: #F2F2F2; } }
 
 .menu--shell {
   position: absolute;

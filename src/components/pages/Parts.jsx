@@ -26,6 +26,8 @@ const Parts = () => {
         <Table 
           data={data}
           className={"parts--table-case"} 
+          theadClassName={"parts--thead"}
+          theadRowClassName={"parts--thead-row"}
         />
       </div>
     </div>
@@ -33,5 +35,5 @@ const Parts = () => {
 };
 
 export default Parts
-// git switch main; git merge parts; git push; git switch parts
 // git add .; git commit -m ""; git push origin parts
+// git switch main; git merge parts; git push; git switch parts

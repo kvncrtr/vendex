@@ -1,16 +1,23 @@
 import React from "react";
 
-const Table = ({ data, className }) => {
+const Table = ({ data, className, theadClassName, theadRowClassName }) => {
+  const renderedRows = data.map((part) => {
+    console.log(part)
+  });
+
   return (
     <table className={className}>
-      <thead>
-        <tr>
+      <thead className={theadClassName}>
+        <tr className={theadRowClassName}>
+          <th><input type="checkbox" /></th>
           <th>Category</th>
           <th>Name</th>
           <th>Part Number</th>
           <th>Description</th>
         </tr>
       </thead>
+
+      <tbody><tr>{renderedRows}</tr></tbody>
 
     </table>
   );
