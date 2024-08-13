@@ -593,7 +593,15 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--table-case {
     border-collapse: collapse; }
   .parts--thead tr {
-    background-color: #F2F2F2; } }
+    background-color: #F2F2F2; }
+  .parts--thead th,
+  .parts--tbody-row td {
+    padding: 0.588rem; }
+  .parts--thead th {
+    text-align: left;
+    vertical-align: bottom; }
+  .parts--tbody-row td {
+    vertical-align: text-top; } }
 
 .menu--shell {
   position: absolute;

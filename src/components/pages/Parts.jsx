@@ -28,6 +28,7 @@ const Parts = () => {
           className={"parts--table-case"} 
           theadClassName={"parts--thead"}
           theadRowClassName={"parts--thead-row"}
+          tbodyTrClassName={"parts--tbody-row"}
         />
       </div>
     </div>
@@ -36,4 +37,5 @@ const Parts = () => {
 
 export default Parts
 // git add .; git commit -m ""; git push origin parts
+// git add .; git commit -m "create a table with proper responsiveness from adrian roselli's blog on tables"; git push origin parts
 // git switch main; git merge parts; git push; git switch parts

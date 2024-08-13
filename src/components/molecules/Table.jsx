@@ -1,15 +1,11 @@
 import React from "react";
 
-const Table = ({ data, className, theadClassName, theadRowClassName }) => {
-  const renderedRows = data.map((part) => {
-    console.log(part)
-  });
-
-  return (
-    <table className={className}>
+const Table = ({ data, className, theadClassName, theadRowClassName, tbodyTrClassName }) => {
+   return (
+    <table className={className} tabindex="0">
       <thead className={theadClassName}>
         <tr className={theadRowClassName}>
-          <th><input type="checkbox" /></th>
+          {/* <th><input type="checkbox" /></th> */}
           <th>Category</th>
           <th>Name</th>
           <th>Part Number</th>
@@ -17,7 +13,16 @@ const Table = ({ data, className, theadClassName, theadRowClassName }) => {
         </tr>
       </thead>
 
-      <tbody><tr>{renderedRows}</tr></tbody>
+      <tbody>
+        {data.map(part => (
+          <tr className={tbodyTrClassName} key={part.part_number}>
+            <td>{part.category}</td>
+            <td>{part.name}</td>
+            <td>{part.part_number}</td>
+            <td>{part.description}</td>
+          </tr>
+        ))}
+      </tbody>
 
     </table>
   );

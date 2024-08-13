@@ -12,7 +12,6 @@ import Transfers from "./components/pages/Transfers";
 import Reports from "./components/pages/Reports";
 import Help from "./components/pages/Help";
 import Settings from "./components/pages/Settings";
-import Sidebar from './components/organisims/Sidebar';
 
 function App() {
   return (
@@ -33,7 +32,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
           </Route>
         </Route> 
-      </Routes>*/}
+      </Routes> */}
     </>
   );
 }
