@@ -1,149 +1,41 @@
 import React from "react";
-import TableRow from "../molecules/TableRow";
 
-const Table = ({ data }) => {
+const Table = ({ data, columns }) => {
 
    return (
     <div className="parts--table-container">
-      <div className="parts--table-row">
-        <div className="parts--table-cell">
-          <input type="checkbox" />
-        </div>
+      <table>
+        <thead className="parts--thead">
+          <tr className="parts--thead-row">
+            {columns.map(column => (
+              <th 
+                key={`column ${column.field}`} 
+                className="parts--thead-column"
+              >
+                {column.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
 
-        <div className="parts--table-cell">
-          <h4>Category</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>Brand</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>Name</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>Part Number</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>UPC</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>On Hand</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>Description</h4>
-        </div>
-
-        <div className="parts--table-cell">
-          <h4>Audited At</h4>
-        </div>
-      </div>
-
-      <div className="parts--table-row" key={"0789439803"}>
-        <div className="parts--table-cell">
-          <input type="checkbox" />
-        </div>
-
-        <div className="parts--table-cell">
-          Network Gear
-        </div>
-        
-        <div className="parts--table-cell">
-          Samsung 
-        </div>
-
-        <div className="parts--table-cell">
-        GV-NVR-RAID-12TB
-        </div>
-        
-        <div className="parts--table-cell">
-          16000863
-        </div>
-
-        <div className="parts--table-cell">
-          891GLK8WCH2123-01
-        </div>
-
-        <div className="parts--table-cell">
-          8
-        </div>
-
-        <div className="parts--table-cell">
-          The Samsung GV-NVR-RAID-12TB autoIP 2U Rack Mountable Storage Unit (12TB) is used for megapixel video recording and comes with 12 redundant, hot-swappable hard drive bays offering up to 12TB of redundant video storage. SAS and SATA drives can be mixed and matched, allowing you to use the necessary drives to suit your computing environment.
-        </div>
-      </div>
-      
-      <div className="parts--table-row parts--table-headers" key={"0789439803"}>
-        <div className="parts--table-cell">
-          <input type="checkbox" />
-        </div>
-
-        <div className="parts--table-cell">
-          Network Gear
-        </div>
-        
-        <div className="parts--table-cell">
-          Samsung 
-        </div>
-
-        <div className="parts--table-cell">
-        GV-NVR-RAID-12TB
-        </div>
-        
-        <div className="parts--table-cell">
-          16000863
-        </div>
-
-        <div className="parts--table-cell">
-          891GLK8WCH2123-01
-        </div>
-
-        <div className="parts--table-cell">
-          8
-        </div>
-
-        <div className="parts--table-cell">
-          The Samsung GV-NVR-RAID-12TB autoIP 2U Rack Mountable Storage Unit (12TB) is used for megapixel video recording and comes with 12 redundant, hot-swappable hard drive bays offering up to 12TB of redundant video storage. SAS and SATA drives can be mixed and matched, allowing you to use the necessary drives to suit your computing environment.
-        </div>
-      </div>
-
-      <div className="parts--table-row" key={"0789439803"}>
-        <div className="parts--table-cell">
-          <input type="checkbox" />
-        </div>
-
-        <div className="parts--table-cell">
-          Network Gear
-        </div>
-        
-        <div className="parts--table-cell">
-          Samsung 
-        </div>
-
-        <div className="parts--table-cell">
-          GV-NVR-RAID-12TB
-        </div>
-        
-        <div className="parts--table-cell">
-          16000863
-        </div>
-
-        <div className="parts--table-cell">
-          891GLK8WCH2123-01
-        </div>
-
-        <div className="parts--table-cell">
-          8
-        </div>
-
-        <div className="parts--table-cell">
-          The Samsung GV-NVR-RAID-12TB autoIP 2U Rack Mountable Storage Unit (12TB) is used for megapixel video recording and comes with 12 redundant, hot-swappable hard drive bays offering up to 12TB of redundant video storage. SAS and SATA drives can be mixed and matched, allowing you to use the necessary drives to suit your computing environment.
-        </div>
-      </div>
+        <tbody className="parts--tbody">
+          {data.map(part => (
+            <tr
+              key={`partNumber:${part.part_number}`}
+              className={`parts--tbody-row`}
+            >
+              <td data-cell={`${part.part_number}`}>{part.audited_at}</td>
+              <td data-cell={`${part.part_number}`}>{part.part_number}</td>
+              <td data-cell={`${part.part_number}`}>{part.upc}</td>
+              <td data-cell={`${part.part_number}`}>{part.brand}</td>
+              <td data-cell={`${part.part_number}`}>{part.name}</td>
+              <td data-cell={`${part.part_number}`}>{part.category}</td>
+              <td data-cell={`${part.part_number}`}>{part.description}</td>
+              <td data-cell={`${part.part_number}`}>{part.on_hand}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
    );
 };

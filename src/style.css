@@ -597,7 +597,10 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0 1.412rem;
     margin-top: 0.941rem;
     height: 3.529rem;
-    width: 100%; } }
+    width: 100%; }
+  .parts--table-container {
+    width: 100%;
+    margin-top: 0.588rem; } }
 
 .menu--shell {
   position: absolute;

@@ -4,6 +4,41 @@ import Table from "../organisims/Table";
 import { PlusCircle } from "@phosphor-icons/react";
 import PartsData from "../../services/parts";
 
+const COLUMNS = [
+  {
+    title: "Last Audit",
+    field: "audited_at"
+  },
+  {
+    title: "Part Number",
+    field: "part_number"
+  },
+  {
+    title: "UPC",
+    field: "upc"
+  },
+  {
+    title: "Brand",
+    field: "brand"
+  },
+  {
+    title: "Name",
+    field: "name"
+  },
+  {
+    title: "Category",
+    field: "category"
+  },
+  {
+    title: "Description",
+    field: "description"
+  },
+  {
+    title: "On Hand",
+    field: "on_hand"
+  }
+];
+
 const Parts = () => {
   const data = PartsData.info;
   return (
@@ -22,12 +57,11 @@ const Parts = () => {
         <h4 className={"parts--title"}>Product List</h4>
       </div>
       
-        <Table data={data} />
+        <Table data={data} columns={COLUMNS} />
     </div>
   );
 };
 
-export default Parts
+export default Parts;
 // git add .; git commit -m ""; git push origin parts
-// 
 // git switch main; git merge parts; git push; git switch parts
