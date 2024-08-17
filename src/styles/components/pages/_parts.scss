@@ -38,27 +38,15 @@
       height: 2.176rem;
    }
 
-   .parts--table-case {
-      border-collapse: collapse;
-      // width: 100%;
+   .parts--title-case {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding: 0 1.412rem;
+      margin-top: 0.941rem;
+      height: 3.529rem;
+      width: 100%;
    }
 
-   .parts--thead tr {
-      background-color: $achromatic-200;
-   }
-
-   .parts--thead th,
-   .parts--tbody-row td {
-      padding: 0.588rem;
-   }
-
-   .parts--thead th {
-      text-align: left;
-      vertical-align: bottom;
-   }
-
-   .parts--tbody-row td {
-      vertical-align: text-top;
-   }
-
+   .parts--title { }
 }

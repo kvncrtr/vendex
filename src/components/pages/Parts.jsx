@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../atoms/Button";
-import Table from "../molecules/Table";
+import Table from "../organisims/Table";
 import { PlusCircle } from "@phosphor-icons/react";
 import PartsData from "../../services/parts";
 
@@ -22,20 +22,12 @@ const Parts = () => {
         <h4 className={"parts--title"}>Product List</h4>
       </div>
       
-      <div className="parts--table-container">
-        <Table 
-          data={data}
-          className={"parts--table-case"} 
-          theadClassName={"parts--thead"}
-          theadRowClassName={"parts--thead-row"}
-          tbodyTrClassName={"parts--tbody-row"}
-        />
-      </div>
+        <Table data={data} />
     </div>
   );
 };
 
 export default Parts
 // git add .; git commit -m ""; git push origin parts
-// git add .; git commit -m "create a table with proper responsiveness from adrian roselli's blog on tables"; git push origin parts
+// 
 // git switch main; git merge parts; git push; git switch parts

@@ -590,18 +590,14 @@ input[type="number"]::-webkit-outer-spin-button {
   .button--container {
     margin: 0;
     height: 2.176rem; }
-  .parts--table-case {
-    border-collapse: collapse; }
-  .parts--thead tr {
-    background-color: #F2F2F2; }
-  .parts--thead th,
-  .parts--tbody-row td {
-    padding: 0.588rem; }
-  .parts--thead th {
-    text-align: left;
-    vertical-align: bottom; }
-  .parts--tbody-row td {
-    vertical-align: text-top; } }
+  .parts--title-case {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 0 1.412rem;
+    margin-top: 0.941rem;
+    height: 3.529rem;
+    width: 100%; } }
 
 .menu--shell {
   position: absolute;
