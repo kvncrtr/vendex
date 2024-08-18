@@ -7,8 +7,12 @@ const Table = ({ data, columns }) => {
       <table>
         <thead className="parts--thead">
           <tr className="parts--thead-row">
+            <th data-cell="checkbox" className="parts--thead-column">
+              <input type="checkbox" />
+            </th>
             {columns.map(column => (
               <th 
+                data-cell={`${column.field}`}
                 key={`column ${column.field}`} 
                 className="parts--thead-column"
               >
@@ -24,14 +28,15 @@ const Table = ({ data, columns }) => {
               key={`partNumber:${part.part_number}`}
               className={`parts--tbody-row`}
             >
-              <td data-cell={`${part.part_number}`}>{part.audited_at}</td>
-              <td data-cell={`${part.part_number}`}>{part.part_number}</td>
-              <td data-cell={`${part.part_number}`}>{part.upc}</td>
-              <td data-cell={`${part.part_number}`}>{part.brand}</td>
-              <td data-cell={`${part.part_number}`}>{part.name}</td>
-              <td data-cell={`${part.part_number}`}>{part.category}</td>
-              <td data-cell={`${part.part_number}`}>{part.description}</td>
-              <td data-cell={`${part.part_number}`}>{part.on_hand}</td>
+              <td className="parts--tbody-cell" data-cell={"checkbox"}><input type="checkbox" /></td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.audited_at}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.part_number}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.upc}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.brand}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.name}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.category}</td>
+              <td className="parts--tbody-cell" data-cell={"description"}>{part.description}</td>
+              <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.on_hand}</td>
             </tr>
           ))}
         </tbody>
@@ -68,18 +73,66 @@ export default Table;
   rack_id: 806
 }
 
-table the description td has text content in it of about 30 words 
-but I want to set a height of 78px and let the words determine the width of the column 
 
-<tbody>
-  {data.map(part => (
-    <tr className={tbodyTrClassName} key={part.part_number}>
-      <td>{part.category}</td>
-      <td>{part.name}</td>
-      <td>{part.part_number}</td>
-      <td data-cell="description">{part.description}</td>
-    </tr>
-  ))}
-</tbody>
+how to change the width of the columns to be a minimun width of 9rem and have it stretch to a max of 325px?
+
+<div className="parts--table-container">
+      <table>
+        <thead className="parts--thead">
+          <tr className="parts--thead-row">
+            <th className="parts--thead-column">
+              <input type="checkbox" />
+            </th>
+            {columns.map(column => (
+              <th 
+                key={`column ${column.field}`} 
+                className="parts--thead-column"
+              >
+                {column.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody className="parts--tbody">
+          {data.map(part => (
+            <tr
+              key={`partNumber:${part.part_number}`}
+              className={`parts--tbody-row`}
+            >
+              <td><input type="checkbox" /></td>
+              <td data-cell={`${part.part_number}`}>{part.audited_at}</td>
+              <td data-cell={`${part.part_number}`}>{part.part_number}</td>
+              <td data-cell={`${part.part_number}`}>{part.upc}</td>
+              <td data-cell={`${part.part_number}`}>{part.brand}</td>
+              <td data-cell={`${part.part_number}`}>{part.name}</td>
+              <td data-cell={`${part.part_number}`}>{part.category}</td>
+              <td data-cell={`${part.part_number}`}>{part.description}</td>
+              <td data-cell={`${part.part_number}`}>{part.on_hand}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+   );
+
+.parts--table-container {
+      width: 100%;
+      margin-top: 0.588rem;
+   }
+
+   table {
+      border-collapse: collapse;
+   }
+
+   .parts--thead-row {
+      height: 3.765rem;
+      background-color: $achromatic-200;
+   }
+
+   .parts--thead-column {
+      text-wrap: nowrap;
+      text-align: left;
+   }
 
 */ 

@@ -3,7 +3,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100%;
    }
    
    .parts--add-case {
@@ -50,7 +49,114 @@
    
    .parts--table-container {
       width: 100%;
+      height: 57.996vh;
+      max-height: 484px;
+      flex-grow: 1;
       margin-top: 0.588rem;
+      overflow-x: auto;
+      overflow-y: auto;
+   }
+
+   .parts--table-container::-webkit-scrollbar {
+      width: 6px; 
+      height: 6px;
+   }
+    
+   .parts--table-container::-webkit-scrollbar-track {
+      background: transparent;
+   }
+   
+   .parts--table-container::-webkit-scrollbar-thumb {
+      background-color: $secondary-400;
+      border-radius: 6px;
+      border: 3px solid transparent;
+   }
+   
+   .parts--table-container::-webkit-scrollbar-thumb:hover {
+      background-color: $secondary-500; 
+   }
+
+   table {
+      border-collapse: collapse;
+      width: 96.852rem;
+   }
+
+   .parts--tbody,
+   .parts--thead {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .parts--tbody {
+      margin-top: 1.412rem;
+      row-gap: 0.588rem;
+   }
+
+   .parts--thead-row,
+   .parts--tbody-row {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 1.412rem;
+   }
+
+   th[data-cell="checkbox"] {
+      display: flex;
+      justify-content: center;
+      min-width: 1.765rem;
+      width: 1.765rem;
+      height: 1.765rem;
+      margin-left: 1.412rem;
+   }
+
+   .parts--thead-column {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      min-width: 9.25rem;
+      height: 80%;
+      text-wrap: nowrap;
+   }
+
+   .parts--thead-row {
+      height: 3.765rem;
+      background-color: $achromatic-200;
+   }
+
+   th[data-cell="description"] {
+      flex-grow: 1;
+      min-width: unset;
+      width: 100vw;
+      max-width: 23.529rem;
+   }
+
+   .parts--tbody-row {
+      height: 5.882rem;
+      overflow-y: hidden;
+      background-color: $achromatic-200;
+   }
+
+   td[data-cell="checkbox"] {
+      display: flex;
+      justify-content: center;
+      min-width: 1.765rem;
+      width: 1.765rem;
+      height: 1.765rem;
+      margin-left: 1.412rem;
+   }
+
+   td[data-cell="description"] {
+      overflow-y: hidden;
+      max-height: 82px;
+      align-self: start;
+      text-wrap: balance;
+      word-wrap: break-word;
+      word-break: normal;
+      margin: auto 0;
+   }
+
+   .parts--tbody-cell:not(:first-child) {
+      min-width: 9.25rem;
    }
 }
  
