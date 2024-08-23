@@ -53,6 +53,11 @@
       display: none;
    }
 
+   .sidebar--parent {
+      background-color: aqua;
+      width: min-content;
+   }
+
    .sidebar--container {
       flex-direction: column;
       justify-content: unset;

@@ -1,0 +1,40 @@
+@media screen and (min-width: 325px) {
+   .pagi--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 4.294rem;
+      width: 100vw;
+   }
+
+   .pagi--button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 0.100rem $achromatic-500;
+      width: 2.059rem;
+      height: 2.059rem;
+      text-align: center;
+      cursor: pointer;
+      color: $secondary-400;
+   }
+
+   .pagi--nav-back,
+   .pagi--nav-forward {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .current-page {
+      background-color: $secondary-400;
+      color: $achromatic-100;
+      border: none;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .pagi--container {
+      max-width: calc(100vw - 252px);
+   }
+}

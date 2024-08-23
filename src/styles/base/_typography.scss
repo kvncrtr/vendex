@@ -169,6 +169,11 @@ $fw-extra-bold: 800;
       text-transform: uppercase;
       color: $achromatic-700;
    }
+
+   // Parts
+   .parts--add-title {
+      @include font-heading-regular();
+   }
 }
 
 // Desktop

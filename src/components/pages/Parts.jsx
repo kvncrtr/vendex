@@ -3,6 +3,7 @@ import Button from "../atoms/Button";
 import Table from "../organisims/Table";
 import { PlusCircle } from "@phosphor-icons/react";
 import PartsData from "../../services/parts";
+import Pagination from "../atoms/Pagination";
 
 const COLUMNS = [
   {
@@ -50,7 +51,7 @@ const Parts = () => {
           className={"parts--add-button"}
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
-          />
+        />
       </div>
 
       <div className="parts--title-case">
@@ -58,6 +59,7 @@ const Parts = () => {
       </div>
       
         <Table data={data} columns={COLUMNS} />
+        <Pagination />
     </div>
   );
 };
