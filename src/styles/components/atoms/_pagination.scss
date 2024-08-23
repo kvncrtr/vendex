@@ -19,6 +19,16 @@
       color: $secondary-400;
    }
 
+   .pagi--button:hover {
+      background-color: $achromatic-600;
+      color: $achromatic-100;
+   }
+
+   .pagi--button:active {
+      background-color: $primary-600;
+      opacity: 0.3;
+   }
+
    .pagi--nav-back,
    .pagi--nav-forward {
       display: flex;

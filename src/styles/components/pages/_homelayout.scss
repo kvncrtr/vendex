@@ -11,22 +11,24 @@
 @media screen and (min-width: 1280px) {
    .home--layout-container {
       display: grid;
-      grid-template-columns: 292px 1fr 358px;
+      grid-template-columns: 292px calc(100vw - (291.99px + 358px)) 358px;
       grid-template-rows: auto 1fr auto;
       height: 100vh;
+      width: 100vw;
+      overflow-y: hidden;
    }
 
    .home--content-container {
       grid-column: 2 / 3;
       grid-row: 2 / 3;
-      overflow-y: auto;
-      padding: 1rem;
+      
    }
 
    .searchbar--parent {
       position: sticky;
       grid-column: 1 / -1;
       grid-row: 1 / 2;
+      width: 100vw;
    }
 
    .sidebar--parent {
