@@ -30,6 +30,11 @@
       border-radius: 0.235rem;
       background-color: $secondary-400;
       color: $achromatic-100;
+      cursor: pointer;
+   }
+
+   .parts--add-button:active {
+      opacity: 0.3;
    }
 
    .button--container {
@@ -78,6 +83,7 @@
    
    .parts--table-container::-webkit-scrollbar-thumb:hover {
       background-color: $secondary-500; 
+      cursor: grab;
    }
 
    table {
