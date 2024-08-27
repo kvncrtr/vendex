@@ -6,6 +6,7 @@ const Button = ({ type, title, text, setting, className, ...props }) => {
             type={type}
             title={title}
             disabled={setting}
+            onClick={props.onClick}
          >
             {props.icon && props.icon} {text}
          </button>

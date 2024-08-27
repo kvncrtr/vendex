@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { XSquare } from "@phosphor-icons/react";
 import MenuItem from "../atoms/MenuItem";

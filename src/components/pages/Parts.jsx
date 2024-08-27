@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../atoms/Button";
 import Table from "../organisims/Table";
 import { PlusCircle } from "@phosphor-icons/react";
 import PartsData from "../../services/parts";
 import Pagination from "../atoms/Pagination";
+import AddPart from "../organisims/AddPart";
 
 const COLUMNS = [
   {
@@ -42,6 +43,13 @@ const COLUMNS = [
 
 const Parts = () => {
   const data = PartsData.info;
+  const [showAdd, setShowAdd] = useState(false);
+
+  const handleAddDisplay = () => { 
+    setShowAdd(!showAdd)
+    console.log(showAdd)
+  };
+
   return (
     <div className="parts--container">
       <div className="parts--add-case">
@@ -51,6 +59,7 @@ const Parts = () => {
           className={"parts--add-button"}
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
+          onClick={handleAddDisplay}
         />
       </div>
 
@@ -60,6 +69,8 @@ const Parts = () => {
       
         <Table data={data} columns={COLUMNS} />
         <Pagination />
+
+        {showAdd && <AddPart />}
     </div>
   );
 };
