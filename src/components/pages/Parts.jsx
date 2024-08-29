@@ -45,9 +45,8 @@ const Parts = () => {
   const data = PartsData.info;
   const [showAdd, setShowAdd] = useState(false);
 
-  const handleAddDisplay = () => { 
+  const toggleAddDisplay = () => { 
     setShowAdd(!showAdd)
-    console.log(showAdd)
   };
 
   return (
@@ -59,7 +58,7 @@ const Parts = () => {
           className={"parts--add-button"}
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
-          onClick={handleAddDisplay}
+          onClick={toggleAddDisplay}
         />
       </div>
 
@@ -70,11 +69,11 @@ const Parts = () => {
         <Table data={data} columns={COLUMNS} />
         <Pagination />
 
-        {showAdd && <AddPart />}
+        {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
     </div>
   );
 };
 
 export default Parts;
-// git add .; git commit -m ""; git push origin parts
-// git switch main; git merge parts; git push; git switch parts
+// git add .; git commit -m ""; git push origin parts;
+// git switch main; git merge parts; git push; git switch parts;

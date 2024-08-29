@@ -174,11 +174,8 @@
       min-width: 9.25rem;
    }
 
-   .add--shell {
+   .add--container {
       position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       top: 0;
       left: 0;
       bottom: 0;
@@ -186,11 +183,51 @@
       background-color: rgba(0, 0, 0, 0.85);
    }
 
-   .add--container {
+   .add--close-case {
+      display: flex;
+      justify-content: end;
+      padding: 0.588rem 0.588rem 0 0;
+   }
+
+   .add--close {
+      color: $achromatic-100;
+      cursor: pointer;
+   }
+
+   .add--close:active {
+      opacity: 0.1;
+   }
+
+   .new--part-container {
+      display: flex;
+      align-items: center;
+      height: calc(100vh - 2.470rem);
+      overflow: hidden;
+   }
+
+   .new--part-case {
       width: 17.117rem;
       height: 70vh;
+      margin: 0 auto;
       border-radius: 0.588rem;
       background-color: $achromatic-100;
+   }
+   
+   .new--part-title {
+      background-color: $achromatic-100;
+      padding: 0.588rem 0.588rem 0;
+      border-radius: 0.588rem 0.588rem 0 0;
+   }
+   
+   .new--form-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.588rem;
+      margin-top: 1rem;
+      padding: 0 0.588rem 0;
+      overflow: hidden scroll;
+      background-color: red;
+      height: calc(70vh - 100px);
    }
 }
 
