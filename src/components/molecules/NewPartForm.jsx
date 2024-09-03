@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
+const initState = {
+   part_number: "",
+};
+
 const NewPartForm = ({ handleDisplay }) => {
+   const [formData, setFormData] = useState(initState);
+   const ref = useRef(false);
+
    const handleSubmit = (event) => {
       event.preventDefault();
+      console.log(formData)
       // handleDisplay();
    };
 
+   const handleChange = (event) => {
+      console.log(event.target.value);
+      setFormData({
+         ...formData,
+         [event.target.name]: event.target.value,
+      });
+   };
+
    return (
-      <div className={"new--part-case"}>
+      <form className={"new--part-case"} onSubmit={handleSubmit}>
          <div className="new--part-title">
             <h2>New Part</h2>
          </div>
          
-         <form className="new--form-body">
+         <div className="new--form-body">
             {/* 
                {
                   id: 1,
@@ -42,78 +58,84 @@ const NewPartForm = ({ handleDisplay }) => {
                }
             */}
             <div className="new--form-field">
-               <p>Part Number</p>
+               <label>Part Number</label>
+               <Input 
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"part_number"}
+                  title={"Enter a valid part number."}
+                  placeholder={"Part Number"}
+                  ref={ref}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.part_number}
+               />
+            </div>
+
+            <div className="new--form-field">
+               <label>UPC</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>UPC</p>
+               <label>Brand</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Brand</p>
+               <label>Name</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Name</p>
+               <label>Category</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Category</p>
-               <Input />
-            </div>
-
-            <div className="new--form-field">
-               <p>Description</p>
+               <label>Description</label>
                <textarea />
             </div>
 
             <div className="new--form-field">
-               <p>Price</p>
+               <label>Price</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>On Hand</p>
+               <label>On Hand</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Package Quantity</p>
+               <label>Package Quantity</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Reinventory Quantity</p>
+               <label>Reinventory Quantity</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Weight</p>
+               <label>Weight</label>
                <Input />
             </div>
 
             <div className="new--form-field">
-               <p>Reorder Amount</p>
+               <label>Reorder Amount</label>
                <Input />
             </div>
-            
-            <Button 
-               type={"submit"}
-               text={"Create"}
-               title={"Add a part to inventory."}
-               className={"new--part-button"}
-               onClick={handleSubmit}
-            />
-         </form>
+         </div>
 
          <div className="new--form-button">
-            
+            <Button 
+               className={"new--part-button"}
+               type={"submit"}
+               title={"Add new part to inventory"}
+               text={"Create"}
+            />
          </div>
-      </div>
+      </form>
    )
 };
 

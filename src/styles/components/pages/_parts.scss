@@ -216,9 +216,9 @@
    .new--part-title {
       background-color: $achromatic-100;
       padding: 0.588rem 0.588rem 0;
-      background-color: red;
+      background-color: $achromatic-200;
       border-radius: 0.588rem 0.588rem 0 0;
-      height: 2.941rem;
+      height: 3.529rem;
    }
    
    .new--form-body {
@@ -226,9 +226,9 @@
       flex-direction: column;
       gap: 0.588rem;
       margin-top: 1rem;
-      padding: 0 0.588rem 0;
+      padding: 0 0.588rem 0.588rem;
       overflow: hidden scroll;
-      height: calc(70vh - 8.117rem)
+      height: calc(70vh - 8.705rem)
    }
 
    .new--part-button {
