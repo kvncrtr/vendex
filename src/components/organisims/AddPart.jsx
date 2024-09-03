@@ -17,7 +17,7 @@ const AddPart = ({ toggleAddDisplay }) => {
          </div>
 
          <div className="new--part-container">
-            <NewPartForm />
+            <NewPartForm handleDisplay={toggleAddDisplay} />
          </div>
       </div>,
       document.querySelector(".add--shell")
