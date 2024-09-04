@@ -2,22 +2,39 @@ import React, { useState, useRef } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-const initState = {
+const initialState = {
+   audited_at: Date.now(),
    part_number: "",
+   upc: "",
+   brand: "",
+   name: "",
+   category: "",
+   description: "",
+   price: 0,
+   on_hand: 0,
+   package_quantity: 0,
+   reinventory_quantity: 0,
+   weight: 0,
+   reorder_amount: 0,
+   order_id: 0,
+   delivery_id: 0,
+   warehouse_id: 0,
+   inventory_id: 0,
+   transfer_id: 0,
+   rack_id: 0
 };
 
 const NewPartForm = ({ handleDisplay }) => {
-   const [formData, setFormData] = useState(initState);
+   const [formData, setFormData] = useState(initialState);
    const ref = useRef(false);
 
    const handleSubmit = (event) => {
       event.preventDefault();
       console.log(formData)
-      // handleDisplay();
+      handleDisplay();
    };
 
    const handleChange = (event) => {
-      console.log(event.target.value);
       setFormData({
          ...formData,
          [event.target.name]: event.target.value,
@@ -57,6 +74,7 @@ const NewPartForm = ({ handleDisplay }) => {
                   rack_id: 602
                }
             */}
+
             <div className="new--form-field">
                <label>Part Number</label>
                <Input 
@@ -73,27 +91,69 @@ const NewPartForm = ({ handleDisplay }) => {
 
             <div className="new--form-field">
                <label>UPC</label>
-               <Input />
+               <Input  
+                  type={"text"}
+                  className={"new--part-input"}
+                  name={"upc"}
+                  title={"Enter the factory assigned number."}
+                  placeholder={"UPC"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.upc}
+               />
             </div>
 
             <div className="new--form-field">
                <label>Brand</label>
-               <Input />
+               <Input   
+                  type={"text"}
+                  className={"new--part-input"}
+                  name={"brand"}
+                  title={"Enter the provider's name."}
+                  placeholder={"Brand"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.brand}
+               />
             </div>
 
             <div className="new--form-field">
                <label>Name</label>
-               <Input />
+               <Input   
+                  type={"text"}
+                  className={"new--part-input"}
+                  name={"name"}
+                  title={"Assign a name."}
+                  placeholder={"Name"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.name}
+               />
             </div>
 
             <div className="new--form-field">
                <label>Category</label>
-               <Input />
+               <Input    
+                  type={"text"}
+                  className={"new--part-input"}
+                  name={"category"}
+                  title={"Categorize the part by the type."}
+                  placeholder={"Category"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.category}
+               />
             </div>
 
             <div className="new--form-field">
                <label>Description</label>
-               <textarea />
+               <textarea  
+                  rows={"5"}
+                  cols={"29"}
+                  type={"text"}
+                  className={"new--part-input"}
+                  name={"description"}
+                  title={""}
+                  placeholder={"Category"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.category}
+               />
             </div>
 
             <div className="new--form-field">
