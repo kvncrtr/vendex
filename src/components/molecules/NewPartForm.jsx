@@ -10,18 +10,12 @@ const initialState = {
    name: "",
    category: "",
    description: "",
-   price: 0,
-   on_hand: 0,
-   package_quantity: 0,
-   reinventory_quantity: 0,
-   weight: 0,
-   reorder_amount: 0,
-   order_id: 0,
-   delivery_id: 0,
-   warehouse_id: 0,
-   inventory_id: 0,
-   transfer_id: 0,
-   rack_id: 0
+   price: "",
+   on_hand: "",
+   package_quantity: "",
+   reinventory_quantity: "",
+   weight: "",
+   reorder_amount: "",
 };
 
 const NewPartForm = ({ handleDisplay }) => {
@@ -31,7 +25,7 @@ const NewPartForm = ({ handleDisplay }) => {
    const handleSubmit = (event) => {
       event.preventDefault();
       console.log(formData)
-      handleDisplay();
+      // handleDisplay();
    };
 
    const handleChange = (event) => {
@@ -48,33 +42,6 @@ const NewPartForm = ({ handleDisplay }) => {
          </div>
          
          <div className="new--form-body">
-            {/* 
-               {
-                  id: 1,
-                  created_at: "2024-02-20T09:15:00Z",
-                  updated_at: "2024-02-20T09:15:00Z",
-                  audited_at: "2024-03-01T08:50:00Z",
-                  part_number: 1234567890,
-                  upc: 987654321098,
-                  brand: "Acme Corp",
-                  name: "UltraWidget 3000",
-                  category: "Electronics",
-                  description: "The UltraWidget 3000 is a state-of-the-art gadget designed for efficiency and performance. Ideal for tech enthusiasts and professionals.",
-                  price: 199.99,
-                  on_hand: 10048,
-                  package_quantity: 5,
-                  reinventory_quantity: 100,
-                  weight: 1.2,
-                  reorder_amount: 50,
-                  order_id: 102,
-                  delivery_id: 202,
-                  warehouse_id: 302,
-                  inventory_id: 402,
-                  transfer_id: 502,
-                  rack_id: 602
-               }
-            */}
-
             <div className="new--form-field">
                <label>Part Number</label>
                <Input 
@@ -150,40 +117,88 @@ const NewPartForm = ({ handleDisplay }) => {
                   className={"new--part-input"}
                   name={"description"}
                   title={""}
-                  placeholder={"Category"}
+                  placeholder={"Please describe what the part and functionality."}
                   onChange={(event) => handleChange(event)}
-                  value={formData.category}
+                  value={formData.description}
                />
             </div>
 
             <div className="new--form-field">
                <label>Price</label>
-               <Input />
+               <Input    
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"price"}
+                  title={"Purchase price from provider."}
+                  placeholder={"Price"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.price}
+               />
             </div>
 
             <div className="new--form-field">
                <label>On Hand</label>
-               <Input />
+               <Input    
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"on_hand"}
+                  title={"How much inventory do we actually have?"}
+                  placeholder={"On Hand"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.on_hand} 
+               />
             </div>
 
             <div className="new--form-field">
                <label>Package Quantity</label>
-               <Input />
+               <Input     
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"package_quantity"}
+                  title={"Number of articles that can fit in one package."}
+                  placeholder={"Package Quantity"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.package_quantity} 
+               />
             </div>
 
             <div className="new--form-field">
                <label>Reinventory Quantity</label>
-               <Input />
+               <Input      
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"reinventory_quantity"}
+                  title={"Number of articles that can fit in one package."}
+                  placeholder={"Reinventory Quantity"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.reinventory_quantity} 
+               />
             </div>
 
             <div className="new--form-field">
                <label>Weight</label>
-               <Input />
+               <Input       
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"weight"}
+                  title={"How much each unit weighs."}
+                  placeholder={"Weight"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.weight} 
+               />
             </div>
 
             <div className="new--form-field">
                <label>Reorder Amount</label>
-               <Input />
+               <Input        
+                  type={"number"}
+                  className={"new--part-input"}
+                  name={"reorder_amount"}
+                  title={"Once this amount reaches an order will be placed automatically."}
+                  placeholder={"Reorder Amount"}
+                  onChange={(event) => handleChange(event)}
+                  value={formData.reorder_amount} 
+               />
             </div>
          </div>
 
@@ -196,7 +211,7 @@ const NewPartForm = ({ handleDisplay }) => {
             />
          </div>
       </form>
-   )
+   );
 };
 
 export default NewPartForm;

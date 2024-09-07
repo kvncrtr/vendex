@@ -77,7 +77,9 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--add-title {
     color: #0E0E0E; }
   .parts--heading-case {
-    color: #5C6F88; } }
+    color: #5C6F88; }
+  .new--part-button {
+    color: #FFFFFF; } }
 
 @media screen and (min-width: 767px) {
   .form--heading {
@@ -637,6 +639,7 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+    height: 2.176rem;
     width: 9.941rem;
     border: none;
     border-radius: 0.235rem;
@@ -777,12 +780,41 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
     gap: 0.588rem;
-    margin-top: 1rem;
-    padding: 0 0.588rem 0.588rem;
+    padding: 1rem 0.588rem 1rem;
     overflow: hidden scroll;
-    height: calc(70vh - 8.705rem); }
+    height: calc(70vh - 7.705rem); }
+  .new--form-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px; }
+  .new--form-body::-webkit-scrollbar-button {
+    display: none; }
+  .new--form-body::-webkit-scrollbar-track-piece {
+    background-color: transparent; }
+  .new--form-body::-webkit-scrollbar-thumb {
+    background-color: #438DEF;
+    border-radius: 6px;
+    border: 3px solid transparent; }
+  .new--form-body::-webkit-scrollbar-thumb:hover {
+    background-color: #0459C9;
+    cursor: pointer; }
+  .button--container {
+    display: flex;
+    align-items: center;
+    height: 4.176rem;
+    border-radius: 0 0 0.588rem 0.588rem;
+    padding-left: 0.588rem;
+    background-color: #F2F2F2; }
   .new--part-button {
-    background-color: red; } }
+    border-radius: 0.258rem;
+    height: 2.176rem;
+    width: 9.941rem;
+    background-color: #438DEF;
+    border: none; }
+  .new--part-input {
+    border: solid 0.118rem #F2F2F2;
+    border-radius: 0.232rem;
+    padding: 0.256rem;
+    margin-top: 0.118rem; } }
 
 @media screen and (min-width: 768px) {
   .parts--container {
