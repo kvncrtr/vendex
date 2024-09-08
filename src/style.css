@@ -75,7 +75,8 @@ input[type="number"]::-webkit-outer-spin-button {
     line-height: normal;
     text-transform: uppercase; }
   .parts--add-title {
-    color: #0E0E0E; }
+    color: #0E0E0E;
+    font-weight: 700; }
   .parts--heading-case {
     color: #5C6F88; }
   .new--part-button {
@@ -112,7 +113,8 @@ input[type="number"]::-webkit-outer-spin-button {
     font-style: normal;
     font-size: 2rem;
     font-weight: 400;
-    line-height: normal; } }
+    line-height: normal;
+    font-weight: 500; } }
 
 @media screen and (min-width: 1200px) {
   .form--heading {
@@ -780,7 +782,7 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
     gap: 0.588rem;
-    padding: 1rem 0.588rem 1rem;
+    padding: 1rem 1.411rem 1rem;
     overflow: hidden scroll;
     height: calc(70vh - 7.705rem); }
   .new--form-body::-webkit-scrollbar {
@@ -809,7 +811,10 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 2.176rem;
     width: 9.941rem;
     background-color: #438DEF;
-    border: none; }
+    border: none;
+    cursor: pointer; }
+  .new--part-button:active {
+    opacity: 0.3; }
   .new--part-input {
     border: solid 0.118rem #F2F2F2;
     border-radius: 0.232rem;
@@ -835,7 +840,22 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--thead-row {
     gap: 1.882rem; }
   .parts--tbody-row {
-    gap: 1.882rem; } }
+    gap: 1.882rem; }
+  .new--part-case {
+    width: 34.823rem; }
+  .new--part-title,
+  .button--container {
+    height: 5.176rem;
+    padding: 1.411rem; }
+  .new--form-body {
+    gap: 1.411rem;
+    padding: 1.705rem 2.823rem; }
+  .new--form-field {
+    display: flex;
+    flex-direction: column; }
+  .new--part-button {
+    width: 25.411rem;
+    margin: 0 auto; } }
 
 @media screen and (min-width: 1280px) {
   .parts--add-case {

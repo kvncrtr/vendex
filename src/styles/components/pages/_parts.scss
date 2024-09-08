@@ -226,7 +226,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.588rem;
-      padding: 1rem 0.588rem 1rem;
+      padding: 1rem 1.411rem 1rem;
       overflow: hidden scroll;
       height: calc(70vh - 7.705rem);
    }
@@ -269,6 +269,11 @@
       width: 9.941rem;
       background-color: $secondary-400;
       border: none;
+      cursor: pointer;
+   }
+
+   .new--part-button:active {
+      opacity: 0.3;
    }
 
    .new--part-input {
@@ -313,6 +318,31 @@
 
    .parts--tbody-row {
       gap: 1.882rem;
+   }
+
+   .new--part-case {
+      width: 34.823rem;
+   }
+
+   .new--part-title,
+   .button--container {
+      height: 5.176rem;
+      padding: 1.411rem;
+   }
+
+   .new--form-body {
+      gap: 1.411rem;
+      padding: 1.705rem 2.823rem;
+   }
+
+   .new--form-field {
+      display: flex;  
+      flex-direction: column;
+   }
+
+   .new--part-button {
+      width: 25.411rem;
+      margin: 0 auto;
    }
 }
 

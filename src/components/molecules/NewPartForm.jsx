@@ -112,12 +112,12 @@ const NewPartForm = ({ handleDisplay }) => {
                <label>Description</label>
                <textarea  
                   rows={"5"}
-                  cols={"29"}
+                  cols={"26"}
                   type={"text"}
                   className={"new--part-input"}
                   name={"description"}
                   title={""}
-                  placeholder={"Please describe what the part and functionality."}
+                  placeholder={"Please describe the part and functionality."}
                   onChange={(event) => handleChange(event)}
                   value={formData.description}
                />

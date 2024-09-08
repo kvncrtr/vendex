@@ -136,6 +136,7 @@ $fw-extra-bold: 800;
 
    .parts--add-title {
       color: $achromatic-900;
+      font-weight: 700;
    }
 
    .parts--heading-case {
@@ -177,6 +178,7 @@ $fw-extra-bold: 800;
    // Parts
    .parts--add-title {
       @include font-heading-regular();
+      font-weight: 500;
    }
 }
 
