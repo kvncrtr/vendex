@@ -4,7 +4,6 @@ import JWTService from "../services/jwt";
 import LocalStorageService from "../services/local-storage";
 
 /* Initial State */
-/* set todays date = new Date().toISOString().split("T")[0], */
 const initialState = {
    auth: {
       current_employee: {

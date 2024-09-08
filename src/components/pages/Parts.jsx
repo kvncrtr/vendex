@@ -75,5 +75,5 @@ const Parts = () => {
 };
 
 export default Parts;
-// git add .; git commit -m "complete the add part form styles for all view ports"; git push origin parts;
+// git add .; git commit -m ""; git push origin parts;
 // git switch main; git merge parts; git push; git switch parts;
