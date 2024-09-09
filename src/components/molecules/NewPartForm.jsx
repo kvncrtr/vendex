@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
+import { createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
    audited_at: Date.now(),
@@ -20,11 +21,13 @@ const initialState = {
 
 const NewPartForm = ({ handleDisplay }) => {
    const [formData, setFormData] = useState(initialState);
+   const setCreationStatus = createSelector();
    const ref = useRef(false);
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(formData)
+      console.log(formData);
+
       // handleDisplay();
    };
 
