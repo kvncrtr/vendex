@@ -8,7 +8,7 @@ import SquareLogo from "../../assets/mim-logo.png";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 
-import { apiRequested, validateCredentials, clearAuth } from '../../store/employee';
+import { apiRequested, validateCredentials } from '../../store/employee';
 
 const Form = () => {
    const dispatch = useDispatch();

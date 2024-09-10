@@ -6,7 +6,7 @@ import { SquaresFour, Nut, HardDrives, Swap, ChartLineUp, Info, Gear } from "@ph
 import { List } from "@phosphor-icons/react";
 import logo from "../../assets/mim-logo.png";
 import Menu from "../molecules/Menu";
-import { setActiveStatus } from "../../store/sidebar";
+import { setActiveStatus } from "../../store/menu";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {

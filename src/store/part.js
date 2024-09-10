@@ -1,45 +1,60 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./api";
 
+/* Initial State */
 const initialState = {
    part: {
-      details: {
-         audited_at: Date.now(),
-         part_number: "",
-         upc: "",
-         brand: "",
-         name: "",
-         category: "",
-         description: "",
-         price: "",
-         on_hand: "",
-         package_quantity: "",
-         reinventory_quantity: "",
-         weight: "",
-         reorder_amount: "",         
-      },
-      isCreating: false,
+      details: {},
+      isLoading: false,
       message: "",
       errorMessage: ""
    }
-};
+}
 
+/* Part Slice */
 const partSlice = createSlice({
    name: "part",
    initialState: initialState.part,
    reducers: {
       apiRequested(state, action) {
-         state.isCreating = true;
-         state.message = "";
+         state.isLoading = true;
          state.errorMessage = "";
+         state.message = "";
+      },
+      addNewPart(state, action) {
+         console.log(state.isLoading);
+
+      },
+      apiRequestFailed(state, action) {
+         state.isLoading = false;
+         state.errorMessage = action.payload.errorMessage;
+      },
+      showError(state, action) {
+         state.isLoading = false;
+         console.log(action.payload.errorMessage)
       }
    }
-});
+})
 
-/* Reducers */ 
+/* Actions and Reducer */
 export const {
-   apiRequested } = partSlice.actions;
-export const partReducers = partSlice.reducer;
+   apiRequested,
+   addNewPart,
+   apiRequestFailed,
+   showError } = partSlice.actions;
+export const partReducer = partSlice.reducer;
 
-/* Action Creators */ 
-const root = "/parts"
+/* Action Creator */
+const partUrl = "/part";
+export const insertNewPart = (partData) => {
+   console.log(partData)
+   return apiCallBegan({
+      url: partUrl,
+      method: "POST",
+      data: partData,
+      onInit: apiRequested.type,
+      onFulfilled: addNewPart.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+}; 

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
-import { createSelector } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import { apiRequested, insertNewPart } from "../../store/part";
 
 const initialState = {
    audited_at: Date.now(),
@@ -21,14 +22,13 @@ const initialState = {
 
 const NewPartForm = ({ handleDisplay }) => {
    const [formData, setFormData] = useState(initialState);
-   const setCreationStatus = createSelector();
+   const dispatch = useDispatch();
    const ref = useRef(false);
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(formData);
-
-      // handleDisplay();
+      dispatch(insertNewPart(formData));
+      handleDisplay();
    };
 
    const handleChange = (event) => {

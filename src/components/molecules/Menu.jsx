@@ -4,7 +4,7 @@ import { XSquare } from "@phosphor-icons/react";
 import MenuItem from "../atoms/MenuItem";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveStatus } from "../../store/sidebar";
+import { setActiveStatus } from "../../store/menu";
 import { useNavigate } from "react-router-dom";
 
 const Menu = ({changeState, menu, support}) => {
