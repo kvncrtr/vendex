@@ -34,6 +34,13 @@
       display: flex;
       justify-content: center;
    }
+
+   .form--button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 2rem;
+   }
 }
 
 @media screen and (min-width: 767px) {

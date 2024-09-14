@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { apiRequested, insertNewPart } from "../../store/part";
+import FormValidation from "../../services/form-validation";
+import { insertNewPart } from "../../store/part";
 
 const initialState = {
    audited_at: Date.now(),
@@ -22,16 +23,34 @@ const initialState = {
 
 const NewPartForm = ({ handleDisplay }) => {
    const [formData, setFormData] = useState(initialState);
+   const [errors, setErrors] = useState({});
+   const token = useSelector(state => state.auth.token) 
    const dispatch = useDispatch();
    const ref = useRef(false);
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      dispatch(insertNewPart(formData));
-      handleDisplay();
+      setErrors({});
+      const validity = FormValidation.validate(formData);
+
+      if (!validity.status) {
+         setErrors(validity);
+         return 
+      }
+      console.log("submission successful!");
+      
+      /*
+         let data = {
+            ...formData,
+            token
+         }
+         dispatch(insertNewPart(data));
+         handleDisplay();
+      */ 
    };
 
    const handleChange = (event) => {
+      setErrors({});
       setFormData({
          ...formData,
          [event.target.name]: event.target.value,
@@ -45,6 +64,7 @@ const NewPartForm = ({ handleDisplay }) => {
          </div>
          
          <div className="new--form-body">
+            {errors && <p>{errors.message}</p>}
             <div className="new--form-field">
                <label>Part Number</label>
                <Input 
@@ -205,7 +225,7 @@ const NewPartForm = ({ handleDisplay }) => {
             </div>
          </div>
 
-         <div className="new--form-button">
+         <div className="new--button-container">
             <Button 
                className={"new--part-button"}
                type={"submit"}

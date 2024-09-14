@@ -22,8 +22,8 @@ const partSlice = createSlice({
          state.message = "";
       },
       addNewPart(state, action) {
-         console.log(state.isLoading);
-
+         state.message = "Success: A new part has been added."
+         console.log(action.payload);
       },
       apiRequestFailed(state, action) {
          state.isLoading = false;
@@ -47,7 +47,7 @@ export const partReducer = partSlice.reducer;
 /* Action Creator */
 const partUrl = "/part";
 export const insertNewPart = (partData) => {
-   console.log(partData)
+
    return apiCallBegan({
       url: partUrl,
       method: "POST",

@@ -16,8 +16,7 @@ import Settings from "./components/pages/Settings";
 function App() {
   return (
     <>
-      <HomeLayout />
-      {/* <Routes>
+      <Routes>
         <Route path="/login" element={<Login />} replace />
         <Route path="*" element={<Login />} replace />
 
@@ -32,7 +31,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
           </Route>
         </Route> 
-      </Routes> */}
+      </Routes>
     </>
   );
 }

@@ -38,7 +38,7 @@
       opacity: 0.3;
    }
 
-   .button--container {
+   .new--button-container {
       margin: 0;
       height: 2.176rem;
    }
@@ -254,8 +254,9 @@
       background-color: $secondary-500; 
       cursor:pointer ;   }
 
-   .button--container {
+   .new--button-container {
       display: flex;
+      justify-content: center;
       align-items: center;
       height: 4.176rem;
       border-radius: 0 0 0.588rem 0.588rem;
@@ -325,7 +326,7 @@
    }
 
    .new--part-title,
-   .button--container {
+   .new--button-container {
       height: 5.176rem;
       padding: 1.411rem;
    }

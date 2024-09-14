@@ -89,14 +89,16 @@ const Form = () => {
                error={null}
                required
             /> 
-
-            <Button 
-               className={"button--login"}
-               type={"submit"}
-               title={"log into vendex"}
-               text={!isLoading ? "Login" : "Loading..."}
-               setting={isLoading}
-            />
+            
+            <div className="form--button-container">
+               <Button 
+                  className={"button--login"}
+                  type={"submit"}
+                  title={"log into vendex"}
+                  text={!isLoading ? "Login" : "Loading..."}
+                  setting={isLoading}
+               />
+            </div>
 
             <Link className="form--trouble">having trouble?</Link>
          </div>
