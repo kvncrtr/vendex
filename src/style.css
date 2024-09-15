@@ -80,7 +80,12 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--heading-case {
     color: #5C6F88; }
   .new--part-button {
-    color: #FFFFFF; } }
+    color: #FFFFFF; }
+  .new--error-case {
+    font-style: normal;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: normal; } }
 
 @media screen and (min-width: 767px) {
   .form--heading {
@@ -804,6 +809,7 @@ input[type="number"]::-webkit-outer-spin-button {
     background-color: #0459C9;
     cursor: pointer; }
   .new--error-case {
+    margin-top: 1rem;
     padding: 0.588rem;
     width: 17.117rem;
     border-radius: 0.588rem;

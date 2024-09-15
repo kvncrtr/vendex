@@ -47,7 +47,7 @@ class FormValidation {
             message: `Category is case sensitive and 
             must be one of the following. General, Network Gear, 
             Power Accessories, Cables, Sheet Metal Lables, Bare Rack, 
-            Non-Serialize, Optics, Memory, PCBA Board.`
+            Non-Serialize, Optics, Memory, or PCBA Board.`
          } 
       }
 

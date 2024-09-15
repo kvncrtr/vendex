@@ -146,6 +146,10 @@ $fw-extra-bold: 800;
    .new--part-button {
       color: $achromatic-100;
    }
+
+   .new--error-case {
+      @include font-body-details()
+   }
 }
 
 // Tablet
