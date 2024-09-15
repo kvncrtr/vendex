@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { XSquare } from "@phosphor-icons/react";
 import NewPartForm from "../molecules/NewPartForm";
 
 
 const AddPart = ({ toggleAddDisplay }) => {
+   const [error, setError] = useState();
+
+   const handleErrorData = (errorData) => {
+      setError(errorData);
+   };
+
    return ReactDOM.createPortal(
       <div className="add--container">
          <div className={"add--close-case"}>
@@ -17,7 +23,8 @@ const AddPart = ({ toggleAddDisplay }) => {
          </div>
 
          <div className="new--part-container">
-            <NewPartForm handleDisplay={toggleAddDisplay} />
+         {error && <div className="new--error-case"><p>{error.message}</p></div>}
+            <NewPartForm handleDisplay={toggleAddDisplay} errorData={handleErrorData} />
          </div>
       </div>,
       document.querySelector(".add--shell")

@@ -21,7 +21,7 @@ const initialState = {
    reorder_amount: "",
 };
 
-const NewPartForm = ({ handleDisplay }) => {
+const NewPartForm = ({ handleDisplay, errorData }) => {
    const [formData, setFormData] = useState(initialState);
    const [errors, setErrors] = useState({});
    const token = useSelector(state => state.auth.token) 
@@ -30,11 +30,11 @@ const NewPartForm = ({ handleDisplay }) => {
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      setErrors({});
+      errorData({});
       const validity = FormValidation.validate(formData);
 
       if (!validity.status) {
-         setErrors(validity);
+         errorData(validity);
          return 
       }
       console.log("submission successful!");
@@ -50,7 +50,7 @@ const NewPartForm = ({ handleDisplay }) => {
    };
 
    const handleChange = (event) => {
-      setErrors({});
+      errorData("");
       setFormData({
          ...formData,
          [event.target.name]: event.target.value,
@@ -64,7 +64,6 @@ const NewPartForm = ({ handleDisplay }) => {
          </div>
          
          <div className="new--form-body">
-            {errors && <p>{errors.message}</p>}
             <div className="new--form-field">
                <label>Part Number</label>
                <Input 
