@@ -11,7 +11,7 @@ const initialState = {
    upc: "",
    brand: "",
    name: "",
-   category: "",
+   category: "General",
    description: "",
    price: "",
    on_hand: "",
@@ -23,6 +23,7 @@ const initialState = {
 
 const NewPartForm = ({ handleDisplay, errorData }) => {
    const [formData, setFormData] = useState(initialState);
+   const [selected, setSelected] = useState("General");
    const [errors, setErrors] = useState({});
    const token = useSelector(state => state.auth.token) 
    const dispatch = useDispatch();
@@ -30,23 +31,19 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      errorData({});
+      errorData("");
       const validity = FormValidation.validate(formData);
 
       if (!validity.status) {
          errorData(validity);
          return 
       }
-      console.log("submission successful!");
+      errorData("");
       
-      /*
-         let data = {
-            ...formData,
-            token
-         }
-         dispatch(insertNewPart(data));
-         handleDisplay();
-      */ 
+      let data = {...formData, token };
+      dispatch(insertNewPart(data));
+      handleDisplay();
+
    };
 
    const handleChange = (event) => {
@@ -56,6 +53,10 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
          [event.target.name]: event.target.value,
       });
    };
+
+   const handleWheel = (event) => {
+      event.target.blur();
+   }
 
    return (
       <form className={"new--part-case"} onSubmit={handleSubmit}>
@@ -75,6 +76,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   ref={ref}
                   onChange={(event) => handleChange(event)}
                   value={formData.part_number}
+                  onWheel={handleWheel}
                />
             </div>
 
@@ -118,16 +120,27 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
             </div>
 
             <div className="new--form-field">
-               <label>Category</label>
-               <Input    
-                  type={"text"}
-                  className={"new--part-input"}
-                  name={"category"}
+               <label htmlFor="new--part-categories">Category</label>
+               <select 
+                  id="new--part-categories"
+                  value={formData.category} 
+                  name="categories" 
                   title={"Categorize the part by the type."}
-                  placeholder={"Category"}
                   onChange={(event) => handleChange(event)}
-                  value={formData.category}
-               />
+               >
+                  <option value="" className="new--part-placeholder">Select a Category</option>
+                  <option value="General">General</option>
+                  <option value="Network Gear">Network Gear</option>
+                  <option value="Power Accessories">Power Accessories</option>
+                  <option value="Cables">Cables</option>
+                  <option value="Sheet Metal">Sheet Metal</option>
+                  <option value="Lables">Lables</option>
+                  <option value="Bare Rack">Bare Rack</option>
+                  <option value="Non-Serialize">Non-Serialize</option>
+                  <option value="Optics">Optics</option>
+                  <option value="Memory">Memory</option>
+                  <option value="PCBA Board">PCBA Board</option>
+               </select>
             </div>
 
             <div className="new--form-field">
@@ -155,6 +168,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   placeholder={"Price"}
                   onChange={(event) => handleChange(event)}
                   value={formData.price}
+                  onWheel={handleWheel}
                />
             </div>
 
@@ -168,6 +182,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   placeholder={"On Hand"}
                   onChange={(event) => handleChange(event)}
                   value={formData.on_hand} 
+                  onWheel={handleWheel}
                />
             </div>
 
@@ -181,6 +196,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   placeholder={"Package Quantity"}
                   onChange={(event) => handleChange(event)}
                   value={formData.package_quantity} 
+                  onWheel={handleWheel}
                />
             </div>
 
@@ -194,6 +210,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   placeholder={"Reinventory Quantity"}
                   onChange={(event) => handleChange(event)}
                   value={formData.reinventory_quantity} 
+                  onWheel={handleWheel}
                />
             </div>
 
@@ -206,7 +223,8 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   title={"How much each unit weighs."}
                   placeholder={"Weight"}
                   onChange={(event) => handleChange(event)}
-                  value={formData.weight} 
+                  value={formData.weight}
+                  onWheel={handleWheel} 
                />
             </div>
 
@@ -220,6 +238,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                   placeholder={"Reorder Amount"}
                   onChange={(event) => handleChange(event)}
                   value={formData.reorder_amount} 
+                  onWheel={handleWheel}
                />
             </div>
          </div>

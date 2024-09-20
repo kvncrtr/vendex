@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 
-const Input = forwardRef(({type, className, name, title, placeholder, onChange, value}, ref) => {
+const Input = forwardRef(({type, className, name, title, placeholder, onChange, value, onWheel}, ref) => {
    return (
       <div className="input--container">
          <input 
@@ -12,6 +12,7 @@ const Input = forwardRef(({type, className, name, title, placeholder, onChange, 
             ref={ref}
             onChange={onChange}
             value={value}
+            onWheel={onWheel}
          />
       </div>
    );
