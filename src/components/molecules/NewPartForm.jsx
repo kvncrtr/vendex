@@ -6,7 +6,7 @@ import FormValidation from "../../services/form-validation";
 import { insertNewPart } from "../../store/part";
 
 const initialState = {
-   audited_at: Date.now(),
+   audited_at: "",
    part_number: "",
    upc: "",
    brand: "",
@@ -23,16 +23,14 @@ const initialState = {
 
 const NewPartForm = ({ handleDisplay, errorData }) => {
    const [formData, setFormData] = useState(initialState);
-   const [selected, setSelected] = useState("General");
-   const [errors, setErrors] = useState({});
    const token = useSelector(state => state.auth.token) 
    const dispatch = useDispatch();
    const ref = useRef(false);
 
    const handleSubmit = (event) => {
-      event.preventDefault();
-      errorData("");
       const validity = FormValidation.validate(formData);
+      errorData("");
+      event.preventDefault();
 
       if (!validity.status) {
          errorData(validity);
@@ -40,10 +38,8 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
       }
       errorData("");
       
-      let data = {...formData, token };
-      dispatch(insertNewPart(data));
+      dispatch(insertNewPart(formData, token));
       handleDisplay();
-
    };
 
    const handleChange = (event) => {
@@ -215,7 +211,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
             </div>
 
             <div className="new--form-field">
-               <label>Weight</label>
+               <label>{"Weight (lbs/oz)"}</label>
                <Input       
                   type={"number"}
                   className={"new--part-input"}

@@ -15,6 +15,7 @@ class FormValidation {
    static validate(formObj) {
       const {
          part_number,
+         upc,
          brand,
          name,
          category,
@@ -33,6 +34,12 @@ class FormValidation {
       // Brand 
       if (brand.length < 2) {
          return { status: false, message: "Brand name requires 2 characters or more." }
+      }
+
+      if (!parseInt(upc)) {
+         return { status: false, message: "UPC value must be an integer." }
+      } else if (on_hand < 0) {
+         return { status: false, message: "UPC value must be a positive number." }
       }
 
       // Name
