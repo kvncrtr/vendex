@@ -65,15 +65,16 @@ const Parts = () => {
       <div className="parts--title-case">
         <h4 className={"parts--title"}>Product List</h4>
       </div>
-      
-        <Table data={data} columns={COLUMNS} />
-        <Pagination />
 
-        {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
+      <Table data={data} columns={COLUMNS} />
+      <Pagination />
+
+      {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
     </div>
   );
 };
 
 export default Parts;
 // git add .; git commit -m ""; git push origin parts;
+// git add .; git commit -m "fix indentation"; git push origin parts;
 // git switch main; git merge parts; git push; git switch parts;
