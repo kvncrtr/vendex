@@ -19,8 +19,7 @@ const Sidebar = () => {
    const menuItems = [
       { key: 'dashboard', label: 'Dashboard', icon: SquaresFour, size: 19 },
       { key: 'parts', label: 'Parts', icon: Nut, size: 19 },
-      { key: 'racks', label: 'Racks', icon: HardDrives, size: 19 },
-      { key: 'transfers', label: 'Transfers', icon: Swap, size: 19 },
+      { key: 'inventory', label: 'Inventory', icon: Swap, size: 19 },
       { key: 'reports', label: 'Reports', icon: ChartLineUp, size: 19 },
    ]
 
