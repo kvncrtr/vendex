@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Form from "../molecules/Form";
 
-import { authenticateEmployee, validateToken } from "../../store/employee";
+import { authenticateEmployee, validateToken } from "../../store/employees";
 import { setActiveStatus } from "../../store/menu";
 import LocalStorageService from "../../services/local-storage";
 

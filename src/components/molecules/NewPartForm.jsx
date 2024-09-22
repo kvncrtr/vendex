@@ -3,7 +3,7 @@ import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import { useDispatch, useSelector } from "react-redux";
 import FormValidation from "../../services/form-validation";
-import { insertNewPart } from "../../store/part";
+import { insertNewPart } from "../../store/parts";
 
 const initialState = {
    audited_at: "",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEmployeeById } from "../../store/employee";
+import { fetchEmployeeById } from "../../store/employees";
 import { SquaresFour, Nut, HardDrives, Swap, ChartLineUp, Info, Gear } from "@phosphor-icons/react";
 
 import { List } from "@phosphor-icons/react";

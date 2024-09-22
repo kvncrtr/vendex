@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Button from "../atoms/Button";
 import Table from "../organisims/Table";
-import { PlusCircle } from "@phosphor-icons/react";
-import PartsData from "../../services/parts";
 import Pagination from "../atoms/Pagination";
 import AddPart from "../organisims/AddPart";
+import { PlusCircle } from "@phosphor-icons/react";
+
+import { fetchAllParts } from "../../store/parts";
 
 const COLUMNS = [
   {
@@ -42,8 +45,14 @@ const COLUMNS = [
 ];
 
 const Parts = () => {
-  const data = PartsData.info;
+  const parts = useSelector(state => state.parts.list)
+  const token = useSelector(state => state.auth.token)
+  const dispatch = useDispatch();
   const [showAdd, setShowAdd] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchAllParts(token))
+  }, [])
 
   const toggleAddDisplay = () => { 
     setShowAdd(!showAdd)
@@ -66,7 +75,7 @@ const Parts = () => {
         <h4 className={"parts--title"}>Product List</h4>
       </div>
 
-      <Table data={data} columns={COLUMNS} />
+      {parts && <Table data={parts} columns={COLUMNS} />}
       <Pagination />
 
       {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
@@ -76,5 +85,4 @@ const Parts = () => {
 
 export default Parts;
 // git add .; git commit -m ""; git push origin parts;
-// git add .; git commit -m "fix indentation"; git push origin parts;
 // git switch main; git merge parts; git push; git switch parts;

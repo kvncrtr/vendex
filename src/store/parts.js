@@ -3,8 +3,9 @@ import { apiCallBegan } from "./api";
 
 /* Initial State */
 const initialState = {
-   part: {
-      details: {},
+   parts: {
+      details: null,
+      list: null,
       isLoading: false,
       message: "",
       errorMessage: ""
@@ -13,8 +14,8 @@ const initialState = {
 
 /* Part Slice */
 const partSlice = createSlice({
-   name: "part",
-   initialState: initialState.part,
+   name: "parts",
+   initialState: initialState.parts,
    reducers: {
       apiRequested(state, action) {
          state.isLoading = true;
@@ -24,6 +25,10 @@ const partSlice = createSlice({
       addNewPart(state, action) {
          state.message = action.payload.message
          console.log(state.message);
+      }, 
+      getAllParts(state, action) {
+         state.list = action.payload
+         console.log(state.parts)
       },
       apiRequestFailed(state, action) {
          state.isLoading = false;
@@ -39,15 +44,16 @@ const partSlice = createSlice({
 export const {
    apiRequested,
    addNewPart,
+   getAllParts,
    apiRequestFailed,
    showError } = partSlice.actions;
-export const partReducer = partSlice.reducer;
+export const partsReducer = partSlice.reducer;
 
 /* Action Creator */
 const partUrl = "/parts";
 export const insertNewPart = (partData, token) => {
    const headers = { "Authorization": token };
-
+   
    return apiCallBegan({
       url: partUrl,
       method: "POST",
@@ -55,6 +61,20 @@ export const insertNewPart = (partData, token) => {
       headers: headers,
       onInit: apiRequested.type,
       onFulfilled: addNewPart.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+}; 
+
+export const fetchAllParts = (token) => {
+   const headers = { "Authorization": token };
+
+   return apiCallBegan({
+      url: partUrl,
+      method: "GET",
+      headers: headers,
+      onInit: apiRequested.type,
+      onFulfilled: getAllParts.type,
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
