@@ -52,7 +52,7 @@ const Parts = () => {
 
   useEffect(() => {
     dispatch(fetchAllParts(token))
-  }, [])
+  }, [dispatch])
 
   const toggleAddDisplay = () => { 
     setShowAdd(!showAdd)

@@ -120,7 +120,7 @@ const NewPartForm = ({ handleDisplay, errorData }) => {
                <select 
                   id="new--part-categories"
                   value={formData.category} 
-                  name="categories" 
+                  name="category" 
                   title={"Categorize the part by the type."}
                   onChange={(event) => handleChange(event)}
                >

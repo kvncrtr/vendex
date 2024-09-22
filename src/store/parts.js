@@ -28,7 +28,6 @@ const partSlice = createSlice({
       }, 
       getAllParts(state, action) {
          state.list = action.payload
-         console.log(state.parts)
       },
       apiRequestFailed(state, action) {
          state.isLoading = false;
