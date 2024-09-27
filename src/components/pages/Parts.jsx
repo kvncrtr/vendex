@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../atoms/Button";
 import Table from "../organisims/Table";
 import Pagination from "../atoms/Pagination";
 import AddPart from "../organisims/AddPart";
-import { PlusCircle, PencilLine } from "@phosphor-icons/react";
+import { PlusCircle } from "@phosphor-icons/react";
 
 import { fetchAllParts } from "../../store/parts";
 
@@ -50,28 +50,29 @@ const Parts = () => {
   const token = useSelector(state => state.auth.token)
   const [showAdd, setShowAdd] = useState(false);
   const [showOps, setShowOps] = useState(false);
-  const [partNumber, setPartNumber] = useState(0);
-  const [childPartNumber, setChildPartNumber] = useState(0);
   const [selected, setSelected] = useState([]);
+  const hasMounted = useRef(true);
 
   useEffect(() => {
     dispatch(fetchAllParts(token))
   }, [dispatch])
 
   const toggleAddDisplay = () => { setShowAdd(!showAdd) };
-
+  
   const toggleOpsDisplay = (event) => { 
     const partNumber = event.target.attributes["data-part-number"].value; 
     toggleSelection(partNumber);
     highlightItems(partNumber);
-
-    // when the array is empty and showing is false the set show to true
-    // if array is full set show to true 
-    // if array is empty and show is true set it to false
   };
 
   const toggleSelection = (partNumber) => {
-    console.log(partNumber);
+    setSelected((prevSelected) => {
+      if (prevSelected.includes(partNumber)) {
+        return prevSelected.filter((num) => num !== partNumber);
+      } else {
+        return [...prevSelected, partNumber];
+      }
+    });
   };
 
   const highlightItems = (partNumber) => {
@@ -81,7 +82,7 @@ const Parts = () => {
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
       const childPartNumber = child.getAttribute("data-part-number");
-
+      
       if (childPartNumber === partNumber) {
         if (child.classList.contains('parts--selected')) {
           child.classList.remove('parts--selected');
@@ -92,6 +93,25 @@ const Parts = () => {
     }
   };
 
+  const chooseOpsDisplay = (list) => {
+    if (list.length === 0 && !showOps) {
+      setShowOps(true);
+    } else if (list.length > 0) {
+      setShowOps(true);
+    } else if (list.length === 0 && showOps) {
+      setShowOps(false);
+    };
+  }
+  
+  useEffect(() => {
+    if (!hasMounted.current) {
+      chooseOpsDisplay(selected);
+      console.log(selected);
+    } else {
+      hasMounted.current = false;
+    }
+ }, [selected]);
+  
   return (
     <div className="parts--container">
       <div className="parts--add-case">
@@ -109,7 +129,6 @@ const Parts = () => {
       <Button 
           className={"parts--ops-button"}
           text={"Edit"}
-          icon={<PencilLine size={15} />} 
           onClick={toggleAddDisplay}
           />
       </div>}
