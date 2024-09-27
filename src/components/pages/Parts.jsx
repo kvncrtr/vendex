@@ -106,7 +106,6 @@ const Parts = () => {
   useEffect(() => {
     if (!hasMounted.current) {
       chooseOpsDisplay(selected);
-      console.log(selected);
     } else {
       hasMounted.current = false;
     }
@@ -129,7 +128,7 @@ const Parts = () => {
       <Button 
           className={"parts--ops-button"}
           text={"Edit"}
-          onClick={toggleAddDisplay}
+          onClick={() => console.log("ran operation!")}
           />
       </div>}
 
