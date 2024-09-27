@@ -254,10 +254,8 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     color: #438DEF; }
   .pagi--button:hover {
-    color: #FFFFFF;
-    opacity: 0.9; }
+    color: #F2F2F2; }
   .pagi--button:active {
-    background-color: #F2A74B;
     opacity: 0.3; }
   .pagi--nav-back,
   .pagi--nav-forward {
@@ -335,7 +333,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media screen and (min-width: 1200px) {
   .form--container {
-    width: 90vw; }
+    width: 90vw;
+    max-width: 1200px; }
   .form--img-case,
   .form--input-case {
     width: calc((88.89vw / 2) - .5rem); }
@@ -518,6 +517,7 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: space-between;
     align-items: center;
     height: 4.353rem;
+    width: 100vw;
     padding: 0.706rem;
     background-color: #FFFFFF;
     border-bottom: 0.059rem solid #CED4DA; }
@@ -585,10 +585,18 @@ input[type="number"]::-webkit-outer-spin-button {
   .sidebar--menu-case {
     margin-top: 1.88rem; } }
 
+@media screen and (min-width: 325px) {
+  .home--layout-container {
+    height: 100vh;
+    width: 100vw; }
+  .home--content-container {
+    height: calc(100vh - 4.353rem);
+    width: 100vw; } }
+
 @media screen and (min-width: 768px) {
   .home--layout-container {
     display: flex; }
-  .home-content-container {
+  .home--content-container {
     max-width: calc(100vw - 252px); } }
 
 @media screen and (min-width: 1280px) {
@@ -630,7 +638,9 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--container {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    width: 100vw;
+    height: 100%; }
   .parts--add-case {
     display: flex;
     align-items: center;
@@ -836,7 +846,20 @@ input[type="number"]::-webkit-outer-spin-button {
     border: solid 0.118rem #F2F2F2;
     border-radius: 0.232rem;
     padding: 0.256rem;
-    margin-top: 0.118rem; } }
+    margin-top: 0.118rem; }
+  .parts--ops-container {
+    width: 100vw;
+    padding: 0.754rem;
+    border-bottom: 1px solid #CED4DA;
+    background-color: #F8F9FA; }
+  .parts--ops-button {
+    display: flex;
+    align-items: center;
+    gap: 0.258rem;
+    padding: 0 0.5rem;
+    border: 1px solid #CED4DA;
+    border-radius: 0.254rem;
+    background-color: #F2F2F2; } }
 
 @media screen and (min-width: 768px) {
   .parts--container {

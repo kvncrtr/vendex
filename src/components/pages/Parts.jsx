@@ -5,7 +5,7 @@ import Button from "../atoms/Button";
 import Table from "../organisims/Table";
 import Pagination from "../atoms/Pagination";
 import AddPart from "../organisims/AddPart";
-import { PlusCircle } from "@phosphor-icons/react";
+import { PlusCircle, PencilLine } from "@phosphor-icons/react";
 
 import { fetchAllParts } from "../../store/parts";
 
@@ -70,6 +70,14 @@ const Parts = () => {
           onClick={toggleAddDisplay}
         />
       </div>
+      <div className="parts--ops-container">
+      <Button 
+          className={"parts--ops-button"}
+          text={"Edit"}
+          icon={<PencilLine size={15} />} 
+          onClick={toggleAddDisplay}
+          />
+      </div>
 
       <div className="parts--title-case">
         <h4 className={"parts--title"}>Product List</h4>
@@ -85,4 +93,5 @@ const Parts = () => {
 
 export default Parts;
 // git add .; git commit -m ""; git push origin parts;
+// 
 // git switch main; git merge parts; git push; git switch parts;

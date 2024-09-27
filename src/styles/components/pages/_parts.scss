@@ -3,6 +3,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100vw;
+      height: 100%;
    }
    
    .parts--add-case {
@@ -295,6 +297,23 @@
       border-radius: 0.232rem;
       padding: 0.256rem;
       margin-top: 0.118rem;
+   }
+
+   .parts--ops-container {
+      width: 100vw;
+      padding: 0.754rem;
+      border-bottom: 1px solid $achromatic-500;
+      background-color: $achromatic-400;
+   }
+
+   .parts--ops-button {
+      display: flex;
+      align-items: center;
+      gap: 0.258rem;
+      padding: 0 0.5rem;
+      border: 1px solid $achromatic-500;
+      border-radius: 0.254rem;
+      background-color: $achromatic-200;
    }
 }
 

@@ -9,15 +9,15 @@ const HomeLayout = () => {
     <div className="home--layout-container">
       <div className="sidebar--parent">
         <Sidebar />
-      </div>
+      </div> 
 
       <div className="searchbar--parent">
         <Searchbar />
       </div>
 
       <div className="home--content-container">
-        <Outlet /> 
-      </div>
+        <Outlet />
+      </div> 
 
       <div className="access--parent">
         <Access />
