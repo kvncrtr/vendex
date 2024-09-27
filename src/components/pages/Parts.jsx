@@ -93,5 +93,4 @@ const Parts = () => {
 
 export default Parts;
 // git add .; git commit -m ""; git push origin parts;
-// 
 // git switch main; git merge parts; git push; git switch parts;
