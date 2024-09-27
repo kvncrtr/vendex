@@ -315,6 +315,12 @@
       border-radius: 0.254rem;
       background-color: $achromatic-200;
    }
+
+   .parts--selected {
+      opacity: 0.9;
+      background-color: $secondary-600;
+      color: $achromatic-700;
+   }
 }
 
 @media screen and (min-width: 768px) {
