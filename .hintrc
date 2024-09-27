@@ -13,5 +13,17 @@
     "not opera <= 110",
     "not safari <= 17.5",
     "not samsung <= 25"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-wrap",
+          "text-wrap: balance",
+          "text-wrap: nowrap"
+        ]
+      }
+    ]
+  }
 }

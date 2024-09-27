@@ -608,6 +608,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100vw;
     overflow-y: hidden; }
   .home--content-container {
+    width: 100%;
     grid-column: 2 / 3;
     grid-row: 2 / 3; }
   .searchbar--parent {
@@ -863,7 +864,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .parts--selected {
     opacity: 0.9;
     background-color: #F2CF4A;
-    color: #6E7289; } }
+    color: #EAEAEA; } }
 
 @media screen and (min-width: 768px) {
   .parts--container {
@@ -899,9 +900,16 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column; }
   .new--part-button {
     width: 25.411rem;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .parts--ops-container {
+    width: 100%;
+    padding: 1.441rem;
+    border-bottom: 1px solid #CED4DA;
+    background-color: #F8F9FA; } }
 
 @media screen and (min-width: 1280px) {
+  .parts--container {
+    width: 100%; }
   .parts--add-case {
     height: 6.412rem; }
   .parts--title-case {

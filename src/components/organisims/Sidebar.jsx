@@ -30,10 +30,7 @@ const Sidebar = () => {
    
    useEffect(() => { if (employeeId) { dispatch(fetchEmployeeById(employeeId)) }}, []);
 
-   const handleClick = () => {
-      setShowMenu(!showMenu);
-   }
-
+   const handleClick = () => { setShowMenu(!showMenu) };
    const switchActive = (key) => {
       dispatch(setActiveStatus(key));
       navigate(`/${key}`);

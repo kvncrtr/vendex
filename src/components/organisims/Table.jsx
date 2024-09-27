@@ -1,7 +1,6 @@
 import React from "react";
 
-const Table = ({ data, columns }) => {
-
+const Table = ({ data, columns, toggleOpsDisplay }) => {
    return (
     <div className="parts--table-container">
       <table>
@@ -22,13 +21,20 @@ const Table = ({ data, columns }) => {
           </tr>
         </thead>
 
-        <tbody className="parts--tbody">
+        <tbody id={"tbody--parent"} className="parts--tbody">
           {data.map(part => (
             <tr
               key={`partNumber:${part.part_number}`}
-              className={`parts--tbody-row`}
-            >
-              <td className="parts--tbody-cell" data-cell={"checkbox"}><input type="checkbox" /></td>
+              className={`parts--tbody-row ${part.part_number}`}
+              data-part-number={`${part.part_number}`}
+              >
+              <td className="parts--tbody-cell" data-cell={"checkbox"}>
+                <input 
+                  type="checkbox" 
+                  onClick={(event) => toggleOpsDisplay(event)}
+                  data-part-number={`${part.part_number}`}
+                />
+              </td>
               <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.audited_at}</td>
               <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.part_number}</td>
               <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.upc}</td>
