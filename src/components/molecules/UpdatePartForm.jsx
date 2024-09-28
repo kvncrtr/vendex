@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import FormValidation from "../../services/form-validation";
+import { updatePart } from "../../store/parts";
 
 const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
    const [formData, setFormData] = useState(details);
@@ -10,17 +11,27 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
    const dispatch = useDispatch();
    const ref = useRef(false);
 
-   const handleSubmit = (event) => {
-      const validity = FormValidation.validate(formData);
-      event.preventDefault();
-      errorData("");
+   const returnWithUpdatedTime = (formData) => {
+      const estDate = new Date().toLocaleString('en-US', {
+         timeZone: 'America/New_York',
+         year: 'numeric',
+         month: '2-digit',
+         day: '2-digit',
+         hour: '2-digit',
+         minute: '2-digit',
+         second: '2-digit',
+         hour12: false
+      });
 
-      if (!validity.status) {
-         errorData(validity);
-         return 
-      }
-      errorData("");
-      console.log(formData);
+      const [date, time] = estDate.split(', ');
+      const [month, day, year] = date.split('/');
+      const formattedESTDate = `${year}-${month}-${day}T${time}`;
+      const updatedObj = {
+         ...formData,
+         "updated_at": formattedESTDate 
+      };
+
+      return updatedObj;
    };
 
    const handleChange = (event) => {
@@ -35,8 +46,22 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
       event.target.blur();
    }
 
+   const handleSubmit = (event) => {
+      const validity = FormValidation.validate(formData);
+      event.preventDefault();
+      errorData("");
+
+      if (!validity.status) {
+         errorData(validity);
+         return 
+      }
+      errorData("");
+      const updated = returnWithUpdatedTime(formData);
+      dispatch(updatePart(token, updated));
+   };
+
    return (
-      <form className={"update--part-container"} onSubmit={handleSubmit}>
+      <form className={"update--part-case"} onSubmit={handleSubmit}>
          <div className="update--part-title">
             <h2>Update Part</h2>
          </div>

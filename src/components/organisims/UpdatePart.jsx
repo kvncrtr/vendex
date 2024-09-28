@@ -21,10 +21,16 @@ const UpdatePart = ({ toggleUpdateDisplay }) => {
                size={32} 
                onClick={toggleUpdateDisplay} 
             />
-
          </div>
 
-         <UpdatePartForm errorData={handleErrorData} details={details} toggleUpdateDisplay={toggleUpdateDisplay} />
+         <div className="update--part-container">
+            {error && <div className="new--error-case"><p>{error.message}</p></div>}
+            <UpdatePartForm 
+               errorData={handleErrorData} 
+               details={details} 
+               toggleUpdateDisplay={toggleUpdateDisplay} 
+            />
+         </div>
       </div>,
    document.querySelector(".update--shell"));
 }; 

@@ -33,8 +33,8 @@ const partSlice = createSlice({
          state.details = action.payload;
       },
       changePartInfo(state, action) {
-         console.log(action.payload.token);
-         console.log(action.payload.list);
+         state.message = action.payload.message;
+         console.log(state.message);
       },
       apiRequestFailed(state, action) {
          state.isLoading = false;
@@ -94,7 +94,7 @@ export const updatePart = (token, data) => {
 
    return apiCallBegan({
       url: partUrl,
-      method: "PATCH",
+      method: "PUT",
       headers: headers,
       data: partNumber,
       onInit: apiRequested.type,

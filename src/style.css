@@ -79,7 +79,8 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: 700; }
   .parts--heading-case {
     color: #5C6F88; }
-  .new--part-button {
+  .new--part-button,
+  .update--part-button {
     color: #FFFFFF; }
   .new--error-case {
     font-style: normal;
@@ -769,16 +770,19 @@ input[type="number"]::-webkit-outer-spin-button {
     bottom: 0;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.85); }
-  .add--close-case {
+  .add--close-case,
+  .update--close-case {
     display: flex;
     justify-content: end;
     padding: 0.588rem 0.588rem 0 0; }
-  .add--close {
+  .add--close,
+  .update--close-button {
     color: #FFFFFF;
     cursor: pointer; }
   .add--close:active {
     opacity: 0.1; }
-  .new--part-container {
+  .new--part-container,
+  .update--part-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -786,47 +790,57 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     height: calc(100vh - 2.470rem);
     overflow: hidden; }
-  .new--part-case {
+  .new--part-case,
+  .update--part-case {
     width: 17.117rem;
     height: 70vh;
     margin: 0 auto;
     border-radius: 0.588rem;
     background-color: #FFFFFF; }
-  .new--part-title {
+  .new--part-title,
+  .update--part-title {
     background-color: #FFFFFF;
     padding: 0.588rem 0.588rem 0;
     background-color: #F2F2F2;
     border-radius: 0.588rem 0.588rem 0 0;
     height: 3.529rem; }
-  .new--form-body {
+  .new--form-body,
+  .update--form-body {
     display: flex;
     flex-direction: column;
     gap: 0.588rem;
     padding: 1rem 1.411rem 1rem;
     overflow: hidden scroll;
     height: calc(70vh - 7.705rem); }
-  .new--form-body::-webkit-scrollbar {
+  .new--form-body::-webkit-scrollbar,
+  .update--form-body::-webkit-scrollbar {
     width: 6px;
     height: 6px; }
-  .new--form-body::-webkit-scrollbar-button {
+  .new--form-body::-webkit-scrollbar-button,
+  .update--form-body::-webkit-scrollbar-button {
     display: none; }
-  .new--form-body::-webkit-scrollbar-track-piece {
+  .new--form-body::-webkit-scrollbar-track-piece,
+  .update--form-body::-webkit-scrollbar-track-piece {
     background-color: transparent; }
-  .new--form-body::-webkit-scrollbar-thumb {
+  .new--form-body::-webkit-scrollbar-thumb,
+  .update--form-body::-webkit-scrollbar-thumb {
     background-color: #438DEF;
     border-radius: 6px;
     border: 3px solid transparent; }
-  .new--form-body::-webkit-scrollbar-thumb:hover {
+  .new--form-body::-webkit-scrollbar-thumb:hover,
+  .update--form-body::-webkit-scrollbar-thumb:hover {
     background-color: #0459C9;
     cursor: pointer; }
-  .new--error-case {
+  .new--error-case,
+  .update--error-case {
     margin-top: 1rem;
     padding: 0.588rem;
     width: 17.117rem;
     border-radius: 0.588rem;
     color: #F54654;
     background-color: #FFFFFF; }
-  .new--button-container {
+  .new--button-container,
+  .update--button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -834,16 +848,19 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 0 0 0.588rem 0.588rem;
     padding-left: 0.588rem;
     background-color: #F2F2F2; }
-  .new--part-button {
+  .new--part-button,
+  .update--part-button {
     border-radius: 0.258rem;
     height: 2.176rem;
     width: 9.941rem;
     background-color: #438DEF;
     border: none;
     cursor: pointer; }
-  .new--part-button:active {
+  .new--part-button:active,
+  .update--part-button:active {
     opacity: 0.3; }
-  .new--part-input {
+  .new--part-input,
+  .update--part-input {
     border: solid 0.118rem #F2F2F2;
     border-radius: 0.232rem;
     padding: 0.256rem;
