@@ -5,9 +5,10 @@ import Button from "../atoms/Button";
 import Table from "../organisims/Table";
 import Pagination from "../atoms/Pagination";
 import AddPart from "../organisims/AddPart";
+import UpdatePart from "../organisims/UpdatePart";
 import { PlusCircle } from "@phosphor-icons/react";
 
-import { fetchAllParts } from "../../store/parts";
+import { fetchAllParts, savePartDetails } from "../../store/parts";
 
 const columns = [
   {
@@ -49,6 +50,7 @@ const Parts = () => {
   const parts = useSelector(state => state.parts.list)
   const token = useSelector(state => state.auth.token)
   const [showAdd, setShowAdd] = useState(false);
+  const [showUpdate, setShowUpdate] = useState(false);
   const [showOps, setShowOps] = useState(false);
   const [selected, setSelected] = useState([]);
   const hasMounted = useRef(true);
@@ -58,6 +60,7 @@ const Parts = () => {
   }, [dispatch])
 
   const toggleAddDisplay = () => { setShowAdd(!showAdd) };
+  const toggleUpdateDisplay = () => { setShowUpdate(!showUpdate) };
   
   const toggleOpsDisplay = (event) => { 
     const partNumber = event.target.attributes["data-part-number"].value; 
@@ -102,6 +105,13 @@ const Parts = () => {
       setShowOps(false);
     };
   }
+
+  const serveList = () => {
+    const focalPart = (parseInt(selected[0]));
+    const foundPart = parts.find(part => part.part_number === focalPart);
+    dispatch(savePartDetails(foundPart)); 
+    setShowUpdate(true);
+  };
   
   useEffect(() => {
     if (!hasMounted.current) {
@@ -128,7 +138,7 @@ const Parts = () => {
       <Button 
           className={"parts--ops-button"}
           text={"Edit"}
-          onClick={() => console.log("ran operation!")}
+          onClick={serveList}
           />
       </div>}
 
@@ -146,6 +156,7 @@ const Parts = () => {
       <Pagination />
 
       {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
+      {showUpdate && <UpdatePart toggleUpdateDisplay={toggleUpdateDisplay}/>}
     </div>
   );
 };

@@ -321,6 +321,15 @@
       background-color: $secondary-600;
       color: $achromatic-600;
    }
+
+   .update--container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.85);     
+   }
 }
 
 @media screen and (min-width: 768px) {

@@ -29,6 +29,13 @@ const partSlice = createSlice({
       getAllParts(state, action) {
          state.list = action.payload
       },
+      savePartDetails(state, action) {
+         state.details = action.payload;
+      },
+      changePartInfo(state, action) {
+         console.log(action.payload.token);
+         console.log(action.payload.list);
+      },
       apiRequestFailed(state, action) {
          state.isLoading = false;
          state.errorMessage = action.payload.errorMessage;
@@ -44,6 +51,8 @@ export const {
    apiRequested,
    addNewPart,
    getAllParts,
+   savePartDetails,
+   changePartInfo,
    apiRequestFailed,
    showError } = partSlice.actions;
 export const partsReducer = partSlice.reducer;
@@ -78,3 +87,19 @@ export const fetchAllParts = (token) => {
       onShowError: showError.type
    })
 }; 
+
+export const updatePart = (token, data) => {
+   const headers = {"Authorization": token};
+   const partNumber = data[0];
+
+   return apiCallBegan({
+      url: partUrl,
+      method: "PATCH",
+      headers: headers,
+      data: partNumber,
+      onInit: apiRequested.type,
+      onFulfilled: changePartInfo.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+};
