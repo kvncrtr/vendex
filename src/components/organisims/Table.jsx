@@ -25,6 +25,7 @@ const Table = ({ data, columns, toggleOpsDisplay }) => {
           {data.map(part => (
             <tr
               key={`partNumber:${part.part_number}`}
+              data-id={`${part.id}`}
               className={`parts--tbody-row ${part.part_number}`}
               data-part-number={`${part.part_number}`}
               >

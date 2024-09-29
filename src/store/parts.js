@@ -25,7 +25,7 @@ const partSlice = createSlice({
       addNewPart(state, action) {
          state.message = action.payload.message
          console.log(state.message);
-      }, 
+      },
       getAllParts(state, action) {
          state.list = action.payload
       },
@@ -61,7 +61,7 @@ export const partsReducer = partSlice.reducer;
 const partUrl = "/parts";
 export const insertNewPart = (partData, token) => {
    const headers = { "Authorization": token };
-   
+
    return apiCallBegan({
       url: partUrl,
       method: "POST",
@@ -72,7 +72,7 @@ export const insertNewPart = (partData, token) => {
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
-}; 
+};
 
 export const fetchAllParts = (token) => {
    const headers = { "Authorization": token };
@@ -86,17 +86,16 @@ export const fetchAllParts = (token) => {
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
-}; 
+};
 
 export const updatePart = (token, data) => {
-   const headers = {"Authorization": token};
-   const partNumber = data[0];
+   const headers = { "Authorization": token };
 
    return apiCallBegan({
-      url: partUrl,
+      url: `${partUrl}/${data.id}`,
       method: "PUT",
       headers: headers,
-      data: partNumber,
+      data: data,
       onInit: apiRequested.type,
       onFulfilled: changePartInfo.type,
       onRejected: apiRequestFailed.type,

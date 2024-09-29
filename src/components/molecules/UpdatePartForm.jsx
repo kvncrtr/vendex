@@ -25,7 +25,7 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
 
       const [date, time] = estDate.split(', ');
       const [month, day, year] = date.split('/');
-      const formattedESTDate = `${year}-${month}-${day}T${time}`;
+      const formattedESTDate = `${year}-${month}-${day} ${time}`;
       const updatedObj = {
          ...formData,
          "updated_at": formattedESTDate 
@@ -57,6 +57,7 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
       }
       errorData("");
       const updated = returnWithUpdatedTime(formData);
+      
       dispatch(updatePart(token, updated));
    };
 
