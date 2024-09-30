@@ -34,6 +34,21 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
       return updatedObj;
    };
 
+   const returnWithStrings = (data) => {
+      const keys = Object.keys(data);
+      let newObj = { ...data };  
+    
+      keys.forEach(key => {
+        if (typeof data[key] === "number") {
+          newObj = {
+            ...newObj,
+            [key]: data[key].toString()  
+          };
+        }
+      });    
+      return newObj;  
+   };
+
    const handleChange = (event) => {
       errorData("");
       setFormData({
@@ -56,8 +71,9 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
          return 
       }
       errorData("");
-      const updated = returnWithUpdatedTime(formData);
-      
+      const conversion = returnWithStrings(formData);
+      const updated = returnWithUpdatedTime(conversion);
+
       dispatch(updatePart(token, updated));
    };
 
