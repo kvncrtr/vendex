@@ -75,6 +75,7 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
       const updated = returnWithUpdatedTime(conversion);
 
       dispatch(updatePart(token, updated));
+      toggleUpdateDisplay();
    };
 
    return (

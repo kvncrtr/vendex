@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ data, columns, toggleOpsDisplay }) => {
+const Table = ({ data, columns, handleCheckbox }) => {
    return (
     <div className="parts--table-container">
       <table>
@@ -32,7 +32,7 @@ const Table = ({ data, columns, toggleOpsDisplay }) => {
               <td className="parts--tbody-cell" data-cell={"checkbox"}>
                 <input 
                   type="checkbox" 
-                  onClick={(event) => toggleOpsDisplay(event)}
+                  onClick={(event) => handleCheckbox(event, part.id)}
                   data-part-number={`${part.part_number}`}
                 />
               </td>

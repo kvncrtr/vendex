@@ -47,8 +47,9 @@ const columns = [
 
 const Parts = () => {
   const dispatch = useDispatch();
-  const parts = useSelector(state => state.parts.list)
-  const token = useSelector(state => state.auth.token)
+  const parts = useSelector(state => state.parts.list);
+  const token = useSelector(state => state.auth.token);
+  const message = useSelector(state => state.auth.message);
   const [showAdd, setShowAdd] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [showOps, setShowOps] = useState(false);
@@ -57,7 +58,7 @@ const Parts = () => {
 
   useEffect(() => {
     dispatch(fetchAllParts(token))
-  }, [dispatch])
+  }, [message])
 
   const toggleAddDisplay = () => { setShowAdd(!showAdd) };
   const toggleUpdateDisplay = () => { setShowUpdate(!showUpdate) };
@@ -112,6 +113,12 @@ const Parts = () => {
     dispatch(savePartDetails(foundPart)); 
     setShowUpdate(true);
   };
+
+  const handleCheckbox = (event, id) => {
+    toggleOpsDisplay(event);
+    dispatch(getPartById(id));
+    
+  };
   
   useEffect(() => {
     if (!hasMounted.current) {
@@ -150,7 +157,7 @@ const Parts = () => {
         <Table 
           data={parts} 
           columns={columns} 
-          toggleOpsDisplay={toggleOpsDisplay} 
+          handleCheckbox={handleCheckbox} 
         />
       }
       <Pagination />
@@ -162,6 +169,5 @@ const Parts = () => {
 };
 
 export default Parts;
-// git add .; git commit -m ""; git push origin parts;
 // git add .; git commit -m ""; git push origin parts;
 // git switch main; git merge parts; git push; git switch parts;
