@@ -4,10 +4,10 @@ import { apiCallBegan } from "./api";
 /* Initial State */
 const initialState = {
    parts: {
-      details: { id: 0},
+      details: null,
       list: null,
       isLoading: false,
-      checked: 0,
+      selected: 0,
       message: "",
       errorMessage: ""
    }
@@ -27,7 +27,7 @@ const partSlice = createSlice({
          state.message = action.payload.message
          console.log(state.message);
       },
-      getAllParts(state, action) {
+      fetchAllParts(state, action) {
          state.list = action.payload;
          state.details = "";
          state.isLoading = false;
@@ -64,7 +64,7 @@ const partSlice = createSlice({
 export const {
    apiRequested,
    addNewPart,
-   getAllParts,
+   fetchAllParts,
    fetchPartById,
    savePartDetails,
    selectPart,
@@ -91,7 +91,7 @@ export const insertNewPart = (partData, token) => {
    })
 };
 
-export const fetchAllParts = (token) => {
+export const getAllParts = (token) => {
    const headers = { "Authorization": token };
 
    return apiCallBegan({
@@ -99,7 +99,21 @@ export const fetchAllParts = (token) => {
       method: "GET",
       headers: headers,
       onInit: apiRequested.type,
-      onFulfilled: getAllParts.type,
+      onFulfilled: fetchAllParts.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+};
+
+export const getPartById = (token, id) => {
+   const headers = { "Authorization": token };
+
+   return apiCallBegan({
+      url: `${partUrl}/${id}`,
+      method: "GET",
+      headers: headers,
+      onInit: apiRequested.type,
+      onFulfilled: fetchPartById.type,
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
@@ -115,20 +129,6 @@ export const updatePart = (token, data) => {
       data: data,
       onInit: apiRequested.type,
       onFulfilled: changePartInfo.type,
-      onRejected: apiRequestFailed.type,
-      onShowError: showError.type
-   })
-};
-
-export const getPartById = (token, id) => {
-   const headers = { "Authorization": token };
-
-   return apiCallBegan({
-      url: `${partUrl}/${id}`,
-      method: "GET",
-      headers: headers,
-      onInit: apiRequested.type,
-      onFulfilled: fetchPartById.type,
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })

@@ -8,7 +8,7 @@ import AddPart from "../organisims/AddPart";
 import UpdatePart from "../organisims/UpdatePart";
 import { PlusCircle } from "@phosphor-icons/react";
 
-import { fetchAllParts, selectPart } from "../../store/parts";
+import { getAllParts, getPartById } from "../../store/parts";
 
 const columns = [
   {
@@ -56,7 +56,8 @@ const Parts = () => {
 
   const toggleAddDisplay = () => { setShowAdd(!showAdd) };
   const toggleUpdateDisplay = () => { setShowUpdate(!showUpdate) };
-
+  const toggleOpsDisplay = () => { setShowOps(!showOps) };
+  
   const highlightPart = (id) => {
     const tbody = document.getElementById("tbody--parent");
     const children = tbody.childNodes;
@@ -75,22 +76,39 @@ const Parts = () => {
       }
     }
   };
-
+  
+  const unhighlightParts = () => {
+    const tbody = document.getElementById("tbody--parent");
+    const children = tbody.childNodes;
+    for (const child of children) { 
+      child.classList.remove("parts--selected");
+      child.firstChild.firstChild.checked = false;
+    }
+  };
+  
   const handleCheckbox = (id) => {
     if (checked === 0 && id > 0) {
-      highlightPart(id);
+      toggleOpsDisplay();
+      highlightPart(id); 
       setChecked(id);
     } else if (checked > 0 && id === checked) {
+      toggleOpsDisplay();
       highlightPart(id);
       setChecked(0);
     } else if (checked > 0 && id !== checked) {
+      setShowOps(true);
       highlightPart(id);
       setChecked(id);
     }
   };
+
+  const serveList = () => {    
+    toggleOpsDisplay();
+    unhighlightParts();
+  }
   
   useEffect(() => {
-    dispatch(fetchAllParts(token))
+    dispatch(getAllParts(token))
   }, []);
   
   return (
@@ -102,15 +120,15 @@ const Parts = () => {
           className={"parts--add-button"}
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
-          onClick={toggleAddDisplay}
+          onClick={serveList}
         />
       </div>
       
       {showOps && <div className="parts--ops-container">
-      <Button 
-          className={"parts--ops-button"}
-          text={"Edit"}
-          onClick={serveList}
+        <Button 
+            className={"parts--ops-button"}
+            text={"Edit"}
+            onClick={serveList}
           />
       </div>}
 
