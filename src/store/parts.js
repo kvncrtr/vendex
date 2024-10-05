@@ -55,6 +55,12 @@ const partSlice = createSlice({
       },
       showError(state, action) {
          console.log(action.payload.errorMessage)
+      },
+      backToInit(state) {
+         state.details = {};
+         state.isLoading = false;
+         state.message = "";
+         state.errorMessage = "";
       }
    }
 })
@@ -70,7 +76,8 @@ export const {
    appendParts,
    changePartInfo,
    apiRequestFailed,
-   showError } = partSlice.actions;
+   showError,
+   backToInit } = partSlice.actions;
 export const partsReducer = partSlice.reducer;
 
 /* Action Creator */

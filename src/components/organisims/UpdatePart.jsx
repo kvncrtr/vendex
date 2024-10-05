@@ -4,8 +4,12 @@ import ReactDOM from "react-dom";
 import { XSquare } from "@phosphor-icons/react";
 import { useSelector } from "react-redux";
 
-const UpdatePart = ({ toggleUpdateDisplay }) => {
+const UpdatePart = ({ toggleUpdateDisplay, reset }) => {
    const [error, setError] = useState(null);
+
+   const handleClose = () => {
+      reset();
+   };
 
    const handleErrorData = (errorData) => {
       setError(errorData);
@@ -18,7 +22,7 @@ const UpdatePart = ({ toggleUpdateDisplay }) => {
                className={"update--close-button"}
                weight={"thin"} 
                size={32} 
-               onClick={toggleUpdateDisplay} 
+               onClick={handleClose} 
             />
          </div>
 

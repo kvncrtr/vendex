@@ -8,7 +8,7 @@ import AddPart from "../organisims/AddPart";
 import UpdatePart from "../organisims/UpdatePart";
 import { PlusCircle } from "@phosphor-icons/react";
 
-import { getAllParts, getPartById } from "../../store/parts";
+import { getAllParts, getPartById, backToInit } from "../../store/parts";
 
 const columns = [
   {
@@ -103,11 +103,17 @@ const Parts = () => {
     }
   };
 
+  const reset = () => {
+    unhighlightParts();
+    dispatch(backToInit());
+    setChecked(0);
+    setShowOps(false);
+    toggleUpdateDisplay();
+  };
+
   const serveList = () => {    
     dispatch(getPartById(token, checked));
-    toggleOpsDisplay();
-    unhighlightParts();
-    toggleUpdateDisplay();
+    reset();
   }
   
   useEffect(() => {
@@ -149,7 +155,7 @@ const Parts = () => {
       <Pagination />
 
       {showAdd && <AddPart toggleAddDisplay={toggleAddDisplay} />}
-      {showUpdate && <UpdatePart toggleUpdateDisplay={toggleUpdateDisplay}/>}
+      {showUpdate && <UpdatePart reset={reset} toggleUpdateDisplay={toggleUpdateDisplay}/>}
     </div>
   );
 };
