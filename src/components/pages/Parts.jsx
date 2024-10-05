@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../atoms/Button";
@@ -8,7 +8,7 @@ import AddPart from "../organisims/AddPart";
 import UpdatePart from "../organisims/UpdatePart";
 import { PlusCircle } from "@phosphor-icons/react";
 
-import { fetchAllParts, savePartDetails } from "../../store/parts";
+import { fetchAllParts, selectPart } from "../../store/parts";
 
 const columns = [
   {
@@ -49,84 +49,49 @@ const Parts = () => {
   const dispatch = useDispatch();
   const parts = useSelector(state => state.parts.list);
   const token = useSelector(state => state.auth.token);
-  const message = useSelector(state => state.auth.message);
+  const [checked, setChecked] = useState(0);
   const [showAdd, setShowAdd] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [showOps, setShowOps] = useState(false);
-  const [selected, setSelected] = useState([]);
-  const hasMounted = useRef(true);
-
-  useEffect(() => {
-    dispatch(fetchAllParts(token))
-  }, [message])
 
   const toggleAddDisplay = () => { setShowAdd(!showAdd) };
   const toggleUpdateDisplay = () => { setShowUpdate(!showUpdate) };
-  
-  const toggleOpsDisplay = (event) => { 
-    const partNumber = event.target.attributes["data-part-number"].value; 
-    toggleSelection(partNumber);
-    highlightItems(partNumber);
-  };
 
-  const toggleSelection = (partNumber) => {
-    setSelected((prevSelected) => {
-      if (prevSelected.includes(partNumber)) {
-        return prevSelected.filter((num) => num !== partNumber);
-      } else {
-        return [...prevSelected, partNumber];
-      }
-    });
-  };
-
-  const highlightItems = (partNumber) => {
-    const parentNode = document.getElementById("tbody--parent");
-    const children = parentNode.children;
+  const highlightPart = (id) => {
+    const tbody = document.getElementById("tbody--parent");
+    const children = tbody.childNodes;
     
-    for (let i = 0; i < children.length; i++) {
-      const child = children[i];
-      const childPartNumber = child.getAttribute("data-part-number");
-      
-      if (childPartNumber === partNumber) {
-        if (child.classList.contains('parts--selected')) {
-          child.classList.remove('parts--selected');
-        } else {
-          child.classList.add('parts--selected');
-        }
+    for (const child of children) {
+      const parseId = parseInt(child.attributes["data-id"].value);
+      if (id === parseId && !checked) {
+        child.classList.add("parts--selected");
+      } else if (id === parseId && checked === id) {
+        child.classList.remove("parts--selected");
+      } else if (id === parseId && checked !== id) {
+        child.classList.add("parts--selected");
+      } else if (id !== parseId && checked > 0) {
+        child.classList.remove("parts--selected");
+        child.firstChild.firstChild.checked = false;
       }
     }
   };
 
-  const chooseOpsDisplay = (list) => {
-    if (list.length === 0 && !showOps) {
-      setShowOps(true);
-    } else if (list.length > 0) {
-      setShowOps(true);
-    } else if (list.length === 0 && showOps) {
-      setShowOps(false);
-    };
-  }
-
-  const serveList = () => {
-    const focalPart = (parseInt(selected[0]));
-    const foundPart = parts.find(part => part.part_number === focalPart);
-    dispatch(savePartDetails(foundPart)); 
-    setShowUpdate(true);
-  };
-
-  const handleCheckbox = (event, id) => {
-    toggleOpsDisplay(event);
-    dispatch(getPartById(id));
-    
+  const handleCheckbox = (id) => {
+    if (checked === 0 && id > 0) {
+      highlightPart(id);
+      setChecked(id);
+    } else if (checked > 0 && id === checked) {
+      highlightPart(id);
+      setChecked(0);
+    } else if (checked > 0 && id !== checked) {
+      highlightPart(id);
+      setChecked(id);
+    }
   };
   
   useEffect(() => {
-    if (!hasMounted.current) {
-      chooseOpsDisplay(selected);
-    } else {
-      hasMounted.current = false;
-    }
- }, [selected]);
+    dispatch(fetchAllParts(token))
+  }, []);
   
   return (
     <div className="parts--container">
@@ -157,7 +122,7 @@ const Parts = () => {
         <Table 
           data={parts} 
           columns={columns} 
-          handleCheckbox={handleCheckbox} 
+          handleCheckbox={handleCheckbox}
         />
       }
       <Pagination />

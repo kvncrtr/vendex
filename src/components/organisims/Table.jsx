@@ -32,8 +32,8 @@ const Table = ({ data, columns, handleCheckbox }) => {
               <td className="parts--tbody-cell" data-cell={"checkbox"}>
                 <input 
                   type="checkbox" 
-                  onClick={(event) => handleCheckbox(event, part.id)}
                   data-part-number={`${part.part_number}`}
+                  onClick={() => handleCheckbox(part.id)}
                 />
               </td>
               <td className="parts--tbody-cell" data-cell={`${part.part_number}`}>{part.audited_at}</td>

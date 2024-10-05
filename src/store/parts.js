@@ -4,9 +4,10 @@ import { apiCallBegan } from "./api";
 /* Initial State */
 const initialState = {
    parts: {
-      details: null,
+      details: { id: 0},
       list: null,
       isLoading: false,
+      checked: 0,
       message: "",
       errorMessage: ""
    }
@@ -27,10 +28,23 @@ const partSlice = createSlice({
          console.log(state.message);
       },
       getAllParts(state, action) {
-         state.list = action.payload
+         state.list = action.payload;
+         state.details = "";
+         state.isLoading = false;
+      },
+      fetchPartById(state, action) {
+         state.details = action.payload;
+         state.isLoading = false;
+      },
+      selectPart(state, action) {
+         state.checked = action.payload;
+      },
+      appendParts(state, action) {
+         console.log(action.payload, "append parts");
       },
       savePartDetails(state, action) {
          state.details = action.payload;
+         state.isLoading = false;
       },
       changePartInfo(state, action) {
          state.message = action.payload.message;
@@ -51,7 +65,10 @@ export const {
    apiRequested,
    addNewPart,
    getAllParts,
+   fetchPartById,
    savePartDetails,
+   selectPart,
+   appendParts,
    changePartInfo,
    apiRequestFailed,
    showError } = partSlice.actions;
@@ -98,6 +115,20 @@ export const updatePart = (token, data) => {
       data: data,
       onInit: apiRequested.type,
       onFulfilled: changePartInfo.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+};
+
+export const getPartById = (token, id) => {
+   const headers = { "Authorization": token };
+
+   return apiCallBegan({
+      url: `${partUrl}/${id}`,
+      method: "GET",
+      headers: headers,
+      onInit: apiRequested.type,
+      onFulfilled: fetchPartById.type,
       onRejected: apiRequestFailed.type,
       onShowError: showError.type
    })
