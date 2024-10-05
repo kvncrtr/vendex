@@ -316,6 +316,9 @@
    }
 
    .parts--ops-container {
+      display: flex;
+      flex-direction: row;
+      gap: 0.258rem;
       width: 100vw;
       padding: 0.754rem;
       border-bottom: 1px solid $achromatic-500;
@@ -323,9 +326,6 @@
    }
 
    .parts--ops-button {
-      display: flex;
-      align-items: center;
-      gap: 0.258rem;
       padding: 0 0.5rem;
       border: 1px solid $achromatic-500;
       border-radius: 0.254rem;

@@ -8,7 +8,7 @@ import AddPart from "../organisims/AddPart";
 import UpdatePart from "../organisims/UpdatePart";
 import { PlusCircle } from "@phosphor-icons/react";
 
-import { getAllParts, getPartById, backToInit } from "../../store/parts";
+import { getAllParts, getPartById, backToInit, deletePartById } from "../../store/parts";
 
 const columns = [
   {
@@ -103,18 +103,27 @@ const Parts = () => {
     }
   };
 
-  const reset = () => {
+  const reset = (type) => {
     unhighlightParts();
     dispatch(backToInit());
     setChecked(0);
     setShowOps(false);
-    toggleUpdateDisplay();
+    if (type === "update") {
+      toggleUpdateDisplay();
+    } else {
+      setShowUpdate(false);
+    }
   };
 
   const serveList = () => {    
     dispatch(getPartById(token, checked));
-    reset();
+    reset("update");
   }
+  
+  const deletePart = () => {
+    dispatch(deletePartById({ "token": token, "id": checked }));
+    reset();
+  };
   
   useEffect(() => {
     dispatch(getAllParts(token))
@@ -135,10 +144,16 @@ const Parts = () => {
       
       {showOps && <div className="parts--ops-container">
         <Button 
-            className={"parts--ops-button"}
-            text={"Edit"}
-            onClick={serveList}
-          />
+          className={"parts--ops-button"}
+          text={"Edit"}
+          onClick={serveList}
+        />
+
+        <Button 
+          className={"parts--ops-button"}
+          text={"Delete"}
+          onClick={deletePart}
+        />
       </div>}
 
       <div className="parts--title-case">

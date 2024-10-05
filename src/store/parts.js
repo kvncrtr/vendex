@@ -49,6 +49,9 @@ const partSlice = createSlice({
          state.message = action.payload.message;
          console.log(state.message);
       },
+      removePartById(state, action) {
+         state.message = action.payload.message;
+      },
       apiRequestFailed(state, action) {
          state.isLoading = false;
          state.errorMessage = action.payload.errorMessage;
@@ -75,6 +78,7 @@ export const {
    selectPart,
    appendParts,
    changePartInfo,
+   removePartById,
    apiRequestFailed,
    showError,
    backToInit } = partSlice.actions;
@@ -139,3 +143,17 @@ export const updatePart = (token, data) => {
       onShowError: showError.type
    })
 };
+
+export const deletePartById = (data) => {
+   const headers = { "Authorization": data.token };
+
+   return apiCallBegan({
+      url: `${partUrl}/${data.id}`,
+      method: "DELETE",
+      headers: headers,
+      onInit: apiRequested.type,
+      onFulfilled: removePartById.type,
+      onRejected: apiRequestFailed.type,
+      onShowError: showError.type
+   })
+}
