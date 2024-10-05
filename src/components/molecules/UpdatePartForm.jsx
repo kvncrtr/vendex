@@ -1,13 +1,29 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
 import FormValidation from "../../services/form-validation";
 import { updatePart } from "../../store/parts";
 
-const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
-   const [formData, setFormData] = useState(details);
+const UpdatePartForm = ({ toggleUpdateDisplay, errorData }) => {
+   const initialState = {
+      audited_at: "",
+      part_number: "",
+      upc: "",
+      brand: "",
+      name: "",
+      category: "",
+      description: "",
+      price: "",
+      on_hand: "",
+      package_quantity: "",
+      reinventory_quantity: "",
+      reorder_amount: "",
+      weight: ""
+   };
+   const details = useSelector(state => state.parts.details);
    const token = useSelector(state => state.auth.token);
+   const [formData, setFormData] = useState(initialState);
    const dispatch = useDispatch();
    const ref = useRef(false);
 
@@ -75,8 +91,13 @@ const UpdatePartForm = ({ details, toggleUpdateDisplay, errorData }) => {
       const updated = returnWithUpdatedTime(conversion);
 
       dispatch(updatePart(token, updated));
+      setFormData(initialState);
       toggleUpdateDisplay();
    };
+
+   useEffect(() => {
+      setFormData(details);
+   }, [details])
 
    return (
       <form className={"update--part-case"} onSubmit={handleSubmit}>

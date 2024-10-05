@@ -49,6 +49,7 @@ const Parts = () => {
   const dispatch = useDispatch();
   const parts = useSelector(state => state.parts.list);
   const token = useSelector(state => state.auth.token);
+  const message = useSelector(state => state.parts.message);
   const [checked, setChecked] = useState(0);
   const [showAdd, setShowAdd] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
@@ -103,13 +104,15 @@ const Parts = () => {
   };
 
   const serveList = () => {    
+    dispatch(getPartById(token, checked));
     toggleOpsDisplay();
     unhighlightParts();
+    toggleUpdateDisplay();
   }
   
   useEffect(() => {
     dispatch(getAllParts(token))
-  }, []);
+  }, [message]);
   
   return (
     <div className="parts--container">
@@ -120,7 +123,7 @@ const Parts = () => {
           className={"parts--add-button"}
           text={"Add New Part"}
           icon={<PlusCircle size={18} />} 
-          onClick={serveList}
+          onClick={toggleAddDisplay}
         />
       </div>
       

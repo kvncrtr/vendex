@@ -4,10 +4,9 @@ import { apiCallBegan } from "./api";
 /* Initial State */
 const initialState = {
    parts: {
-      details: null,
-      list: null,
+      details: {},
+      list: [],
       isLoading: false,
-      selected: 0,
       message: "",
       errorMessage: ""
    }

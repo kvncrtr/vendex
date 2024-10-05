@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const UpdatePart = ({ toggleUpdateDisplay }) => {
    const [error, setError] = useState(null);
-   const details = useSelector(state => state.parts.details);
 
    const handleErrorData = (errorData) => {
       setError(errorData);
@@ -27,7 +26,6 @@ const UpdatePart = ({ toggleUpdateDisplay }) => {
             {error && <div className="new--error-case"><p>{error.message}</p></div>}
             <UpdatePartForm 
                errorData={handleErrorData} 
-               details={details} 
                toggleUpdateDisplay={toggleUpdateDisplay} 
             />
          </div>
