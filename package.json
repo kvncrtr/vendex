@@ -4,6 +4,7 @@
   "description": ".DS_* *.log logs **/*.backup.* **/*.back.*",
   "main": "index.js",
   "scripts": {
+    "build": "react-scripts build",
     "start": "react-scripts start",
     "compile:sass": "node-sass --watch src/styles/global.scss src/style.css"
   },
