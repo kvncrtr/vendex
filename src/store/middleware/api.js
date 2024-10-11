@@ -19,7 +19,7 @@ const api = ({ dispatch }) => next => async action => {
    try {
       if (headers) {
          const response = await axios.request({
-            baseURL: "http://localhost:8080/",
+            baseURL: "https://vendex-backend-production.up.railway.app/",
             url,
             method,
             data, 
@@ -28,7 +28,7 @@ const api = ({ dispatch }) => next => async action => {
          dispatch({ type: onFulfilled, payload: response.data});      
       } else  {
          const response = await axios.request({
-            baseURL: "http://localhost:8080/",
+            baseURL: "https://vendex-backend-production.up.railway.app/",
             url,
             method,
             data
