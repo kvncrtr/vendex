@@ -4,7 +4,7 @@ Vendex is a powerful yet direct piece of software intended to help small to larg
 
 **Link to project:** https://vendex-production.up.railway.app/
 
-![live ux](https://imgur.com/8LAfna4)
+<blockquote class="imgur-embed-pub" lang="en" data-id="8LAfna4"  ><a href="//imgur.com/8LAfna4"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ## How It's Made:
 
