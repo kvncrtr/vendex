@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const  GetEmployees = async () => {
-   const response = await axios.get("https://vendex-backend.onrender.com/employees")
+   const response = await axios.get("https://vendex-backend.onrender.com/employee")
    return response
 };
 
