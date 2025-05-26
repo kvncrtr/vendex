@@ -15,6 +15,8 @@ const api = ({ dispatch }) => next => async action => {
       onFulfilled,
       onRejected,
       onShowError } = action.payload;
+      
+   console.log("Sending login request to backend with data:", data);
 
    if (onInit) dispatch({ type: onInit, payload: { isLoading: true } });
 
