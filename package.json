@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": ".DS_* *.log logs **/*.backup.* **/*.back.*",
   "main": "index.js",
+  "proxy": "http://localhost:8080",
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start",

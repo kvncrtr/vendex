@@ -1,6 +1,8 @@
 import axios from "axios";
 import { apiCallBegan } from "../api";
 
+const BASE_URL = process.env.REACT_APP_API_URL || "https://vendex-backend.onrender.com";
+
 const api = ({ dispatch }) => next => async action => {
    if (action.type !== apiCallBegan.type) return next(action);
 
@@ -17,30 +19,23 @@ const api = ({ dispatch }) => next => async action => {
    if (onInit) dispatch({ type: onInit, payload: { isLoading: true } });
 
    try {
-      if (headers) {
-         const response = await axios.request({
-            baseURL: "https://vendex-backend.onrender.com",
-            url,
-            method,
-            data,
-            headers
-         });
-         console.log(data);
-         dispatch({ type: onFulfilled, payload: response.data });
-      } else {
-         const response = await axios.request({
-            baseURL: "https://vendex-backend.onrender.com",
-            url,
-            method,
-            data
-         });
-         dispatch({ type: onFulfilled, payload: response.data });
-      }
+      const config = {
+         baseURL: BASE_URL,
+         url,
+         method,
+         data,
+         headers,
+         withCredentials: true, 
+      };
+
+      const response = await axios.request(config);
+      dispatch({ type: onFulfilled, payload: response.data });
 
    } catch (error) {
-      dispatch({ type: onRejected, payload: { errorMessage: `${error.response.data.message}` } })
-      dispatch({ type: onShowError, payload: { errorMessage: `${error.response.data.message}` } })
+      const msg = error?.response?.data?.message || "Something went wrong.";
+      dispatch({ type: onRejected, payload: { errorMessage: msg } });
+      dispatch({ type: onShowError, payload: { errorMessage: msg } });
    }
-}
+};
 
 export default api;
