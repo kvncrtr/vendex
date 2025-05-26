@@ -151,8 +151,8 @@ export const loadEmployees = () => apiCallBegan({
 
 export const validateCredentials = (loginData) => {
    const toIntObj = {
-      ...loginData,
-      Employee_ID: loginData.employee_id.toString()
+      Employee_ID: loginData.employee_id.toString(),
+      Password: loginData.password
    }
    console.log("Login payload:", toIntObj);
    return apiCallBegan({
