@@ -25,6 +25,7 @@ const api = ({ dispatch }) => next => async action => {
             data,
             headers
          });
+         console.log(data);
          dispatch({ type: onFulfilled, payload: response.data });
       } else {
          const response = await axios.request({
